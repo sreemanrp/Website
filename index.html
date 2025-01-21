@@ -58,32 +58,9 @@
         right: 10px;
     }
 
-    .shortcut-box {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        color: black;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-    }
-
-    .shortcut-box p {
-        margin: 10px 0;
-    }
-
-    .shortcut-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 999;
+    .icon {
+        font-size: 24px;
+        color: white;
     }
 
     h1 {
@@ -214,6 +191,42 @@
             transform: scaleY(1) rotate(20deg);
         }
     }
+
+    /* Styles for the shortcut box */
+    .shortcut-box {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: black;
+        color: white;
+        padding: 20px;
+        border: 2px solid white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    .shortcut-box p {
+        margin: 10px 0;
+    }
+
+    .shortcut-box a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .shortcut-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
 </style>
 
 <body>
@@ -258,7 +271,7 @@
     </audio>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
         // Create the overlay and box elements
         const overlay = document.createElement('div');
         overlay.className = 'shortcut-overlay';
@@ -267,10 +280,10 @@
         const box = document.createElement('div');
         box.className = 'shortcut-box';
         box.innerHTML = `
-            <p>Clone</p>
-            <p>Deployment</p>
-            <p>Logs</p>
-            <p>Login</p>
+            <p><a href="#">Clone</a></p>
+            <p><a href="#">Deployment</a></p>
+            <p><a href="#">Logs</a></p>
+            <p><a href="#">Login</a></p>
         `;
         document.body.appendChild(box);
 
@@ -297,8 +310,8 @@
         // Add event listener to hide the box when clicking outside of it
         overlay.addEventListener('click', hideBox);
     });
-    </script>
-    <script src="script.js"></script>
+</script>
+<script src="script.js"></script>
     
 </body>
 </html>
