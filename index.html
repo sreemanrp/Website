@@ -29,6 +29,33 @@ body {
     height: 100%;
     background-color: black;
     color: white;
+    position: relative;
+}
+
+.dot {
+    position: absolute;
+    font-size: 24px;
+    color: white;
+}
+
+.dot.top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.dot.top-right {
+    top: 10px;
+    right: 10px;
+}
+
+.dot.bottom-left {
+    bottom: 10px;
+    left: 10px;
+}
+
+.dot.bottom-right {
+    bottom: 10px;
+    right: 10px;
 }
 
 h1 {
@@ -160,6 +187,11 @@ a {
 </style>
 
 <body>
+    <div class="dot top-left">•</div>
+    <div class="dot top-right">•</div>
+    <div class="dot bottom-left">•</div>
+    <div class="dot bottom-right">•</div>
+
     <div class="header">
         <h1>
             <div class="line fade-in"><span>I'm A Student Currently Living In India.</span></div>
@@ -192,20 +224,21 @@ a {
     </audio>
     
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-    const fadeInElements = document.querySelectorAll('.fade-in');
-    fadeInElements.forEach((element, index) => {
-        element.style.animationDelay = `${0.5 + (index * 0.5)}s`;
-        element.style.animationPlayState = 'running';
-    });
-});
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            fadeInElements.forEach((element, index) => {
+                element.style.animationDelay = `${0.5 + (index * 0.5)}s`;
+                element.style.animationPlayState = 'running';
+            });
+        });
 
-function playSound() {
-    const sound = document.getElementById('clickSound');
-    sound.currentTime = 0;
-    sound.play();
-}
+        function playSound() {
+            const sound = document.getElementById('clickSound');
+            sound.currentTime = 0;
+            sound.play();
+        }
     </script>
     <script src="script.js"></script>
+    
 </body>
 </html>
