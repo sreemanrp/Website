@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lume - Design Asset Sharing</title>
+    <title>OLOID - Design Asset Sharing</title>
     <style>
         * {
             margin: 0;
@@ -24,39 +24,54 @@
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 4rem;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .brand-name {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 500;
+            z-index: 2;
         }
 
         .logo-section {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 300px;
+            height: 250px;
             position: relative;
         }
 
-        .logo-glow {
-            width: 200px;
-            height: 200px;
-            background: #fff;
-            border-radius: 50%;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 100px 20px rgba(255,255,255,0.4);
+        .logo {
+            width: 100px;
+            height: 100px;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0008-zDzqEBeUtYUNbfgM77ji8hDScMco4k.jpeg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: float 3s ease-in-out infinite;
         }
 
-        .logo-text {
-            color: #000;
-            font-size: 2.5rem;
-            font-weight: 500;
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
         }
 
         .waitlist-section {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.75rem;
             width: 100%;
             max-width: 400px;
             margin: 0 auto;
@@ -91,16 +106,16 @@
         .features-section {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            margin-top: 4rem;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
         .feature {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             align-items: flex-start;
-            font-size: 1.2rem;
-            line-height: 1.5;
+            font-size: 1.1rem;
+            line-height: 1.3;
         }
 
         .feature-slash {
@@ -109,9 +124,9 @@
 
         .copy-section {
             color: #666;
-            line-height: 1.6;
-            font-size: 1.2rem;
-            margin-top: 2rem;
+            line-height: 1.4;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
         }
 
         @media (max-width: 768px) {
@@ -119,13 +134,9 @@
                 padding: 1rem;
             }
 
-            .logo-glow {
-                width: 150px;
-                height: 150px;
-            }
-
-            .logo-text {
-                font-size: 2rem;
+            .logo {
+                width: 80px;
+                height: 80px;
             }
 
             .feature {
@@ -140,10 +151,10 @@
 </head>
 <body>
     <div class="container">
+        <div class="brand-name">OLOID</div>
+        
         <div class="logo-section">
-            <div class="logo-glow">
-                <div class="logo-text">Lume</div>
-            </div>
+            <div class="logo"></div>
         </div>
 
         <div class="waitlist-section">
