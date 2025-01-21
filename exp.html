@@ -54,6 +54,21 @@
             background-repeat: no-repeat;
             background-position: center;
             animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: glow 2s ease-in-out infinite alternate;
         }
 
         @keyframes float {
@@ -65,6 +80,17 @@
             }
             100% {
                 transform: translateY(0px);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1.2);
             }
         }
 
@@ -157,10 +183,10 @@
             <div class="logo"></div>
         </div>
 
-        <div class="waitlist-section">
-            <input type="email" class="email-input" placeholder="Enter email address">
-            <button class="join-button">Join waitlist</button>
-        </div>
+        <form id="waitlistForm" class="waitlist-section">
+            <input type="email" class="email-input" placeholder="Enter email address" required>
+            <button type="submit" class="join-button">Join waitlist</button>
+        </form>
 
         <div class="features-section">
             <div class="feature">
@@ -195,14 +221,20 @@
     </div>
 
     <script>
-        document.querySelector('.join-button').addEventListener('click', function() {
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
             const email = document.querySelector('.email-input').value;
-            if (email) {
-                alert('Thank you for joining the waitlist!');
-                document.querySelector('.email-input').value = '';
-            } else {
-                alert('Please enter your email address.');
-            }
+            const recipientEmail = 'sreemanrhink@gmail.com';
+            const subject = 'New Waitlist Subscription';
+            const body = `New subscription from: ${email}`;
+            
+            // Open default mail client with pre-filled details
+            window.location.href = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Clear the input and show success message
+            document.querySelector('.email-input').value = '';
+            alert('Thank you for joining the waitlist!');
         });
     </script>
 </body>
