@@ -54,21 +54,6 @@
             background-repeat: no-repeat;
             background-position: center;
             animation: float 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
-            position: relative;
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
-            border-radius: 50%;
-            z-index: -1;
-            animation: glow 2s ease-in-out infinite alternate;
         }
 
         @keyframes float {
@@ -80,17 +65,6 @@
             }
             100% {
                 transform: translateY(0px);
-            }
-        }
-
-        @keyframes glow {
-            from {
-                opacity: 0.5;
-                transform: scale(1);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1.2);
             }
         }
 
@@ -122,11 +96,17 @@
             border-radius: 12px;
             color: #000;
             cursor: pointer;
-            transition: opacity 0.2s;
+            transition: opacity 0.2s, background-color 0.2s;
         }
 
-        .join-button:hover {
+        .join-button:hover:not(:disabled) {
             opacity: 0.9;
+        }
+
+        .join-button:disabled {
+            background-color: #444;
+            color: #666;
+            cursor: not-allowed;
         }
 
         .features-section {
@@ -153,6 +133,13 @@
             line-height: 1.4;
             font-size: 1.1rem;
             margin-top: 1.5rem;
+        }
+
+        .message {
+            text-align: center;
+            color: #4CAF50;
+            font-size: 1rem;
+            margin-top: 0.5rem;
         }
 
         @media (max-width: 768px) {
@@ -184,8 +171,9 @@
         </div>
 
         <form id="waitlistForm" class="waitlist-section">
-            <input type="email" class="email-input" placeholder="Enter email address" required>
-            <button type="submit" class="join-button">Join waitlist</button>
+            <input type="email" id="emailInput" class="email-input" placeholder="Enter email address" required>
+            <button type="submit" id="joinButton" class="join-button" disabled>Join waitlist</button>
+            <div id="message" class="message"></div>
         </form>
 
         <div class="features-section">
@@ -221,20 +209,34 @@
     </div>
 
     <script>
-        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+        const emailInput = document.getElementById('emailInput');
+        const joinButton = document.getElementById('joinButton');
+        const waitlistForm = document.getElementById('waitlistForm');
+        const message = document.getElementById('message');
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        emailInput.addEventListener('input', function() {
+            joinButton.disabled = !validateEmail(this.value);
+        });
+
+        waitlistForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const email = document.querySelector('.email-input').value;
-            const recipientEmail = 'sreemanrhink@gmail.com';
-            const subject = 'New Waitlist Subscription';
-            const body = `New subscription from: ${email}`;
+            const email = emailInput.value;
             
-            // Open default mail client with pre-filled details
-            window.location.href = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Clear the input and show success message
-            document.querySelector('.email-input').value = '';
-            alert('Thank you for joining the waitlist!');
+            if (validateEmail(email)) {
+                // Here you would typically send the email to your server or API
+                // For this example, we'll just show a success message
+                message.textContent = 'Thank you for joining the waitlist!';
+                emailInput.value = '';
+                joinButton.disabled = true;
+            } else {
+                message.textContent = 'Please enter a valid email address.';
+            }
         });
     </script>
 </body>
