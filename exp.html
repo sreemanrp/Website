@@ -3,411 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oloid - Super Human Intelligence</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap');
-
-:root {
-    --orange: #FF4400;
-    --white: #FFFFFF;
-    --black: #000000;
-    --transition: all 0.3s ease;
-    --header-height: 300px; /* Increased banner height */
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Space Grotesk', sans-serif;
-    background-color: var(--black);
-    color: var(--white);
-    line-height: 1.2;
-    overflow-x: hidden;
-}
-
-.container {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* Header Styles */
-.main-header {
-    background-color: var(--orange);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    height: 4.80rem;
-    display: flex;
-    align-items: center;
-}
-
-.brand {
-    font-size: 3rem;
-    font-weight: 400;
-    color: var(--white);
-}
-
-/* Background wrapper */
-.background-wrapper {
-    min-height: 100vh;
-    width: 100%;
-    background-color: var(--black);
-}
-
-/* Section Styles */
-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-}
-
-/* Adjust first section to account for header */
-.lam-section {
-    padding-top: var(--header-height);
-}
-
-/* LAM Playground Styles */
-.main-title {
-    font-size: 5vw;
-    font-weight: 300;
-    margin-bottom: 4vh;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-.question-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 3vh;
-}
-
-.question-section h3 {
-    font-size: 4vw;
-    font-weight: 300;
-}
-
-.question-icon {
-    width: 100px;
-    height: 100px;
-}
-
-.floating-icon {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    animation: float 3s ease-in-out infinite;
-}
-
-.description {
-    max-width: 800px;
-}
-
-.description p {
-    font-size: 1.5rem;
-    line-height: 1.4;
-    margin-bottom: 1.5vh;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards 0.3s;
-}
-
-/* Newsroom Styles */
-.newsroom-section {
-    padding-top: 5vh; /* Reduced space between sections */
-}
-
-.logo-wrapper {
-    margin-bottom: 3vh;
-}
-
-.newsroom-title {
-    font-size: 6vw;
-    font-weight: 400;
-    color: var(--orange);
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: fadeInLeft 0.8s ease forwards;
-}
-
-.hero-text h3 {
-    font-size: 4vw;
-    font-weight: 300;
-    margin-bottom: 4vh;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards 0.3s;
-}
-
-.contact-section {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards 0.6s;
-}
-
-.contact-intro {
-    font-size: 1.5rem;
-    margin-bottom: 1vh;
-}
-
-.contact-link {
-    display: block;
-    color: var(--white);
-    text-decoration: none;
-    font-size: 1.5rem;
-    margin-bottom: 1vh;
-    transition: var(--transition);
-}
-
-.arrow {
-    display: inline-block;
-    transition: var(--transition);
-}
-
-.contact-link:hover {
-    color: var(--orange);
-}
-
-.contact-link:hover .arrow {
-    transform: translateX(10px);
-}
-
-/* Footer Styles */
-.main-footer {
-    background-color: var(--black);
-    color: var(--white);
-    padding: 2vh 0;
-    text-align: left;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInLeft {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 1200px) {
-    .main-title, .question-section h3 {
-        font-size: 6vw;
-    }
-    .newsroom-title {
-        font-size: 7vw;
-    }
-    .hero-text h3 {
-        font-size: 5vw;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    :root {
-        --header-height: 60px;
-    }
-    .brand {
-        font-size: 2rem;
-    }
-    .main-title, .question-section h3 {
-        font-size: 8vw;
-    }
-    .newsroom-title {
-        font-size: 9vw;
-    }
-    .hero-text h3 {
-        font-size: 7vw;
-    }
-    .description p, .contact-intro, .contact-link {
-        font-size: 1.2rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    :root {
-        --header-height: 50px;
-    }
-    .brand {
-        font-size: 1.5rem;
-    }
-    .main-title, .question-section h3 {
-        font-size: 10vw;
-    }
-    .newsroom-title {
-        font-size: 11vw;
-    }
-    .hero-text h3 {
-        font-size: 9vw;
-    }
-    .description p, .contact-intro, .contact-link {
-        font-size: 1rem;
-    }
-    .question-icon {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-/* Styles for larger screens (Smart TVs, etc.) */
-@media screen and (min-width: 1921px) {
-    .container {
-        max-width: 1800px;
-    }
-    .main-title, .question-section h3 {
-        font-size: 4vw;
-    }
-    .newsroom-title {
-        font-size: 5vw;
-    }
-    .hero-text h3 {
-        font-size: 3vw;
-    }
-    .description p, .contact-intro, .contact-link {
-        font-size: 2rem;
-    }
-}
-</style>
-<body>
-    <header class="main-header">
-        <div class="container">
-            <h1 class="brand">Oloid</h1>
-        </div>
-    </header>
-
-    <main>
-        <div class="background-wrapper">
-            <section class="lam-section">
-                <div class="container">
-                    <h2 class="main-title">welcome to O-AI</h2>
-                    
-                    <div class="question-section">
-                        <h3>what is O-AI?</h3>
-                        <div class="question-icon">
-                            <img src="./IMG_0008.jpeg" alt="Question mark icon" class="floating-icon">
-                        </div>
-                    </div>
-
-                    <div class="description">
-                        <p>OLOID A.I. is one of our new experiments to continue building our vision of developing a cross-platform general agent system that can help users perform actions.</p>
-                        <p>we call it a "playground" for a reason: this is a place for you to see for yourself and play with what we're working on. AI products by nature are always iterating rapidly. we always believe our community should be a part of this exciting growth — that's</p>
-                    </div>
-                </div>
-            </section>
-            <section class="newsroom-section">
-                <div class="container">
-                    <div class="logo-wrapper">
-                        <h2 class="newsroom-title">newsroom</h2>
-                    </div>
-
-                    <div class="hero-text">
-                        <h3>hear it from us<br>first</h3>
-                    </div>
-
-                    <div class="contact-section">
-                        <p class="contact-intro">for media inquiries, please contact:</p>
-                        <a href="mailto:media@oloid.tech" class="contact-link">
-                            media@oloid.tech <span class="arrow">→</span>
-                        </a>
-                        <a href="https://githun.com/sreemanrp/srpexp/static/download" class="contact-link">
-                            download press kit <span class="arrow">→</span>
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer class="main-footer">
-        <div class="container">
-            <p>oloid inc. &copy; 2025</p>
-        </div>
-    </footer>
-    <script>
-        // Add smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Add intersection observer for scroll animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '-80px 0px 0px 0px' // Adjusted for increased header height
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+    <title>Lume - Design Asset Sharing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
-    });
-}, observerOptions);
 
-// Observe all animated elements
-document.querySelectorAll('.main-title, .description p, .newsroom-title, .hero-text h3, .contact-section').forEach(el => {
-    observer.observe(el);
-});
+        body {
+            background-color: #000;
+            color: #999;
+            min-height: 100vh;
+            padding: 2rem;
+        }
 
-// Add scroll event listener for header background opacity
-const header = document.querySelector('.main-header');
-window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
-    if (scrollPosition > 50) {
-        header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-    } else {
-        header.style.boxShadow = 'none';
-    }
-});
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
 
-// Adjust layout for different screen sizes
-function adjustLayout() {
-    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-    const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-    
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-    
-    if (vw / vh > 1.5) {
-        document.body.classList.add('landscape');
-    } else {
-        document.body.classList.remove('landscape');
-    }
-}
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            position: relative;
+        }
 
-window.addEventListener('resize', adjustLayout);
-adjustLayout();
+        .logo-glow {
+            width: 200px;
+            height: 200px;
+            background: #fff;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 100px 20px rgba(255,255,255,0.4);
+        }
+
+        .logo-text {
+            color: #000;
+            font-size: 2.5rem;
+            font-weight: 500;
+        }
+
+        .waitlist-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            background: #222;
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+        }
+
+        .join-button {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            background: #fff;
+            border: none;
+            border-radius: 12px;
+            color: #000;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .join-button:hover {
+            opacity: 0.9;
+        }
+
+        .features-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .feature-slash {
+            color: #666;
+        }
+
+        .copy-section {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .logo-glow {
+                width: 150px;
+                height: 150px;
+            }
+
+            .logo-text {
+                font-size: 2rem;
+            }
+
+            .feature {
+                font-size: 1rem;
+            }
+
+            .copy-section {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-section">
+            <div class="logo-glow">
+                <div class="logo-text">Lume</div>
+            </div>
+        </div>
+
+        <div class="waitlist-section">
+            <input type="email" class="email-input" placeholder="Enter email address">
+            <button class="join-button">Join waitlist</button>
+        </div>
+
+        <div class="features-section">
+            <div class="feature">
+                <span class="feature-slash">/</span>
+                <span>Share design assets without needing to share entire Figma, Framer, or other design files. Perfect for X creators sharing design resources with their audience.</span>
+            </div>
+            <div class="feature">
+                <span class="feature-slash">/</span>
+                <span>Instances from libraries are maintained.</span>
+            </div>
+            <div class="feature">
+                <span class="feature-slash">/</span>
+                <span>Securely share specific components with users outside your organization.</span>
+            </div>
+            <div class="feature">
+                <span class="feature-slash">/</span>
+                <span>Build your own moodboards.</span>
+            </div>
+            <div class="feature">
+                <span class="feature-slash">/</span>
+                <span>Facilitate focused feedback by sharing only the necessary components rather than entire projects.</span>
+            </div>
+            <div class="feature">
+                <span class="feature-slash">/</span>
+                <span>Share design elements for training or educational purposes without exposing entire files.</span>
+            </div>
+        </div>
+
+        <div class="copy-section">
+            Users can directly copy components or assets from the web and paste them into their design tools while preserving all instances and layer structures.
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.join-button').addEventListener('click', function() {
+            const email = document.querySelector('.email-input').value;
+            if (email) {
+                alert('Thank you for joining the waitlist!');
+                document.querySelector('.email-input').value = '';
+            } else {
+                alert('Please enter your email address.');
+            }
+        });
     </script>
-    <script src="script.js"></script>
 </body>
 </html>
