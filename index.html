@@ -58,6 +58,34 @@
         right: 10px;
     }
 
+    .shortcut-box {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        color: black;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    .shortcut-box p {
+        margin: 10px 0;
+    }
+
+    .shortcut-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
     h1 {
         color: white;
         font-weight: 100;
@@ -230,21 +258,45 @@
     </audio>
 
     <script>
-        // Function to handle fade-in animation on page load
         document.addEventListener('DOMContentLoaded', function () {
-            const fadeInElements = document.querySelectorAll('.fade-in');
-            fadeInElements.forEach((element, index) => {
-                element.style.animationDelay = `${0.5 + (index * 0.5)}s`;
-                element.style.animationPlayState = 'running';
-            });
+        // Create the overlay and box elements
+        const overlay = document.createElement('div');
+        overlay.className = 'shortcut-overlay';
+        document.body.appendChild(overlay);
+
+        const box = document.createElement('div');
+        box.className = 'shortcut-box';
+        box.innerHTML = `
+            <p>Clone</p>
+            <p>Deployment</p>
+            <p>Logs</p>
+            <p>Login</p>
+        `;
+        document.body.appendChild(box);
+
+        // Function to show the box and overlay
+        function showBox() {
+            overlay.style.display = 'block';
+            box.style.display = 'block';
+        }
+
+        // Function to hide the box and overlay
+        function hideBox() {
+            overlay.style.display = 'none';
+            box.style.display = 'none';
+        }
+
+        // Add event listener for the keydown event
+        document.addEventListener('keydown', function (event) {
+            if (event.metaKey && event.key === 's') {
+                event.preventDefault();
+                showBox();
+            }
         });
 
-        // Function to play click sound
-        function playSound() {
-            const sound = document.getElementById('clickSound');
-            sound.currentTime = 0;
-            sound.play();
-        }
+        // Add event listener to hide the box when clicking outside of it
+        overlay.addEventListener('click', hideBox);
+    });
     </script>
     <script src="script.js"></script>
     
