@@ -15,189 +15,194 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    color: white;
-    position: relative;
-}
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: white;
+        position: relative;
+    }
 
-.dot {
-    position: absolute;
-    font-size: 18px; /* Decreased from 24px to 12px */
-    color: white;
-}
+    .dot {
+        position: absolute;
+        font-size: 12px;
+        color: white;
+    }
 
-.dot.top-left {
-    top: 10px;
-    left: 10px;
-}
+    .dot.top-left {
+        top: 10px;
+        left: 10px;
+    }
 
-.dot.top-right {
-    top: 10px;
-    right: 10px;
-}
+    .dot.top-right {
+        top: 10px;
+        right: 10px;
+    }
 
-.dot.bottom-left {
-    bottom: 10px;
-    left: 10px;
-}
+    .dot.bottom-left {
+        bottom: 10px;
+        left: 10px;
+    }
 
-.dot.bottom-right {
-    bottom: 10px;
-    right: 10px;
-}
+    .dot.bottom-right {
+        bottom: 10px;
+        right: 10px;
+    }
 
-h1 {
-    color: white;
-    font-weight: 100;
-    line-height: 1.085;
-    letter-spacing: -.0275em;
-    position: relative;
-    will-change: transform, opacity;
-    font-family: "JetBrains Mono", serif;
-}
-
-.header {
-    padding: 1em;
-    width: 100%
-}
-
-.header h1 .line {
-    position: relative;
-    display: block;
-    width: 100%;
-    font-size: 24px;
-    overflow: hidden;
-    will-change: transform, opacity;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%)
-}
-
-.ctas {
-    position: absolute;
-    left: 1em;
-    bottom: 1em;
-    width: max-content;
-    display: flex;
-    gap: 2em;
-    align-items: stretch
-}
-
-.divider {
-    position: relative;
-    width: 2px;
-    background-color: white;
-    align-self: stretch;
-    will-change: transform, opacity;
-    transform: rotate(20deg);
-    opacity: 1;
-}
-
-.subscribe-btn a,
-.pro-btn-wrapper a {
-    position: relative;
-    text-decoration: none;
-    color: white;
-    will-change: transform, opacity;
-    cursor: pointer;
-}
-
-.pro-btn {
-    cursor: pointer
-}
-
-.subscribe-btn a h1 .line,
-.pro-btn-wrapper a h1 .line {
-    position: relative;
-    display: block;
-    width: 100%;
-    font-size: 24px;
-    overflow: hidden;
-    will-change: transform, opacity;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%)
-}
-
-a {
-    text-decoration: none;
-    color: white;
-    will-change: transform, opacity;
-    cursor: pointer;
-}
-
-@media (max-width: 900px) {
     h1 {
-        font-size: 8vw;
-        letter-spacing: -.035em
+        color: white;
+        font-weight: 100;
+        line-height: 1.085;
+        letter-spacing: -.0275em;
+        position: relative;
+        will-change: transform, opacity;
+        font-family: "JetBrains Mono", serif;
+    }
+
+    .header {
+        padding: 1em;
+        width: 100%;
+    }
+
+    .header h1 .line {
+        position: relative;
+        display: block;
+        width: 100%;
+        font-size: 24px;
+        overflow: hidden;
+        will-change: transform, opacity;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     }
 
     .ctas {
-        gap: 1.5em
+        position: absolute;
+        left: 1em;
+        bottom: 1em;
+        width: max-content;
+        display: flex;
+        gap: 2em;
+        align-items: stretch;
     }
-}
 
-/* Fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
+    .divider {
+        position: relative;
+        width: 2px;
+        background-color: white;
+        align-self: stretch;
+        will-change: transform, opacity;
+        transform: rotate(20deg);
         opacity: 1;
-        transform: translateY(0);
     }
-}
 
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1s ease-out forwards;
-}
+    .subscribe-btn a,
+    .pro-btn-wrapper a {
+        position: relative;
+        text-decoration: none;
+        color: white;
+        will-change: transform, opacity;
+        cursor: pointer;
+    }
 
-.subscribe-btn-wrapper.fade-in {
-    animation-delay: 1s;
-}
+    .pro-btn {
+        cursor: pointer;
+    }
 
-.pro-btn-wrapper.fade-in {
-    animation-delay: 1.5s;
-}
+    .subscribe-btn a h1 .line,
+    .pro-btn-wrapper a h1 .line {
+        position: relative;
+        display: block;
+        width: 100%;
+        font-size: 24px;
+        overflow: hidden;
+        will-change: transform, opacity;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
 
-.divider.fade-in {
-    animation: fadeInDivider 1s ease-out forwards;
-}
+    a {
+        text-decoration: none;
+        color: white;
+        will-change: transform, opacity;
+        cursor: pointer;
+    }
 
-@keyframes fadeInDivider {
-    from {
+    @media (max-width: 900px) {
+        h1 {
+            font-size: 8vw;
+            letter-spacing: -.035em;
+        }
+
+        .ctas {
+            gap: 1.5em;
+        }
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .fade-in {
         opacity: 0;
-        transform: scaleY(0) rotate(20deg);
+        animation: fadeIn 1s ease-out forwards;
     }
-    to {
-        opacity: 1;
-        transform: scaleY(1) rotate(20deg);
+
+    .subscribe-btn-wrapper.fade-in {
+        animation-delay: 1s;
     }
-}
+
+    .pro-btn-wrapper.fade-in {
+        animation-delay: 1.5s;
+    }
+
+    .divider.fade-in {
+        animation: fadeInDivider 1s ease-out forwards;
+    }
+
+    @keyframes fadeInDivider {
+        from {
+            opacity: 0;
+            transform: scaleY(0) rotate(20deg);
+        }
+
+        to {
+            opacity: 1;
+            transform: scaleY(1) rotate(20deg);
+        }
+    }
 </style>
 
 <body>
+    <!-- Dots at the corners -->
     <div class="dot top-left">•</div>
     <div class="dot top-right">•</div>
     <div class="dot bottom-left">•</div>
     <div class="dot bottom-right">•</div>
 
+    <!-- Header section -->
     <div class="header">
         <h1>
             <div class="line fade-in"><span>I'm A Student Currently Living In India.</span></div>
         </h1>
     </div>
 
+    <!-- Call to action buttons -->
     <div class="ctas">
         <div class="subscribe-btn-wrapper fade-in">
             <div class="subscribe-btn">
@@ -218,13 +223,15 @@ a {
         </div>
     </div>
 
+    <!-- Audio element for click sound -->
     <audio id="clickSound" preload="auto">
         <source src="https://www.savoirfaire.nyc/_nuxt/hover.b226066e.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        // Function to handle fade-in animation on page load
+        document.addEventListener('DOMContentLoaded', function () {
             const fadeInElements = document.querySelectorAll('.fade-in');
             fadeInElements.forEach((element, index) => {
                 element.style.animationDelay = `${0.5 + (index * 0.5)}s`;
@@ -232,6 +239,7 @@ a {
             });
         });
 
+        // Function to play click sound
         function playSound() {
             const sound = document.getElementById('clickSound');
             sound.currentTime = 0;
