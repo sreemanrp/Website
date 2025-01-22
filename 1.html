@@ -112,6 +112,9 @@
         </ul>
     </nav>
 
+    <!-- Add audio element -->
+    <audio id="background-music" src="path/to/your/music-file.mp3" preload="auto"></audio>
+
     <script>
         function updateTime() {
             const now = new Date();
@@ -125,6 +128,20 @@
 
         updateTime();
         setInterval(updateTime, 1000);
+
+        // Function to play the background music
+        function playBackgroundMusic() {
+            const audio = document.getElementById('background-music');
+            audio.play();
+        }
+
+        // Event listener for Cmd+p key press
+        document.addEventListener('keydown', function(event) {
+            if (event.metaKey && event.key === 'p') {
+                event.preventDefault();
+                playBackgroundMusic();
+            }
+        });
     </script>
 </body>
 </html>
