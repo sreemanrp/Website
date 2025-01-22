@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Interface</title>
+    <title>Republic</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-  <style>
-    body {
+    <style>
+        body {
     margin: 0;
     padding: 0;
     background-color: black;
@@ -22,18 +22,30 @@
 .container {
     width: 100%;
     max-width: 360px;
+    height: 640px;
     text-align: center;
     padding: 20px;
+    position: relative;
+    overflow-y: auto;
+}
+
+.title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
+    margin: 0;
 }
 
 .wifi-status {
     font-size: 12px;
     color: #888;
-    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 .time-container {
-    margin: 40px 0;
+    margin: 20px 0;
 }
 
 .time {
@@ -46,10 +58,32 @@
     color: #888;
 }
 
+.interface-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 20px 0;
+}
+
+.content {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.content h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 14px;
+    color: #ccc;
+}
+
 .icons-container {
     display: flex;
     justify-content: space-around;
-    margin: 40px 0;
+    margin: 20px 0;
     padding: 20px 0;
     border-top: 1px solid #333;
 }
@@ -87,11 +121,13 @@
 .copyright {
     font-size: 12px;
     color: #888;
-    margin-top: 40px;
+    margin-top: 20px;
 }
-  </style>
+    </style>
 <body>
     <div class="container">
+        <h1 class="title">Republic</h1>
+        
         <div class="wifi-status">
             Current WIFI state is CONNECTED Greons_Staff
         </div>
@@ -99,6 +135,13 @@
         <div class="time-container">
             <div id="time" class="time"></div>
             <div id="date-info" class="date-info"></div>
+        </div>
+
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0072-7Sx7pBnIeADcFK53LZw1Z5oouLXezQ.jpeg" alt="Mobile Interface" class="interface-image">
+
+        <div class="content">
+            <h2>Welcome to Republic</h2>
+            <p>Experience the future of mobile connectivity. Our innovative platform brings you seamless communication, real-time updates, and a sleek interface designed for the modern world.</p>
         </div>
 
         <div class="icons-container">
@@ -128,7 +171,7 @@
         </div>
     </div>
     <script>
-      function updateDateTime() {
+        function updateDateTime() {
     const now = new Date();
     const timeElement = document.getElementById('time');
     const dateInfoElement = document.getElementById('date-info');
