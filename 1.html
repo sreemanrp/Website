@@ -3,203 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Republic</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <title>Sreeman Reddy</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
         body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-.container {
-    width: 100%;
-    max-width: 360px;
-    height: 640px;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    overflow-y: auto;
-}
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
 
-.title {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 18px;
-    margin: 0;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: 500;
+        }
 
-.wifi-status {
-    font-size: 12px;
-    color: #888;
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
+        .time {
+            font-size: 14px;
+            color: #888;
+        }
 
-.time-container {
-    margin: 20px 0;
-}
+        .about-section {
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
 
-.time {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
+        .about-title {
+            font-size: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
 
-.date-info {
-    font-size: 12px;
-    color: #888;
-}
+        .arrow {
+            font-size: 24px;
+        }
 
-.interface-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin: 20px 0;
-}
+        .about-description {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
 
-.content {
-    margin: 20px 0;
-    text-align: left;
-}
+        .nav-list {
+            list-style: none;
+        }
 
-.content h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
+        .nav-item {
+            padding: 15px 0;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            cursor: pointer;
+        }
 
-.content p {
-    font-size: 14px;
-    color: #ccc;
-}
-
-.icons-container {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
-    padding: 20px 0;
-    border-top: 1px solid #333;
-}
-
-.icon-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.icon-item img {
-    width: 24px;
-    height: 24px;
-    margin-bottom: 8px;
-}
-
-.icon-item span {
-    font-size: 12px;
-}
-
-.dots {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin: 20px 0;
-}
-
-.dot {
-    width: 6px;
-    height: 6px;
-    background-color: #0066ff;
-    border-radius: 50%;
-}
-
-.copyright {
-    font-size: 12px;
-    color: #888;
-    margin-top: 20px;
-}
+        .nav-item:hover {
+            color: #888;
+        }
     </style>
+</head>
 <body>
-    <div class="container">
-        <h1 class="title">Republic</h1>
-        
-        <div class="wifi-status">
-            CONNECTED to Systems
-        </div>
+    <header class="header">
+        <div class="logo">Sreeman Reddy</div>
+        <div class="time" id="current-time"></div>
+    </header>
 
-        <div class="time-container">
-            <div id="time" class="time"></div>
-            <div id="date-info" class="date-info"></div>
+    <div class="about-section">
+        <div class="about-title">
+            <span>About Me</span>
+            <span class="arrow">→</span>
         </div>
-
-        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0072-7Sx7pBnIeADcFK53LZw1Z5oouLXezQ.jpeg" alt="Mobile Interface" class="interface-image">
-
-        <div class="content">
-            <h2>Welcome to Republic</h2>
-            <p>Experience the future of mobile connectivity. Our innovative platform brings you seamless communication, real-time updates, and a sleek interface designed for the modern world.</p>
-        </div>
-
-        <div class="icons-container">
-            <div class="icon-item">
-                <img src="https://v0.blob.com/phone.svg" alt="call">
-                <span>call</span>
-            </div>
-            <div class="icon-item">
-                <img src="https://v0.blob.com/mail.svg" alt="email">
-                <span>email</span>
-            </div>
-            <div class="icon-item">
-                <img src="https://v0.blob.com/message.svg" alt="sms">
-                <span>sms</span>
-            </div>
-        </div>
-
-        <div class="dots">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-
-        <div class="copyright">
-            © Republic, Inc.
-        </div>
+        <div class="about-description">Setup your company by adding the basics.</div>
     </div>
+
+    <nav>
+        <ul class="nav-list">
+            <li class="nav-item">NDA <span>2</span></li>
+            <li class="nav-item">Brief <span>3</span></li>
+            <li class="nav-item">Contract <span>4</span></li>
+            <li class="nav-item">Details <span>5</span></li>
+            <li class="nav-item">Delivery <span>6</span></li>
+            <li class="nav-item">Evaluation <span>7</span></li>
+        </ul>
+    </nav>
+
     <script>
-        function updateDateTime() {
-    const now = new Date();
-    const timeElement = document.getElementById('time');
-    const dateInfoElement = document.getElementById('date-info');
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            });
+            document.getElementById('current-time').textContent = timeString;
+        }
 
-    // Format time
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    
-    // Format date
-    const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-    
-    // Calculate day of year and week
-    const start = new Date(now.getFullYear(), 0, 0);
-    const diff = now - start;
-    const oneDay = 1000 * 60 * 60 * 24;
-    const dayOfYear = Math.floor(diff / oneDay);
-    const weekNumber = Math.ceil(dayOfYear / 7);
-
-    // Update DOM
-    timeElement.textContent = `${days[now.getDay()]} ${String(now.getDate()).padStart(2, '0')} ${months[now.getMonth()]} : ${hours} ${minutes}`;
-    dateInfoElement.textContent = `DAY ${dayOfYear} - WEEK ${weekNumber}`;
-}
-
-// Update time immediately and then every second
-updateDateTime();
-setInterval(updateDateTime, 1000);
+        updateTime();
+        setInterval(updateTime, 1000);
     </script>
-    <script src="script.js"></script>
 </body>
 </html>
