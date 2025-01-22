@@ -1,63 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Interface</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background-color: black;
-      color: white;
-      font-family: 'Space Grotesk', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 50vh; /* Ensures the background fits the content */
-      box-sizing: border-box;
-    }
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .container {
-      text-align: center;
-      padding: 20px;
-    }
+.container {
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    padding: 20px;
+}
 
-    .error-code {
-      font-size: 6rem; /* Normal font size */
-      font-weight: 100; /* Font weight set to 100 */
-      position: relative;
-      margin-bottom: 1rem;
-    }
+.wifi-status {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 40px;
+}
 
-    .message {
-      font-size: 1.2rem;
-      font-weight: 300;
-      margin-bottom: 1.5rem;
-    }
+.time-container {
+    margin: 40px 0;
+}
 
-    .go-back {
-      color: #006EFE;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 400;
-      cursor: pointer;
-    }
+.time {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
 
-    .go-back:hover {
-      text-decoration: underline;
-    }
+.date-info {
+    font-size: 12px;
+    color: #888;
+}
+
+.icons-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+    padding: 20px 0;
+    border-top: 1px solid #333;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-item img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 8px;
+}
+
+.icon-item span {
+    font-size: 12px;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background-color: #0066ff;
+    border-radius: 50%;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #888;
+    margin-top: 40px;
+}
   </style>
-</head>
 <body>
-  <div class="container">
-    <div class="error-code">
-      404
+    <div class="container">
+        <div class="wifi-status">
+            Current WIFI state is CONNECTED Greons_Staff
+        </div>
+
+        <div class="time-container">
+            <div id="time" class="time"></div>
+            <div id="date-info" class="date-info"></div>
+        </div>
+
+        <div class="icons-container">
+            <div class="icon-item">
+                <img src="https://v0.blob.com/phone.svg" alt="call">
+                <span>call</span>
+            </div>
+            <div class="icon-item">
+                <img src="https://v0.blob.com/mail.svg" alt="email">
+                <span>email</span>
+            </div>
+            <div class="icon-item">
+                <img src="https://v0.blob.com/message.svg" alt="sms">
+                <span>sms</span>
+            </div>
+        </div>
+
+        <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        <div class="copyright">
+            © Republic
+        </div>
     </div>
-    <div class="message">the page you're looking for could not be found</div>
-    <a href="javascript:history.back()" class="go-back">go back</a>
-  </div>
+    <script>
+      function updateDateTime() {
+    const now = new Date();
+    const timeElement = document.getElementById('time');
+    const dateInfoElement = document.getElementById('date-info');
+
+    // Format time
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    
+    // Format date
+    const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    
+    // Calculate day of year and week
+    const start = new Date(now.getFullYear(), 0, 0);
+    const diff = now - start;
+    const oneDay = 1000 * 60 * 60 * 24;
+    const dayOfYear = Math.floor(diff / oneDay);
+    const weekNumber = Math.ceil(dayOfYear / 7);
+
+    // Update DOM
+    timeElement.textContent = `${days[now.getDay()]} ${String(now.getDate()).padStart(2, '0')} ${months[now.getMonth()]} : ${hours} ${minutes}`;
+    dateInfoElement.textContent = `DAY ${dayOfYear} - WEEK ${weekNumber}`;
+}
+
+// Update time immediately and then every second
+updateDateTime();
+setInterval(updateDateTime, 1000);
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>
