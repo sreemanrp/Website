@@ -155,6 +155,18 @@
             text-decoration: none;
         }
 
+        .play-btn {
+            background-color: white;
+            color: black;
+            width: fit-content;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
         /* Responsive Design */
         @media screen and (min-width: 768px) {
             .content {
@@ -226,10 +238,11 @@
     </div>
 
     <div class="footer">
-        <a href="https://republic.sh/playground" target="_blank" class="help">
+        <a href="https://x.com/sreemanrp" target="_blank" class="help">
             <span class="icon">?</span>
             <span>Help & support</span>
         </a>
+        <button class="play-btn">Play</button>
     </div>
 
     <script>
@@ -258,8 +271,8 @@
             });
         });
 
-        // Help & support click handler
-        document.querySelector('.help').addEventListener('click', () => {
+        // Play button click handler
+        document.querySelector('.play-btn').addEventListener('click', () => {
             window.open('https://republic.sh/playground', '_blank');
         });
     </script>
