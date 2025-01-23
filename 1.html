@@ -10,7 +10,7 @@
       color: white;
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      padding: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,100 +21,54 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 10px;
     }
 
     .section {
       background-color: #333;
-      padding: 20px;
-      border-radius: 8px;
+      padding: 10px 20px;
+      border-radius: 4px;
       text-align: center;
-      width: 300px;
-      position: relative;
-    }
-
-    .section::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 10px;
-      background-color: white;
-    }
-
-    .section.dotted::after {
-      border-left: 2px dotted white;
-      background-color: transparent;
-    }
-
-    .section:last-child::after {
-      display: none;
-    }
-
-    .translation-options {
-      display: flex;
-      gap: 20px;
-    }
-
-    .translation-options .section {
-      width: 150px;
+      width: 200px;
     }
 
     .arrow {
-      width: 2px;
-      height: 20px;
-      background-color: white;
-      margin: 10px auto;
+      color: white;
+      font-size: 16px;
+      text-align: center;
     }
 
     .dotted-line {
-      width: 2px;
-      height: 20px;
-      border-left: 2px dotted white;
-      margin: 10px auto;
+      color: white;
+      font-size: 16px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <div class="flowchart">
     <!-- Section 1: Git Push -->
-    <div class="section">
-      Git Push
-    </div>
-    <div class="arrow"></div>
+    <div class="section">Git Push</div>
+    <div class="arrow">↓</div>
 
     <!-- Section 2: Languine Engine -->
-    <div class="section dotted">
-      Languine Engine
-    </div>
-    <div class="dotted-line"></div>
+    <div class="section">Languine Engine</div>
+    <div class="dotted-line">· · ·</div>
 
     <!-- Section 3: Translation Options -->
-    <div class="translation-options">
-      <div class="section">
-        English Translation
-      </div>
-      <div class="section">
-        Spanish Translation
-      </div>
-      <div class="section">
-        Japanese Translation
-      </div>
-    </div>
-    <div class="dotted-line"></div>
+    <div class="section">English Translation</div>
+    <div class="dotted-line">· · ·</div>
+    <div class="section">Spanish Translation</div>
+    <div class="dotted-line">· · ·</div>
+    <div class="section">Japanese Translation</div>
+    <div class="dotted-line">· · ·</div>
 
     <!-- Section 4: Merge Pull Request -->
-    <div class="section">
-      Merge Pull Request
-    </div>
-    <div class="arrow"></div>
+    <div class="section">Merge Pull Request</div>
+    <div class="arrow">↓</div>
 
     <!-- Section 5: Completed (Deploy) -->
-    <div class="section">
-      Completed (Deploy)
-    </div>
+    <div class="section">Completed (Deploy)</div>
   </div>
 </body>
 </html>
