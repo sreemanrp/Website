@@ -134,21 +134,6 @@
             text-decoration: underline;
         }
 
-        .discord-btn {
-            background-color: white;
-            color: black;
-            width: fit-content;
-            min-width: 200px;
-            padding: 16px 32px;
-            border-radius: 8px;
-            border: none;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            margin: 20px 0 80px 0;
-            display: block;
-        }
-
         .footer {
             position: fixed;
             bottom: 0;
@@ -200,11 +185,6 @@
             .content {
                 max-width: 1200px;
             }
-
-            .discord-btn {
-                padding: 24px 48px;
-                font-size: 20px;
-            }
         }
     </style>
 </head>
@@ -245,8 +225,6 @@
         <p>Give it a try.</p>
     </div>
 
-    <button class="discord-btn">Discord</button>
-
     <div class="footer">
         <a href="https://republic.sh/playground" target="_blank" class="help">
             <span class="icon">?</span>
@@ -278,11 +256,6 @@
                     }, 200);
                 }
             });
-        });
-
-        // Discord button click handler
-        document.querySelector('.discord-btn').addEventListener('click', () => {
-            window.open('https://discord.com', '_blank');
         });
 
         // Help & support click handler
