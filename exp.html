@@ -170,11 +170,6 @@
             text-decoration: none;
         }
 
-        .refresh {
-            color: #888;
-            cursor: pointer;
-        }
-
         /* Responsive Design */
         @media screen and (min-width: 768px) {
             .content {
@@ -253,11 +248,10 @@
     <button class="discord-btn">Discord</button>
 
     <div class="footer">
-        <a href="https://x.com/oloidai" target="blank" class="help">
+        <a href="https://republic.sh/playground" target="_blank" class="help">
             <span class="icon">?</span>
             <span>Help & support</span>
         </a>
-        <span class="refresh">↻</span>
     </div>
 
     <script>
@@ -272,11 +266,6 @@
         // Keyboard shortcut click handler
         document.querySelector('.keyboard-shortcut').addEventListener('click', () => {
             window.location.href = 'https://republic.sh/ai';
-        });
-
-        // Refresh icon handler
-        document.querySelector('.refresh').addEventListener('click', () => {
-            window.location.reload();
         });
 
         // Navigation item click handlers
