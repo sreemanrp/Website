@@ -15,7 +15,7 @@
         body {
             background-color: #000000;
             width: 100%;
-            height: 100%;
+            height: 100vh; /* Adjusted height */
             color: white;
             padding: 20px;
             position: relative;
@@ -170,10 +170,9 @@
             text-decoration: none;
         }
 
-        .play {
+        .refresh {
             color: #888;
             cursor: pointer;
-            font-size: 20px;
         }
 
         /* Responsive Design */
@@ -258,7 +257,7 @@
             <span class="icon">?</span>
             <span>Help & support</span>
         </a>
-        <span class="play">▶</span>
+        <span class="refresh">↻</span>
     </div>
 
     <script>
@@ -275,9 +274,9 @@
             window.location.href = 'https://republic.sh/ai';
         });
 
-        // Play button handler
-        document.querySelector('.play').addEventListener('click', () => {
-            window.open('https://discord.gg/j87gDuuFxk', '_blank');
+        // Refresh icon handler
+        document.querySelector('.refresh').addEventListener('click', () => {
+            window.location.reload();
         });
 
         // Navigation item click handlers
@@ -290,6 +289,16 @@
                     }, 200);
                 }
             });
+        });
+
+        // Discord button click handler
+        document.querySelector('.discord-btn').addEventListener('click', () => {
+            window.open('https://discord.com', '_blank');
+        });
+
+        // Help & support click handler
+        document.querySelector('.help').addEventListener('click', () => {
+            window.open('https://republic.sh/playground', '_blank');
         });
     </script>
 </body>
