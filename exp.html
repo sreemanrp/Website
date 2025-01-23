@@ -170,9 +170,10 @@
             text-decoration: none;
         }
 
-        .refresh {
+        .play {
             color: #888;
             cursor: pointer;
+            font-size: 20px;
         }
 
         /* Responsive Design */
@@ -257,7 +258,7 @@
             <span class="icon">?</span>
             <span>Help & support</span>
         </a>
-        <span class="refresh">↻</span>
+        <span class="play">▶</span>
     </div>
 
     <script>
@@ -274,9 +275,9 @@
             window.location.href = 'https://republic.sh/ai';
         });
 
-        // Refresh icon handler
-        document.querySelector('.refresh').addEventListener('click', () => {
-            window.location.reload();
+        // Play button handler
+        document.querySelector('.play').addEventListener('click', () => {
+            window.open('https://discord.gg/j87gDuuFxk', '_blank');
         });
 
         // Navigation item click handlers
