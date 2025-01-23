@@ -1,74 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Translation Flowchart</title>
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixelated Language</title>
+<style>
+  body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: monospace;
+  }
 
-    .flowchart {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
+  .pixelated-text {
+    display: flex;
+    gap: 10px;
+  }
 
-    .section {
-      background-color: #333;
-      padding: 10px 20px;
-      border-radius: 4px;
-      text-align: center;
-      width: 200px;
-    }
+  .letter {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+  }
 
-    .arrow {
-      color: white;
-      font-size: 16px;
-      text-align: center;
-    }
+  .pixel {
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+  }
 
-    .dotted-line {
-      color: white;
-      font-size: 16px;
-      text-align: center;
-    }
-  </style>
+  .pixel.lit {
+    background-color: #666;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+  }
+</style>
 </head>
 <body>
-  <div class="flowchart">
-    <!-- Section 1: Git Push -->
-    <div class="section">Git Push</div>
-    <div class="arrow">↓</div>
-
-    <!-- Section 2: Languine Engine -->
-    <div class="section">Languine Engine</div>
-    <div class="dotted-line">· · ·</div>
-
-    <!-- Section 3: Translation Options -->
-    <div class="section">English Translation</div>
-    <div class="dotted-line">· · ·</div>
-    <div class="section">Spanish Translation</div>
-    <div class="dotted-line">· · ·</div>
-    <div class="section">Japanese Translation</div>
-    <div class="dotted-line">· · ·</div>
-
-    <!-- Section 4: Merge Pull Request -->
-    <div class="section">Merge Pull Request</div>
-    <div class="arrow">↓</div>
-
-    <!-- Section 5: Completed (Deploy) -->
-    <div class="section">Completed (Deploy)</div>
+<div class="pixelated-text">
+  <!-- L -->
+  <div class="letter">
+    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div>
   </div>
+  <!-- A -->
+  <div class="letter">
+    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+  </div>
+  <!-- N -->
+  <div class="letter">
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel lit"></div><div class="pixel"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+  </div>
+  <!-- G -->
+  <div class="letter">
+    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
+  </div>
+  <!-- U -->
+  <div class="letter">
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
+  </div>
+  <!-- A -->
+  <div class="letter">
+    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+  </div>
+  <!-- G -->
+  <div class="letter">
+    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
+    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
+  </div>
+  <!-- E -->
+  <div class="letter">
+    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div>
+  </div>
+</div>
 </body>
 </html>
