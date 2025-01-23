@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Republic - The Human Intelligence</title>
+    <title>Republic</title>
     <style>
         * {
             margin: 0;
@@ -66,9 +66,26 @@
             cursor: pointer;
         }
 
+        .library-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .icon {
+            font-size: 18px;
+            width: 20px;
+            display: inline-flex;
+            align-items: center;
+        }
+
         .content {
             margin-top: 40px;
             margin-bottom: 40px;
+            text-align: left;
         }
 
         h1 {
@@ -137,12 +154,12 @@
     </div>
 
     <div class="nav-item">
-        <span>⊕</span>
+        <span class="icon">+</span>
         <span>New</span>
     </div>
 
-    <div class="nav-item">
-        <span>📄</span>
+    <div class="library-item">
+        <span class="icon">□</span>
         <span>Library</span>
     </div>
 
@@ -162,10 +179,10 @@
 
     <div class="footer">
         <a href="#" class="help">
-            <span>❓</span>
+            <span class="icon">?</span>
             <span>Help & support</span>
         </a>
-        <span class="refresh">⟳</span>
+        <span class="refresh">↻</span>
     </div>
 
     <script>
@@ -177,12 +194,14 @@
             alert('Command menu shortcut clicked!');
         });
 
-        document.querySelectorAll('.nav-item').forEach(item => {
+        document.querySelectorAll('.nav-item, .library-item').forEach(item => {
             item.addEventListener('click', () => {
-                item.style.backgroundColor = '#2a2a2a';
-                setTimeout(() => {
-                    item.style.backgroundColor = '#222';
-                }, 200);
+                if(item.classList.contains('nav-item')) {
+                    item.style.backgroundColor = '#2a2a2a';
+                    setTimeout(() => {
+                        item.style.backgroundColor = '#222';
+                    }, 200);
+                }
             });
         });
     </script>
