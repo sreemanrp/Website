@@ -1,147 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sreeman Reddy</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Translation Flowchart</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-        body {
-            background-color: #000;
-            color: #fff;
-            padding: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            padding-top: 20px;
-        }
+    .section {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      width: 300px;
+      position: relative;
+    }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 500;
-        }
+    .section::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 10px;
+      background-color: white;
+    }
 
-        .time {
-            font-size: 14px;
-            color: #888;
-        }
+    .section.dotted::after {
+      border-left: 2px dotted white;
+      background-color: transparent;
+    }
 
-        .about-section {
-            margin-bottom: 30px;
-            cursor: pointer;
-        }
+    .section:last-child::after {
+      display: none;
+    }
 
-        .about-title {
-            font-size: 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+    .translation-options {
+      display: flex;
+      gap: 20px;
+    }
 
-        .arrow {
-            font-size: 24px;
-        }
+    .translation-options .section {
+      width: 150px;
+    }
 
-        .about-description {
-            color: #666;
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
+    .arrow {
+      width: 2px;
+      height: 20px;
+      background-color: white;
+      margin: 10px auto;
+    }
 
-        .nav-list {
-            list-style: none;
-        }
-
-        .nav-item {
-            padding: 15px 0;
-            border-top: 1px solid #333;
-            display: flex;
-            justify-content: space-between;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .nav-item a {
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .nav-item:hover {
-            color: #888;
-        }
-    </style>
+    .dotted-line {
+      width: 2px;
+      height: 20px;
+      border-left: 2px dotted white;
+      margin: 10px auto;
+    }
+  </style>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">Sreeman Reddy</div>
-        <div class="time" id="current-time"></div>
-    </header>
-
-    <div class="about-section">
-        <div class="about-title">
-            <span>About Me</span>
-            <span class="arrow">→</span>
-        </div>
-        <div class="about-description">Know more about me.</div>
+  <div class="flowchart">
+    <!-- Section 1: Git Push -->
+    <div class="section">
+      Git Push
     </div>
+    <div class="arrow"></div>
 
-    <nav>
-        <ul class="nav-list">
-            <li class="nav-item"><a href="https://republic.inc">Republic </a><span>1</span></li>
-            <li class="nav-item"><a href="https://republic.inc">S.H.I.E.L.D </a><span>2</span></li>
-            <li class="nav-item"><a href="https://republic.inc">Mother AI </a><span>3</span></li>
-            <li class="nav-item"><a href="https://republic.inc">SuperHuma </a><span>4</span></li>
-            <li class="nav-item"><a href="https://republic.inc">PyGPT </a><span>5</span></li>
-            <li class="nav-item"><a href="https://republic.inc">notHumans AI </a><span>6</span></li>
-            <li class="nav-item"><a href="https://republic.inc">Hackthon24 </a><span>7</span></li>
-        </ul>
-    </nav>
+    <!-- Section 2: Languine Engine -->
+    <div class="section dotted">
+      Languine Engine
+    </div>
+    <div class="dotted-line"></div>
 
-    <!-- Add audio element -->
-    <audio id="background-music" src="https://teletechuk.bandcamp.com/album/aisha-first-kiss" preload="auto"></audio>
+    <!-- Section 3: Translation Options -->
+    <div class="translation-options">
+      <div class="section">
+        English Translation
+      </div>
+      <div class="section">
+        Spanish Translation
+      </div>
+      <div class="section">
+        Japanese Translation
+      </div>
+    </div>
+    <div class="dotted-line"></div>
 
-    <script>
-        function updateTime() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('en-US', {
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: true
-            });
-            document.getElementById('current-time').textContent = timeString;
-        }
+    <!-- Section 4: Merge Pull Request -->
+    <div class="section">
+      Merge Pull Request
+    </div>
+    <div class="arrow"></div>
 
-        updateTime();
-        setInterval(updateTime, 1000);
-
-        // Function to play the background music
-        function playBackgroundMusic() {
-            const audio = document.getElementById('background-music');
-            audio.play();
-        }
-
-        // Event listener for Cmd+p key press
-        document.addEventListener('keydown', function(event) {
-            if (event.metaKey && event.key === 'p') {
-                event.preventDefault();
-                playBackgroundMusic();
-            }
-        });
-    </script>
+    <!-- Section 5: Completed (Deploy) -->
+    <div class="section">
+      Completed (Deploy)
+    </div>
+  </div>
 </body>
 </html>
