@@ -3,289 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Republic</title>
+    <title>ENCOM</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         body {
-            background-color: #000000;
-            width: 100%;
-            min-height: 100vh; /* Adjusted height */
+            height: 100vh;
+            background: #1a1a1a url('./img/bg.jpeg') no-repeat center center;
+            background-size: cover;
             color: white;
-            padding: 20px;
-            position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
-        .header {
+        .container {
+            flex-grow: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
+            flex-direction: column;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
-        .logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .logo-text {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: bold;
-        }
-
-        .keyboard-shortcut {
-            background-color: #333;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .nav-item {
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            background-color: #222;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .library-item {
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            width: fit-content;
-            text-decoration: none;
-        }
-
-        .nav-item a {
-            color: white;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .library-item a {
-            color: white;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            width: fit-content;
-            text-decoration: none;
-        }
-
-        .icon {
-            color: white;
-            font-size: 18px;
-            width: 20px;
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none;
+            margin-bottom: 4rem;
+            letter-spacing: 1px;
         }
 
         .content {
-            margin: 40px 0;
-            text-align: left;
-            max-width: 800px;
+            max-width: 600px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         h1 {
-            font-size: clamp(24px, 4vw, 32px);
-            margin-bottom: 20px;
+            font-size: 4rem;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
         }
 
         p {
-            font-size: clamp(16px, 3vw, 18px);
-            line-height: 1.5;
-            margin-bottom: 20px;
-            color: #e0e0e0;
-        }
-
-        .link {
-            color: white;
-            text-decoration: underline;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
         }
 
         .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #000000;
-            border-top: 1px solid #222;
+            padding: 2rem;
+            text-align: left;
         }
 
-        .help {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #888;
+        .social-links {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links a {
+            color: white;
             text-decoration: none;
+            margin-right: 1rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
         }
 
-        .play-btn {
-            background-color: white;
-            color: black;
-            width: fit-content;
-            padding: 8px 16px;
-            border-radius: 8px;
-            border: none;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
+        .social-links a:hover {
+            opacity: 1;
         }
 
-        .play-icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
         }
 
-        /* Responsive Design */
-        @media screen and (min-width: 768px) {
-            .content {
-                margin-left: 0;
-            }
-        }
-
-        @media screen and (min-width: 1024px) {
-            body {
-                padding: 40px;
-                padding-bottom: 100px;
-            }
-        }
-
-        @media screen and (min-width: 1440px) {
-            .content {
-                max-width: 1000px;
-            }
-        }
-
-        /* Smart TV */
-        @media screen and (min-width: 1920px) {
-            body {
-                padding: 60px;
-                padding-bottom: 120px;
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
             }
 
-            .content {
-                max-width: 1200px;
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .footer {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <div class="logo-icon">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sreemanrp_dp.jpg-leH3b3330DxnhGaMy7DfRgUTlkGVs5.jpeg" alt="Republic Logo">
-            </div>
-            <div class="logo-text">Republic</div>
+    <div class="container">
+        <div class="logo">ENCOM</div>
+        <div class="content">
+            <h1>Here,<br>you are not<br>just one more.</h1>
+            <p>We only work with people and companies with commitment, dedication, effort, courage and passion. Helping you achieve your creative and economic sovereignty.</p>
+            <p>We only work with people and companies with commitment, dedication, effort, courage and passion. Helping you achieve your creative and economic sovereignty.</p>
         </div>
-        <div class="keyboard-shortcut">⌘K</div>
-    </div>
-
-    <div class="nav-item">
-      <a href="/new">
-        <span class="icon">+</span>
-        <span>New</span>
-      </a>
-    </div>
-
-    <div class="library-item">
-      <a href="/library">
-        <span class="icon">□</span>
-        <span>Library</span>
-      </a>
-    </div>
-
-    <div class="content">
-        <h1>Welcome to Republic.</h1>
-        
-        <p>YouTube is a beautiful tool for learning. We wanted to make the learning experience a whole lot better.</p>
-        
-        <p>Republic lets you convert passive watching into active learning.</p>
-        
-        <p>We're actively developing it and if you have feedback, we'd love to hear from you. If you want to learn more, <a href="https://republic.sh/learn-ai" class="link">click here</a>.</p>
-        
-        <p>Give it a try.</p>
     </div>
 
     <div class="footer">
-        <a href="https://x.com/sreemanrp" target="_blank" class="help">
-            <span class="icon">?</span>
-            <span>Help & support</span>
-        </a>
-        <button class="play-btn">
-            <img src="https://icon-library.com/images/play-icon/play-icon-9.jpg" alt="Play Icon" class="play-icon">
-            Play
-        </button>
+        <div class="social-links">
+            <a href="https://x.com/encomorigin">X</a>
+            <a href="https://discord.com/encom">Discord</a>
+            <a href="mailto:contact@encom.com">Email</a>
+        </div>
+        <div class="copyright">© 2025 ENCOM</div>
     </div>
-
-    <script>
-        // CMD+K Shortcut Handler
-        document.addEventListener('keydown', (e) => {
-            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-                e.preventDefault();
-                window.location.href = 'https://republic.sh/ai';
-            }
-        });
-
-        // Keyboard shortcut click handler
-        document.querySelector('.keyboard-shortcut').addEventListener('click', () => {
-            window.location.href = 'https://republic.sh/ai';
-        });
-
-        // Navigation item click handlers
-        document.querySelectorAll('.nav-item, .library-item').forEach(item => {
-            item.addEventListener('click', () => {
-                if(item.classList.contains('nav-item')) {
-                    item.style.backgroundColor = '#2a2a2a';
-                    setTimeout(() => {
-                        item.style.backgroundColor = '#222';
-                    }, 200);
-                }
-            });
-        });
-
-        // Play button click handler
-        document.querySelector('.play-btn').addEventListener('click', () => {
-            window.open('https://republic.sh/playground', '_blank');
-        });
-    </script>
 </body>
 </html>
