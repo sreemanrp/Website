@@ -14,20 +14,29 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            height: 100%;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #ffffff;
             color: #000000;
             line-height: 1.6;
-            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
             padding: 20px;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
         /* Header Styles */
@@ -35,6 +44,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
             padding: 20px;
         }
 
@@ -63,15 +73,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
+            padding: 20px;
             text-align: center;
             flex: 1;
         }
 
         .polaroid-container {
             position: relative;
-            margin: 40px 0;
+            margin: 20px 0;
             height: auto;
+            max-width: 100%;
         }
 
         .polaroid-frame {
@@ -85,7 +96,7 @@
 
         .photo-container {
             width: 100%;
-            height: 600px;
+            height: 400px; /* Adjust height for better fit */
             background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0918-yLsWYMKIHiViWMCA0uJALR4ZfOa4sp.jpeg');
             background-size: cover;
             background-position: center;
@@ -93,44 +104,44 @@
         }
 
         .red-dot {
-            width: 40px;
-            height: 40px;
+            width: 20px; /* Adjust size */
+            height: 20px; /* Adjust size */
             background-color: #ff4040;
             border-radius: 50%;
             position: absolute;
         }
 
         .red-dot-top {
-            top: -20px;
-            left: -20px;
+            top: -10px;
+            left: -10px;
         }
 
         .red-dot-bottom {
-            bottom: -20px;
-            right: -20px;
+            bottom: -10px;
+            right: -10px;
         }
 
         /* Typography Styles */
         .intro-text {
-            margin: 20px 0;
-            font-size: 28px; /* Adjust font size */
+            margin: 10px 0;
+            font-size: 24px; /* Adjust font size */
             font-weight: 400;
         }
 
         .location-text {
-            font-size: 20px; /* Adjust font size */
-            margin: 20px 0;
+            font-size: 18px; /* Adjust font size */
+            margin: 10px 0;
         }
 
         .description {
-            font-size: 20px; /* Adjust font size */
-            margin: 20px 0;
+            font-size: 18px; /* Adjust font size */
+            margin: 10px 0;
             max-width: 800px;
         }
 
         .cta-text {
-            font-size: 20px; /* Adjust font size */
-            margin: 20px 0;
+            font-size: 18px; /* Adjust font size */
+            margin: 10px 0;
         }
 
         .highlight {
@@ -146,9 +157,28 @@
             .polaroid-frame {
                 width: 90%;
             }
-            
+
             .photo-container {
-                height: 400px;
+                height: 300px; /* Adjust height for mobile */
+            }
+
+            .intro-text, .location-text, .description, .cta-text {
+                font-size: 16px; /* Further adjust font size for mobile */
+            }
+
+            .red-dot {
+                width: 15px; /* Adjust size */
+                height: 15px; /* Adjust size */
+            }
+
+            .red-dot-top {
+                top: -7.5px;
+                left: -7.5px;
+            }
+
+            .red-dot-bottom {
+                bottom: -7.5px;
+                right: -7.5px;
             }
         }
     </style>
