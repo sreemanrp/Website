@@ -3,123 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENCOM</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>ENCOM Corporation</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'JetBrains Mono', monospace;
         }
 
         body {
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: #fff;
+        }
+
+        .lines-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
-            background: black;
-            color: white;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            padding: 20px 0;
         }
 
-        .container {
-            flex-grow: 1;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        .line {
+            height: 1px;
+            background: #000;
+            opacity: 0.1;
+            transition: transform 0.3s ease;
+        }
+
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #6b46c1, #f56565, #ed8936);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .menu-line {
+            width: 100%;
+            height: 2px;
+            background: #000;
+            margin: 6px 0;
+            transition: 0.3s;
+        }
+
+        .brand {
+            position: fixed;
+            bottom: 60px;
+            left: 60px;
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .logo {
-            font-size: 1.5rem;
+        .brand-name {
+            font-size: 72px;
             font-weight: bold;
-            margin-bottom: 4rem;
-            letter-spacing: 1px;
+            line-height: 1;
         }
 
-        .content {
-            max-width: 600px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .brand-subtitle {
+            font-size: 36px;
+            margin-top: 10px;
         }
 
-        h1 {
-            font-size: 20px;
-            font-weight: 500;
-            line-height: 1.2;
-            margin-bottom: 2rem;
-            letter-spacing: -1px;
+        .brand-email {
+            font-size: 24px;
+            margin-top: 20px;
+            opacity: 0.7;
         }
 
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-            opacity: 0.9;
-            letter-spacing: -0.5px;
-            margin-bottom: 1rem;
+        .menu {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 99;
         }
 
-        .footer {
-            padding: 2rem;
-            text-align: left;
-            margin-top: auto;
+        .menu.active {
+            display: block;
         }
 
-        .social-links {
-            margin-bottom: 0.5rem;
+        .menu ul {
+            list-style-type: none;
         }
 
-        .social-links a {
-            color: #005be7;
+        .menu ul li {
+            margin-bottom: 10px;
+        }
+
+        .menu ul li a {
+            color: #0000FF;
             text-decoration: none;
-            margin-right: 1rem;
-            opacity: 0.7;
-            transition: opacity 0.3s;
+            font-size: 18px;
+            transition: opacity 0.3s ease;
         }
 
-        .social-links a:hover {
-            opacity: 1;
-        }
-
-        .copyright {
+        .menu ul li a:hover {
             opacity: 0.7;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 1.5rem;
+            .brand {
+                bottom: 40px;
+                left: 30px;
             }
 
-            h1 {
-                font-size: 2.5rem;
+            .brand-name {
+                font-size: 48px;
             }
 
-            .footer {
-                padding: 1.5rem;
+            .brand-subtitle {
+                font-size: 24px;
+                margin-top: 8px;
+            }
+
+            .brand-email {
+                font-size: 18px;
+                margin-top: 15px;
+            }
+
+            .menu {
+                top: 50px;
+                right: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">ENCOM</div>
-        <div class="content">
-            <h1>Here,<br>you are not<br>just one more.</h1>
-            <p>We only work with people and companies with commitment, dedication, effort, courage and passion. Helping you achieve your creative and economic sovereignty.</p>
-        </div>
+    <div class="gradient-bg"></div>
+    
+    <div class="menu-toggle">
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
     </div>
 
-    <div class="footer">
-        <div class="social-links">
-            <a href="https://x.com/encomorigin">X</a>
-            <a href="https://discord.com/encom">Discord</a>
-            <a href="mailto:contact@encom.com">Email</a>
-        </div>
-        <div class="copyright">© 2025 ENCOM</div>
+    <div class="menu">
+        <ul>
+            <li><a href="#index">Index</a></li>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#x">X</a></li>
+            <li><a href="#discord">Discord</a></li>
+        </ul>
     </div>
+
+    <div class="brand">
+        <div class="brand-name">ENCOM</div>
+        <div class="brand-subtitle">Corporation</div>
+        <div class="brand-email">contact@encom.com</div>
+    </div>
+
+    <div class="lines-container">
+        <!-- Lines will be generated by JavaScript -->
+    </div>
+
+    <script>
+        const linesContainer = document.querySelector('.lines-container');
+        const gradientBg = document.querySelector('.gradient-bg');
+        const brand = document.querySelector('.brand');
+        let isDragging = false;
+        let startY;
+        let originalY;
+
+        // Create lines
+        for (let i = 0; i < 15; i++) {
+            const line = document.createElement('div');
+            line.className = 'line';
+            linesContainer.appendChild(line);
+        }
+
+        const lines = document.querySelectorAll('.line');
+
+        // Handle mouse/touch events
+        document.addEventListener('mousedown', startDragging);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', stopDragging);
+        document.addEventListener('touchstart', e => startDragging(e.touches[0]));
+        document.addEventListener('touchmove', e => drag(e.touches[0]));
+        document.addEventListener('touchend', stopDragging);
+
+        function startDragging(e) {
+            isDragging = true;
+            startY = e.clientY;
+            originalY = e.clientY;
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+
+            const currentY = e.clientY;
+            const deltaY = currentY - startY;
+            const maxDelta = window.innerHeight / 4;
+            const progress = Math.min(Math.abs(deltaY) / maxDelta, 1);
+
+            // Update lines
+            lines.forEach((line, index) => {
+                const offset = (deltaY * (index + 1)) / lines.length;
+                line.style.transform = `translateY(${offset}px)`;
+            });
+
+            // Update background and brand visibility
+            gradientBg.style.opacity = progress;
+            brand.style.opacity = progress;
+        }
+
+        function stopDragging() {
+            if (!isDragging) return;
+            isDragging = false;
+
+            // Reset lines position
+            lines.forEach(line => {
+                line.style.transform = 'translateY(0)';
+            });
+
+            // Reset background and brand visibility
+            gradientBg.style.opacity = '0';
+            brand.style.opacity = '0';
+        }
+
+        // Menu toggle animation and functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        let isMenuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            menuToggle.classList.toggle('active');
+            menu.classList.toggle('active');
+            
+            const lines = menuToggle.querySelectorAll('.menu-line');
+            if (isMenuOpen) {
+                lines[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                lines[1].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+            } else {
+                lines[0].style.transform = 'none';
+                lines[1].style.transform = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
+
