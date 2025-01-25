@@ -1,111 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pixelated Language</title>
-<style>
-  body {
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: monospace;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatsuki - Visual Creator</title>
+    <link rel="icon" type="image/jpeg" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0001-c6cdqDwQhEZt8X9yzvJzcmeEidmmMU.jpeg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
-  .pixelated-text {
-    display: flex;
-    gap: 10px;
-  }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  .letter {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2px;
-  }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
 
-  .pixel {
-    width: 10px;
-    height: 10px;
-    background-color: #333;
-    border-radius: 2px;
-    box-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
-  }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-  .pixel.lit {
-    background-color: #666;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
-  }
-</style>
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        .menu-btn {
+            width: 30px;
+            height: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: #000;
+            margin: 6px 0;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .polaroid-container {
+            position: relative;
+            margin: 40px 0;
+            height: auto;
+        }
+
+        .polaroid-frame {
+            background: #fff;
+            padding: 15px 15px 45px 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            width: 500px;
+            max-width: 100%;
+        }
+
+        .photo-container {
+            width: 100%;
+            height: 600px;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0918-yLsWYMKIHiViWMCA0uJALR4ZfOa4sp.jpeg');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 10px;
+        }
+
+        .red-dot {
+            width: 40px;
+            height: 40px;
+            background-color: #ff4040;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .red-dot-top {
+            top: -20px;
+            left: -20px;
+        }
+
+        .red-dot-bottom {
+            bottom: -20px;
+            right: -20px;
+        }
+
+        /* Typography Styles */
+        .intro-text {
+            margin: 20px 0;
+            font-size: 32px;
+            font-weight: 400;
+        }
+
+        .location-text {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        .description {
+            font-size: 24px;
+            margin: 20px 0;
+            max-width: 800px;
+        }
+
+        .cta-text {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        .highlight {
+            font-weight: 600;
+        }
+
+        .exclamation {
+            color: #ff4040;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .polaroid-frame {
+                width: 90%;
+            }
+            
+            .photo-container {
+                height: 400px;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="pixelated-text">
-  <!-- L -->
-  <div class="letter">
-    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div>
-  </div>
-  <!-- A -->
-  <div class="letter">
-    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-  </div>
-  <!-- N -->
-  <div class="letter">
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel lit"></div><div class="pixel"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-  </div>
-  <!-- G -->
-  <div class="letter">
-    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
-  </div>
-  <!-- U -->
-  <div class="letter">
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
-  </div>
-  <!-- A -->
-  <div class="letter">
-    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-  </div>
-  <!-- G -->
-  <div class="letter">
-    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel lit"></div>
-    <div class="pixel"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
-  </div>
-  <!-- E -->
-  <div class="letter">
-    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
-    <div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div><div class="pixel lit"></div>
-  </div>
-</div>
+    <div class="container">
+        <header>
+            <div class="logo">tatsuki</div>
+            <div class="menu-btn">
+                <span></span>
+                <span></span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="polaroid-container">
+                <div class="red-dot red-dot-top"></div>
+                <div class="polaroid-frame">
+                    <div class="photo-container"></div>
+                </div>
+                <div class="red-dot red-dot-bottom"></div>
+            </div>
+
+            <h1 class="intro-text">Hello, I'm <span class="highlight">Tatsuki</span></h1>
+            
+            <p class="location-text">
+                A visual creator based in <span class="highlight">Sydney, Australia.</span>
+            </p>
+
+            <p class="description">
+                I execute photo, video and creative projects.
+            </p>
+
+            <p class="cta-text">
+                Let's grab a coffee & <span class="highlight">get to work</span> <span class="exclamation">!</span>
+            </p>
+        </main>
+    </div>
+
+    <script>
+        // JavaScript for menu button interaction
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+            this.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
