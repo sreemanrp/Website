@@ -7,7 +7,6 @@
     <link rel="icon" type="image/jpeg" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0001-c6cdqDwQhEZt8X9yzvJzcmeEidmmMU.jpeg">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 
         * {
             margin: 0;
@@ -15,29 +14,20 @@
             box-sizing: border-box;
         }
 
-        html, body {
-            height: 100%;
-            overflow: hidden; /* Prevent scrolling */
-        }
-
         body {
             font-family: 'Inter', sans-serif;
             background-color: #ffffff;
             color: #000000;
             line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            height: 100vh;
+            overflow: hidden;
         }
 
         .container {
             max-width: 1200px;
-            width: 100%;
+            margin: 0 auto;
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            height: 100vh;
         }
 
         /* Header Styles */
@@ -45,13 +35,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
             padding: 20px;
         }
 
         .logo {
-            font-size: 20px; /* Adjust font size */
+            font-size: 24px;
             font-weight: 400;
+            z-index: 1000;
         }
 
         .menu-btn {
@@ -59,6 +49,7 @@
             height: 20px;
             position: relative;
             cursor: pointer;
+            z-index: 1000;
         }
 
         .menu-btn span {
@@ -67,42 +58,50 @@
             height: 2px;
             background: #000;
             margin: 6px 0;
+            transition: 0.3s;
         }
 
-        .menu-options {
-            display: none;
+        .menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-btn.active span:nth-child(2) {
+            transform: rotate(-45deg);
+        }
+
+        /* Full Screen Menu */
+        .menu-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            justify-content: flex-end;
-            align-items: flex-start;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            font-family: 'JetBrains Mono', monospace;
-            z-index: 1000; /* Ensure the menu is on top */
+            background: white;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
         }
 
-        .menu-options.active {
+        .menu-overlay.active {
             display: flex;
         }
 
-        .menu-options a {
-            display: block;
-            color: #000;
-            text-decoration: none;
-            margin: 5px 0;
-            font-size: 18px; /* Adjust font size */
+        .menu-links {
+            text-align: center;
         }
 
-        .menu-options .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        .menu-links a {
+            display: block;
             font-size: 24px;
-            cursor: pointer;
+            color: #000;
+            text-decoration: none;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .menu-links a:hover {
+            opacity: 0.7;
         }
 
         /* Main Content Styles */
@@ -110,16 +109,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
             text-align: center;
-            flex: 1;
+            height: calc(100vh - 100px);
+            justify-content: center;
         }
 
         .polaroid-container {
             position: relative;
             margin: 20px 0;
-            height: auto;
-            max-width: 100%;
         }
 
         .polaroid-frame {
@@ -127,58 +124,53 @@
             padding: 15px 15px 45px 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
-            width: 300px; /* Decrease width */
+            width: 400px;
             max-width: 100%;
         }
 
         .photo-container {
             width: 100%;
-            height: 300px; /* Decrease height */
+            height: 400px;
             background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0918-yLsWYMKIHiViWMCA0uJALR4ZfOa4sp.jpeg');
             background-size: cover;
-            background-position: center;
+            background-position: top center;
             margin-bottom: 10px;
         }
 
         .red-dot {
-            width: 20px; /* Adjust size */
-            height: 20px; /* Adjust size */
+            width: 40px;
+            height: 40px;
             background-color: #ff4040;
             border-radius: 50%;
             position: absolute;
         }
 
         .red-dot-top {
-            top: -10px;
-            left: -10px;
+            top: -20px;
+            left: -20px;
         }
 
         .red-dot-bottom {
-            bottom: -10px;
-            right: -10px;
+            bottom: -20px;
+            right: -20px;
         }
 
         /* Typography Styles */
         .intro-text {
-            margin: 10px 0;
-            font-size: 24px; /* Adjust font size */
+            margin: 20px 0;
+            font-size: 32px;
             font-weight: 400;
         }
 
-        .location-text {
-            font-size: 18px; /* Adjust font size */
-            margin: 10px 0;
-        }
-
-        .description {
-            font-size: 18px; /* Adjust font size */
-            margin: 10px 0;
+        .bio-text {
+            font-size: 24px;
+            margin: 20px 0;
             max-width: 800px;
         }
 
         .cta-text {
-            font-size: 18px; /* Adjust font size */
-            margin: 10px 0;
+            font-size: 24px;
+            margin: 20px 0;
         }
 
         .highlight {
@@ -194,28 +186,9 @@
             .polaroid-frame {
                 width: 90%;
             }
-
+            
             .photo-container {
-                height: 200px; /* Adjust height for mobile */
-            }
-
-            .intro-text, .location-text, .description, .cta-text {
-                font-size: 16px; /* Further adjust font size for mobile */
-            }
-
-            .red-dot {
-                width: 15px; /* Adjust size */
-                height: 15px; /* Adjust size */
-            }
-
-            .red-dot-top {
-                top: -7.5px;
-                left: -7.5px;
-            }
-
-            .red-dot-bottom {
-                bottom: -7.5px;
-                right: -7.5px;
+                height: 350px;
             }
         }
     </style>
@@ -227,15 +200,17 @@
             <div class="menu-btn">
                 <span></span>
                 <span></span>
-                <div class="menu-options">
-                    <div class="close-btn">×</div>
-                    <a href="#">Index</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">Youtube</a>
-                </div>
             </div>
         </header>
+
+        <div class="menu-overlay">
+            <nav class="menu-links">
+                <a href="#index">Index</a>
+                <a href="#contact">Contact</a>
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+                <a href="https://youtube.com" target="_blank">YouTube</a>
+            </nav>
+        </div>
 
         <main class="main-content">
             <div class="polaroid-container">
@@ -248,8 +223,8 @@
 
             <h1 class="intro-text">Hello, I'm <span class="highlight">Tatsuki</span></h1>
             
-            <p class="location-text">
-                A visual creator based in <span class="highlight">Sydney, Australia.<br> I execute photo, video and creative projects.</span>
+            <p class="bio-text">
+                A visual creator based in <span class="highlight">Sydney, Australia</span>. I execute photo, video and creative projects.
             </p>
 
             <p class="cta-text">
@@ -259,15 +234,13 @@
     </div>
 
     <script>
-        // JavaScript for menu button interaction
-        document.querySelector('.menu-btn').addEventListener('click', function() {
-            const menuOptions = this.querySelector('.menu-options');
-            menuOptions.classList.toggle('active');
-        });
-
-        // JavaScript for close button interaction
-        document.querySelector('.close-btn').addEventListener('click', function() {
-            this.parentElement.classList.remove('active');
+        const menuBtn = document.querySelector('.menu-btn');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        
+        menuBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : 'auto';
         });
     </script>
 </body>
