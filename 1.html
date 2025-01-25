@@ -7,6 +7,7 @@
     <link rel="icon" type="image/jpeg" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0001-c6cdqDwQhEZt8X9yzvJzcmeEidmmMU.jpeg">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 
         * {
             margin: 0;
@@ -68,6 +69,28 @@
             margin: 6px 0;
         }
 
+        .menu-options {
+            display: none;
+            position: absolute;
+            bottom: -100px; /* Adjust position for bottom left */
+            left: 0;
+            background: #fff;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .menu-options.active {
+            display: block;
+        }
+
+        .menu-options a {
+            display: block;
+            color: #000;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+
         /* Main Content Styles */
         .main-content {
             display: flex;
@@ -90,13 +113,13 @@
             padding: 15px 15px 45px 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
-            width: 500px;
+            width: 300px; /* Decrease width */
             max-width: 100%;
         }
 
         .photo-container {
             width: 100%;
-            height: 400px; /* Adjust height for better fit */
+            height: 300px; /* Decrease height */
             background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0918-yLsWYMKIHiViWMCA0uJALR4ZfOa4sp.jpeg');
             background-size: cover;
             background-position: center;
@@ -159,7 +182,7 @@
             }
 
             .photo-container {
-                height: 300px; /* Adjust height for mobile */
+                height: 200px; /* Adjust height for mobile */
             }
 
             .intro-text, .location-text, .description, .cta-text {
@@ -190,6 +213,12 @@
             <div class="menu-btn">
                 <span></span>
                 <span></span>
+                <div class="menu-options">
+                    <a href="#">Index</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Youtube</a>
+                </div>
             </div>
         </header>
 
@@ -205,11 +234,7 @@
             <h1 class="intro-text">Hello, I'm <span class="highlight">Tatsuki</span></h1>
             
             <p class="location-text">
-                A visual creator based in <span class="highlight">Sydney, Australia.</span>
-            </p>
-
-            <p class="description">
-                I execute photo, video and creative projects.
+                A visual creator based in <span class="highlight">Sydney, Australia.<br> I execute photo, video and creative projects.</span>
             </p>
 
             <p class="cta-text">
@@ -221,7 +246,8 @@
     <script>
         // JavaScript for menu button interaction
         document.querySelector('.menu-btn').addEventListener('click', function() {
-            this.classList.toggle('active');
+            const menuOptions = this.querySelector('.menu-options');
+            menuOptions.classList.toggle('active');
         });
     </script>
 </body>
