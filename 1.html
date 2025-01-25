@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tatsuki - Visual Creator</title>
-    <link rel="icon" type="image/jpeg" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0001-c6cdqDwQhEZt8X9yzvJzcmeEidmmMU.jpeg">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
         * {
             margin: 0;
@@ -16,161 +15,96 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-            line-height: 1.6;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            height: 100vh;
-        }
-
-        /* Header Styles */
         header {
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
         }
 
         .logo {
             font-size: 24px;
             font-weight: 400;
-            z-index: 1000;
         }
 
         .menu-btn {
-            width: 30px;
-            height: 20px;
-            position: relative;
+            width: 24px;
+            height: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             cursor: pointer;
-            z-index: 1000;
         }
 
         .menu-btn span {
-            display: block;
             width: 100%;
             height: 2px;
-            background: #000;
-            margin: 6px 0;
-            transition: 0.3s;
+            background-color: black;
         }
 
-        .menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .menu-btn.active span:nth-child(2) {
-            transform: rotate(-45deg);
-        }
-
-        /* Full Screen Menu */
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        }
-
-        .menu-overlay.active {
-            display: flex;
-        }
-
-        .menu-links {
-            text-align: center;
-        }
-
-        .menu-links a {
-            display: block;
-            font-size: 24px;
-            color: #000;
-            text-decoration: none;
-            margin: 20px 0;
-            transition: 0.3s;
-        }
-
-        .menu-links a:hover {
-            opacity: 0.7;
-        }
-
-        /* Main Content Styles */
-        .main-content {
+        main {
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-            height: calc(100vh - 100px);
             justify-content: center;
+            padding: 0 16px;
+            text-align: center;
         }
 
         .polaroid-container {
             position: relative;
-            margin: 20px 0;
+            margin-bottom: 32px;
         }
 
         .polaroid-frame {
-            background: #fff;
-            padding: 15px 15px 45px 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            width: 400px;
-            max-width: 100%;
+            background: white;
+            padding: 8px;
+            padding-bottom: 32px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .photo-container {
-            width: 100%;
+            width: 400px;
             height: 400px;
+            max-width: 100%;
             background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0918-yLsWYMKIHiViWMCA0uJALR4ZfOa4sp.jpeg');
             background-size: cover;
-            background-position: top center;
-            margin-bottom: 10px;
+            background-position: center;
         }
 
         .red-dot {
-            width: 40px;
-            height: 40px;
+            width: 16px;
+            height: 16px;
             background-color: #ff4040;
             border-radius: 50%;
             position: absolute;
         }
 
         .red-dot-top {
-            top: -20px;
-            left: -20px;
+            top: -8px;
+            left: -8px;
         }
 
         .red-dot-bottom {
-            bottom: -20px;
-            right: -20px;
+            bottom: -8px;
+            right: -8px;
         }
 
-        /* Typography Styles */
-        .intro-text {
-            margin: 20px 0;
+        h1 {
             font-size: 32px;
             font-weight: 400;
+            margin-bottom: 16px;
         }
 
-        .bio-text {
+        p {
             font-size: 24px;
-            margin: 20px 0;
-            max-width: 800px;
-        }
-
-        .cta-text {
-            font-size: 24px;
-            margin: 20px 0;
+            margin-bottom: 16px;
         }
 
         .highlight {
@@ -181,66 +115,44 @@
             color: #ff4040;
             font-weight: bold;
         }
-
-        @media (max-width: 768px) {
-            .polaroid-frame {
-                width: 90%;
-            }
-            
-            .photo-container {
-                height: 350px;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">tatsuki</div>
-            <div class="menu-btn">
-                <span></span>
-                <span></span>
-            </div>
-        </header>
+    <header>
+        <div class="logo">tatsuki</div>
+        <div class="menu-btn">
+            <span></span>
+            <span></span>
+        </div>
+    </header>
 
-        <div class="menu-overlay">
-            <nav class="menu-links">
-                <a href="#index">Index</a>
-                <a href="#contact">Contact</a>
-                <a href="https://twitter.com" target="_blank">Twitter</a>
-                <a href="https://youtube.com" target="_blank">YouTube</a>
-            </nav>
+    <main>
+        <div class="polaroid-container">
+            <div class="red-dot red-dot-top"></div>
+            <div class="polaroid-frame">
+                <div class="photo-container"></div>
+            </div>
+            <div class="red-dot red-dot-bottom"></div>
         </div>
 
-        <main class="main-content">
-            <div class="polaroid-container">
-                <div class="red-dot red-dot-top"></div>
-                <div class="polaroid-frame">
-                    <div class="photo-container"></div>
-                </div>
-                <div class="red-dot red-dot-bottom"></div>
-            </div>
-
-            <h1 class="intro-text">Hello, I'm <span class="highlight">Tatsuki</span></h1>
-            
-            <p class="bio-text">
-                A visual creator based in <span class="highlight">Sydney, Australia</span>. I execute photo, video and creative projects.
-            </p>
-
-            <p class="cta-text">
-                Let's grab a coffee & <span class="highlight">get to work</span> <span class="exclamation">!</span>
-            </p>
-        </main>
-    </div>
+        <h1>Hello, I'm <span class="highlight">Tatsuki</span></h1>
+        
+        <p>
+            A visual creator based in <span class="highlight">Sydney, Australia.</span>
+        </p>
+        
+        <p>
+            I execute photo, video and creative projects.
+        </p>
+        
+        <p>
+            Let's grab a coffee & <span class="highlight">get to work</span><span class="exclamation">!</span>
+        </p>
+    </main>
 
     <script>
-        const menuBtn = document.querySelector('.menu-btn');
-        const menuOverlay = document.querySelector('.menu-overlay');
-        
-        menuBtn.addEventListener('click', function() {
-            this.classList.toggle('active');
-            menuOverlay.classList.toggle('active');
-            document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : 'auto';
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+            alert('Menu clicked!');
         });
     </script>
 </body>
