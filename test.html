@@ -33,7 +33,8 @@
 
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 0 5vw; /* Shifted content slightly to the left */
+            padding-left: 2vw;
         }
 
         .grid-layout {
@@ -109,6 +110,7 @@
 
             .container {
                 max-width: 90%;
+                margin-left: 3vw; /* Less shift on smaller screens */
             }
 
             .grid-layout {
@@ -125,6 +127,10 @@
             body {
                 font-size: 17px;
             }
+
+            .container {
+                margin-left: 2vw; /* Even less shift for very small screens */
+            }
         }
     </style>
 </head>
@@ -132,10 +138,11 @@
 <body>
     <div class="container">
         <div class="grid-layout">
-            <div class="label">sreeman<br> reddy</div>
+            <div class="label">name</div>
             <div class="content">
+                Sreeman Reddy <br>
                 <span class="header-title">design ✺ tech ∿ build ◳</span><br>
-                <a href="https://encom.vercel.app" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
+                <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
             </div>
 
             <div class="label">project</div>
