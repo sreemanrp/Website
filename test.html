@@ -22,7 +22,7 @@
 
         body {
             margin: 0;
-            padding: 5vh 5vw; /* Moved content slightly more to the left */
+            padding: 5vh 5vw;
             font-family: 'Satoshi-Variable', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.5;
             font-size: 18px;
@@ -32,13 +32,13 @@
         }
 
         .container {
-            max-width: 700px; /* Reduced max-width to shift content left */
-            margin-left: 0; /* Align content more to the left */
+            max-width: 750px; /* Adjusted width to keep content left-aligned */
+            margin: 0 auto;
         }
 
         .grid-layout {
             display: grid;
-            grid-template-columns: 110px 1fr; /* Adjusted column width */
+            grid-template-columns: 120px 1fr;
             gap: 1.5rem;
             align-items: start;
         }
@@ -86,16 +86,16 @@
 
         .header {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
+            justify-content: space-between; /* Ensures the header is balanced */
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 2rem;
         }
 
         .header-name {
-            text-align: left;
-            padding-right: 1.5rem;
+            text-align: right;
             display: flex;
             flex-direction: column;
-            justify-content: center;
         }
 
         .header-title {
@@ -104,10 +104,9 @@
         }
 
         .position-link {
-            position: relative;
-            top: -8px;
             font-size: 18px;
             font-weight: 400;
+            white-space: nowrap; /* Ensures it stays on the same line */
         }
 
         @media (max-width: 768px) {
@@ -116,7 +115,7 @@
             }
 
             .container {
-                max-width: 90%; /* Adjusted for smaller screens */
+                max-width: 90%;
             }
 
             .grid-layout {
@@ -125,12 +124,12 @@
             }
 
             .header {
-                grid-template-columns: 100px 1fr;
-                gap: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             .position-link {
-                font-size: 20px;
+                font-size: 19px;
             }
         }
 
