@@ -36,45 +36,17 @@
             margin: 0 auto;
         }
 
-        .header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .header-name {
-            text-align: left; /* Align text to the left */
-            margin-right: 2rem;
-            white-space: nowrap;
-        }
-
-        .header-content {
-            flex: 1;
-            white-space: nowrap; /* Prevent wrapping */
-        }
-
-        .header-title {
-            margin-bottom: 0.5rem;
-            font-weight: 400; /* Changed font weight to 400 */
-        }
-
-        .position-link {
-            font-size: 19px;
-            font-weight: 400; /* Changed font weight to 400 */
-        }
-
         .grid-layout {
-            display: flex;
+            display: grid;
+            grid-template-columns: 120px 1fr;
             gap: 2rem;
-            align-items: flex-start;
         }
 
         .label {
-            text-align: left; /* Align text to the left */
+            text-align: right;
             opacity: 0.5;
             color: black;
             font-weight: 400; /* Changed font weight to 400 */
-            min-width: 120px; /* Ensure labels have a minimum width */
         }
 
         .content {
@@ -111,28 +83,76 @@
             margin-bottom: 0.5rem;
         }
 
+        .header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .header-name {
+            text-align: center; /* Center align text */
+            padding-right: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertically center the content */
+        }
+
+        .header-name span {
+            display: block;
+        }
+
+        .header-content {
+            flex: 1;
+            position: relative;
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        .header-title {
+            margin-bottom: 0.5rem;
+            font-weight: 400; /* Changed font weight to 400 */
+        }
+
+        .position-link {
+            position: relative;
+            top: -10px;
+            font-size: 19px;
+            font-weight: 400; /* Changed font weight to 400 */
+        }
+
         @media (max-width: 768px) {
             body {
                 font-size: 21px;
             }
 
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
             .grid-layout {
-                flex-direction: column;
+                display: grid;
+                grid-template-columns: 120px 1fr;
+                gap: 1rem;
             }
 
             .label {
-                text-align: left;
+                text-align: right;
                 opacity: 0.5;
                 color: black;
             }
 
+            .header {
+                display: grid;
+                grid-template-columns: 120px 1fr;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .header-name {
+                width: 120px;
+                text-align: right;
+                padding-right: 2rem;
+                display: flex;
+                flex-direction: column;
+            }
+
             .header-content {
-                margin-top: 1rem;
+                flex: 1;
             }
 
             .position-link {
@@ -163,6 +183,7 @@
         <div class="header">
             <div class="header-name">
                 <span>sreeman</span>
+                <span>reddy</span>
             </div>
             <div class="header-content">
                 <div class="header-title">design <span>✺</span> tech <span>∿</span> build <span>◳</span></div>
@@ -176,12 +197,11 @@
                 <ul class="link-list">
                     <li><a href="https://bhashyam.in" class="external-link">intermediate, bhashyam</a></li>
                     <li><a href="https://kluniversity.in" class="external-link">studying ai&ds, kl university</a></li>
-                    <li><a href="https://kluniversity.in" class="external-link">tech & research intern, kl university</a></li>
+                    <li><a href="https://kluniversity.in" class="external-link">tech & research intern, kl
+                            university</a></li>
                 </ul>
             </div>
-        </div>
 
-        <div class="grid-layout">
             <div class="label">contact</div>
             <div class="content">
                 <ul class="link-list">
