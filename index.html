@@ -87,9 +87,20 @@
         .content {
             color: black;
             font-weight: 400;
-            flex: 1;
             display: flex;
-            justify-content: center; /* Center the links beside the labels */
+            align-items: center;
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .link-list li {
+            margin-bottom: 0;
         }
 
         a {
@@ -108,17 +119,6 @@
             content: "↗";
             display: inline-block;
             margin-left: 0.25rem;
-        }
-
-        .link-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-weight: 400;
-        }
-
-        .link-list li {
-            margin-bottom: 0.5rem;
         }
 
         @media (max-width: 768px) {
