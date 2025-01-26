@@ -36,35 +36,6 @@
             margin: 0 auto;
         }
 
-        .header {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .header-name {
-            font-size: 22px;
-            font-weight: normal; /* Normal font weight */
-        }
-
-        .header-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .header-title {
-            white-space: nowrap;
-            font-weight: 400;
-            font-size: 18px;
-        }
-
-        .position-link {
-            font-size: 16px;
-            font-weight: 400;
-            white-space: nowrap;
-        }
-
         .grid-layout {
             display: grid;
             grid-template-columns: 120px 1fr;
@@ -88,8 +59,6 @@
         a {
             color: inherit;
             text-decoration: none;
-            position: relative;
-            display: inline-block;
             font-weight: 400;
         }
 
@@ -113,6 +82,26 @@
             margin-bottom: 0.5rem;
         }
 
+        .header {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: start;
+        }
+
+        .header-title {
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        .position-link {
+            font-size: 16px;
+            font-weight: 400;
+            white-space: nowrap;
+            display: block;
+        }
+
         @media (max-width: 768px) {
             body {
                 font-size: 19px;
@@ -128,22 +117,7 @@
             }
 
             .header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .header-info {
-                margin-top: 0.5rem;
-            }
-        }
-
-        @media (min-width: 1920px) {
-            body {
-                font-size: 22px;
-            }
-
-            .container {
-                max-width: 1000px;
+                grid-template-columns: 100px 1fr;
             }
         }
 
@@ -151,32 +125,24 @@
             body {
                 font-size: 17px;
             }
-
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="header">
-            <div class="header-name">Sreeman Reddy</div>
-            <div class="header-info">
-                <div class="header-title">
-                    design <span>✺</span> tech <span>∿</span> build <span>◳</span>
-                </div>
+        <div class="grid-layout">
+            <div class="label">name</div>
+            <div class="content">
+                Sreeman Reddy <br>
+                <span class="header-title">design ✺ tech ∿ build ◳</span><br>
                 <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
             </div>
-        </div>
 
-        <div class="grid-layout">
             <div class="label">project</div>
             <div class="content">
                 <ul class="link-list">
-                    <li><a href="https://sreeman.sh" class="external-link">webite 2025</a></li>
+                    <li><a href="https://sreeman.sh" class="external-link">website 2025</a></li>
                     <li><a href="https://2024.sreeman.app" class="external-link">prev. website</a></li>
                     <li><a href="https://encom.com" class="external-link">encom </a></li>
                 </ul>
