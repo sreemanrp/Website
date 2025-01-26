@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./sreemanrp_dp.jpg" type="image/x-icon">
+    <meta property="og:title" content="sreeman - ai engineer">
+    <meta property="og:description" content="sreeman - ai engineer">
+    <meta property="og:image" content="path/to/og-image.jpg">
+    <meta property="og:url" content="https://sreeman.sh">
+    <link rel="stylesheet" href="styles.css">
+    <title>sreeman - ai engineer</title>
+    <style>
+        @font-face {
+            font-family: 'Satoshi-Variable';
+            src: url('path/to/Satoshi-Variable.woff2') format('woff2'),
+                url('path/to/Satoshi-Variable.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+            padding: 5vh 5vw;
+            font-family: 'Satoshi-Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            font-size: 18px; /* Increased font size */
+            color: #000;
+            font-weight: 400; /* Changed font weight to 400 */
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px; /* Decreased max-width */
+            margin: 0 auto;
+            padding-left: 20px; /* Added padding to move content more to the left */
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 2rem;
+        }
+
+        .label {
+            text-align: right;
+            opacity: 0.5;
+            color: black;
+            font-weight: 400; /* Changed font weight to 400 */
+        }
+
+        .content {
+            margin-bottom: 2rem;
+            color: black;
+            font-weight: 400; /* Changed font weight to 400 */
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+            font-weight: 400; /* Changed font weight to 400 */
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        .external-link::after {
+            content: "↗";
+            display: inline-block;
+            margin-left: 0.25rem;
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .link-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .header-name {
+            text-align: center; /* Center align text */
+            padding-right: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertically center the content */
+        }
+
+        .header-name span {
+            display: block;
+        }
+
+        .header-content {
+            flex: 1;
+            position: relative;
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        .header-title {
+            margin-bottom: 0.5rem;
+            font-weight: 400; /* Changed font weight to 400 */
+        }
+
+        .position-link {
+            position: relative;
+            top: -10px;
+            font-size: 19px;
+            font-weight: 400; /* Changed font weight to 400 */
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 21px;
+            }
+
+            .grid-layout {
+                display: grid;
+                grid-template-columns: 120px 1fr;
+                gap: 1rem;
+            }
+
+            .label {
+                text-align: right;
+                opacity: 0.5;
+                color: black;
+            }
+
+            .header {
+                display: grid;
+                grid-template-columns: 120px 1fr;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .header-name {
+                width: 120px;
+                text-align: right;
+                padding-right: 2rem;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .header-content {
+                flex: 1;
+            }
+
+            .position-link {
+                font-size: 22px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            body {
+                font-size: 24px;
+            }
+
+            .container {
+                max-width: 1200px; /* Adjusted for larger screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-name">
+                <span>sreeman</span>
+                <span>reddy</span>
+            </div>
+            <div class="header-content">
+                <div class="header-title">design <span>✺</span> tech <span>∿</span> build <span>◳</span></div>
+                <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
+            </div>
+        </div>
+
+        <div class="grid-layout">
+            <div class="label">project</div>
+            <div class="content">
+                <ul class="link-list">
+                    <li><a href="https://sreeman.sh" class="external-link">webite 2025</a></li>
+                    <li><a href="https://2024.sreeman.app" class="external-link">prev. website</a></li>
+                    <li><a href="https://encom.com" class="external-link">encom </a></li>
+                </ul>
+            </div>
+
+            <div class="label">contact</div>
+            <div class="content">
+                <ul class="link-list">
+                    <li><a>abc@sreeman.sh</a></li>
+                    <li><a href="https://x.com/sreemanrp" class="external-link">twitter</a></li>
+                    <li><a href="https://github.com/sreemanrp" class="external-link">github</a></li>
+                    <li><a href="https://youtube.com/@sreemanrp" class="external-link">youtube</a></li>
+                    <li><a href="https://instagram.com/sreemanrp" class="external-link">instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const specialLink = document.getElementById('special-link');
+            const originalText = specialLink.textContent;
+            const chars = 'qwertyuiopasdfghjklzxcvbnm!<>-_\\/[]{}—=+*^?#________';
+
+            function scrambleEffect(element, text) {
+                let iterations = 0;
+                const scrambleInterval = setInterval(() => {
+                    element.textContent = text
+                        .split('')
+                        .map((char, index) => {
+                            if (index < iterations) {
+                                return text[index];
+                            }
+                            return chars[Math.floor(Math.random() * chars.length)];
+                        })
+                        .join('');
+
+                    if (iterations >= text.length) {
+                        clearInterval(scrambleInterval);
+                        element.textContent = text;
+                    }
+                    iterations += 1;
+                }, 15); // Faster scramble effect
+            }
+
+            specialLink.addEventListener('mouseenter', () => scrambleEffect(specialLink, originalText));
+            specialLink.addEventListener('mouseleave', () => {
+                setTimeout(() => {
+                    specialLink.textContent = originalText;
+                }, 1600); // Adjust delay if needed
+            });
+        });
+    </script>
+
+</body>
+</html>
