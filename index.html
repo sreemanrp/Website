@@ -16,7 +16,7 @@
             font-family: 'Satoshi-Variable';
             src: url('path/to/Satoshi-Variable.woff2') format('woff2'),
                 url('path/to/Satoshi-Variable.woff') format('woff');
-            font-weight: 300;
+            font-weight: 400;
             font-style: normal;
         }
 
@@ -27,7 +27,7 @@
             line-height: 1.5;
             font-size: 18px; /* Increased font size */
             color: #000;
-            font-weight: 300; /* Changed font weight to 300 */
+            font-weight: 400; /* Changed font weight to 400 */
             background-color: #f5f5f5;
         }
 
@@ -46,13 +46,13 @@
             text-align: right;
             opacity: 0.5;
             color: black;
-            font-weight: 300; /* Changed font weight to 300 */
+            font-weight: 400; /* Changed font weight to 400 */
         }
 
         .content {
             margin-bottom: 2rem;
             color: black;
-            font-weight: 300; /* Changed font weight to 300 */
+            font-weight: 400; /* Changed font weight to 400 */
         }
 
         a {
@@ -60,7 +60,7 @@
             text-decoration: none;
             position: relative;
             display: inline-block;
-            font-weight: 300; /* Changed font weight to 300 */
+            font-weight: 400; /* Changed font weight to 400 */
         }
 
         a:hover {
@@ -91,11 +91,11 @@
         }
 
         .header-name {
-            white-space: nowrap; /* Prevent wrapping */
             text-align: right;
             padding-right: 2rem;
             display: flex;
             flex-direction: column;
+            justify-content: flex-end; /* Move the name down */
         }
 
         .header-content {
@@ -106,14 +106,14 @@
 
         .header-title {
             margin-bottom: 0.5rem;
-            font-weight: 300; /* Changed font weight to 300 */
+            font-weight: 400; /* Changed font weight to 400 */
         }
 
         .position-link {
             position: relative;
             top: -10px;
             font-size: 19px;
-            font-weight: 300; /* Changed font weight to 300 */
+            font-weight: 400; /* Changed font weight to 400 */
         }
 
         @media (max-width: 768px) {
@@ -178,12 +178,12 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="header-name">
-                <span>sreeman reddy</span>
-            </div>
             <div class="header-content">
                 <div class="header-title">design <span>✺</span> tech <span>∿</span> build <span>◳</span></div>
                 <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
+            </div>
+            <div class="header-name">
+                <span>sreeman reddy</span>
             </div>
         </div>
 
