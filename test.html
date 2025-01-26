@@ -32,7 +32,7 @@
 
         .container {
             max-width: 800px;
-            margin-left: 8vw; /* Shift content slightly to the left */
+            margin-left: 8vw;
             padding-left: 2vw;
         }
 
@@ -77,25 +77,24 @@
             font-weight: normal;
         }
 
-        /* Adjusted Layout for project and contact links beside the name */
-        .project-contact-layout {
-            display: flex;
-            justify-content: flex-start; /* Align to the left */
-            margin-top: 2rem;
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 2rem;
+            align-items: start;
         }
 
-        .project-contact-section {
-            margin-right: 2rem; /* Space between sections */
+        .label {
+            text-align: left;
+            opacity: 0.5;
+            color: black;
+            font-weight: 400;
         }
 
-        .link-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .link-list li {
-            margin-bottom: 0.5rem;
+        .content {
+            margin-bottom: 2rem;
+            color: black;
+            font-weight: 400;
         }
 
         a {
@@ -103,7 +102,7 @@
             text-decoration: none;
             font-weight: 400;
             display: block;
-            margin-left: 0; /* Align links to the left */
+            margin-left: 0;
         }
 
         a:hover {
@@ -116,21 +115,14 @@
             margin-left: 0.25rem;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                max-width: 90%;
-                margin-left: 5vw;
-            }
-
-            .project-contact-layout {
-                flex-direction: column; /* Stack the project and contact sections on mobile */
-            }
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        @media (max-width: 480px) {
-            .container {
-                margin-left: 3vw;
-            }
+        .link-list li {
+            margin-bottom: 0.5rem;
         }
     </style>
 </head>
@@ -147,30 +139,25 @@
             </div>
         </div>
 
-        <!-- New Layout for Project & Contact beside name -->
-        <div class="project-contact-layout">
-            <div class="project-contact-section">
-                <div class="label">project</div>
-                <div class="content">
-                    <ul class="link-list">
-                        <li><a href="https://sreeman.sh" class="external-link">website 2025</a></li>
-                        <li><a href="https://2024.sreeman.app" class="external-link">prev. website</a></li>
-                        <li><a href="https://encom.com" class="external-link">encom</a></li>
-                    </ul>
-                </div>
+        <div class="grid-layout">
+            <div class="label">project</div>
+            <div class="content">
+                <ul class="link-list">
+                    <li><a href="https://sreeman.sh" class="external-link">website 2025</a></li>
+                    <li><a href="https://2024.sreeman.app" class="external-link">prev. website</a></li>
+                    <li><a href="https://encom.com" class="external-link">encom</a></li>
+                </ul>
             </div>
 
-            <div class="project-contact-section">
-                <div class="label">contact</div>
-                <div class="content">
-                    <ul class="link-list">
-                        <li><a>abc@sreeman.sh</a></li>
-                        <li><a href="https://x.com/sreemanrp" class="external-link">twitter</a></li>
-                        <li><a href="https://github.com/sreemanrp" class="external-link">github</a></li>
-                        <li><a href="https://youtube.com/@sreemanrp" class="external-link">youtube</a></li>
-                        <li><a href="https://instagram.com/sreemanrp" class="external-link">instagram</a></li>
-                    </ul>
-                </div>
+            <div class="label">contact</div>
+            <div class="content">
+                <ul class="link-list">
+                    <li><a>abc@sreeman.sh</a></li>
+                    <li><a href="https://x.com/sreemanrp" class="external-link">twitter</a></li>
+                    <li><a href="https://github.com/sreemanrp" class="external-link">github</a></li>
+                    <li><a href="https://youtube.com/@sreemanrp" class="external-link">youtube</a></li>
+                    <li><a href="https://instagram.com/sreemanrp" class="external-link">instagram</a></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -199,18 +186,17 @@
                         element.textContent = text;
                     }
                     iterations += 1;
-                }, 15); // Faster scramble effect
+                }, 15);
             }
 
             specialLink.addEventListener('mouseenter', () => scrambleEffect(specialLink, originalText));
             specialLink.addEventListener('mouseleave', () => {
                 setTimeout(() => {
                     specialLink.textContent = originalText;
-                }, 1600); // Adjust delay if needed
+                }, 1600);
             });
         });
     </script>
-
 </body>
 
 </html>
