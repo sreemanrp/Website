@@ -9,7 +9,6 @@
     <meta property="og:description" content="sreeman - ai engineer">
     <meta property="og:image" content="path/to/og-image.jpg">
     <meta property="og:url" content="https://sreeman.sh">
-    <link rel="stylesheet" href="styles.css">
     <title>sreeman - ai engineer</title>
     <style>
         @font-face {
@@ -33,7 +32,7 @@
 
         .container {
             max-width: 800px;
-            margin-left: 8vw;
+            margin-left: 8vw; /* Shift content slightly to the left */
             padding-left: 2vw;
         }
 
@@ -78,40 +77,15 @@
             font-weight: normal;
         }
 
-        .grid-layout {
-            display: block; /* Change to block for left alignment */
-            margin-left: 0; /* Align all content to the left */
+        /* Adjusted Layout for project and contact links beside the name */
+        .project-contact-layout {
+            display: flex;
+            justify-content: flex-start; /* Align to the left */
+            margin-top: 2rem;
         }
 
-        .label, .content {
-            text-align: left;
-            opacity: 0.5;
-            color: black;
-            font-weight: 400;
-        }
-
-        .content {
-            margin-bottom: 2rem;
-            color: black;
-            font-weight: 400;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            font-weight: 400;
-            display: block;
-            margin-left: 0;
-        }
-
-        a:hover {
-            opacity: 0.7;
-        }
-
-        .external-link::after {
-            content: "↗";
-            display: inline-block;
-            margin-left: 0.25rem;
+        .project-contact-section {
+            margin-right: 2rem; /* Space between sections */
         }
 
         .link-list {
@@ -124,10 +98,32 @@
             margin-bottom: 0.5rem;
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: 400;
+            display: block;
+            margin-left: 0; /* Align links to the left */
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        .external-link::after {
+            content: "↗";
+            display: inline-block;
+            margin-left: 0.25rem;
+        }
+
         @media (max-width: 768px) {
             .container {
                 max-width: 90%;
                 margin-left: 5vw;
+            }
+
+            .project-contact-layout {
+                flex-direction: column; /* Stack the project and contact sections on mobile */
             }
         }
 
@@ -151,25 +147,30 @@
             </div>
         </div>
 
-        <div class="grid-layout">
-            <div class="label">project</div>
-            <div class="content">
-                <ul class="link-list">
-                    <li><a href="https://sreeman.sh" class="external-link">website 2025</a></li>
-                    <li><a href="https://2024.sreeman.app" class="external-link">prev. website</a></li>
-                    <li><a href="https://encom.com" class="external-link">encom</a></li>
-                </ul>
+        <!-- New Layout for Project & Contact beside name -->
+        <div class="project-contact-layout">
+            <div class="project-contact-section">
+                <div class="label">project</div>
+                <div class="content">
+                    <ul class="link-list">
+                        <li><a href="https://sreeman.sh" class="external-link">website 2025</a></li>
+                        <li><a href="https://2024.sreeman.app" class="external-link">prev. website</a></li>
+                        <li><a href="https://encom.com" class="external-link">encom</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="label">contact</div>
-            <div class="content">
-                <ul class="link-list">
-                    <li><a>abc@sreeman.sh</a></li>
-                    <li><a href="https://x.com/sreemanrp" class="external-link">twitter</a></li>
-                    <li><a href="https://github.com/sreemanrp" class="external-link">github</a></li>
-                    <li><a href="https://youtube.com/@sreemanrp" class="external-link">youtube</a></li>
-                    <li><a href="https://instagram.com/sreemanrp" class="external-link">instagram</a></li>
-                </ul>
+            <div class="project-contact-section">
+                <div class="label">contact</div>
+                <div class="content">
+                    <ul class="link-list">
+                        <li><a>abc@sreeman.sh</a></li>
+                        <li><a href="https://x.com/sreemanrp" class="external-link">twitter</a></li>
+                        <li><a href="https://github.com/sreemanrp" class="external-link">github</a></li>
+                        <li><a href="https://youtube.com/@sreemanrp" class="external-link">youtube</a></li>
+                        <li><a href="https://instagram.com/sreemanrp" class="external-link">instagram</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
