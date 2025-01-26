@@ -38,12 +38,12 @@
 
         .grid-layout {
             display: grid;
-            grid-template-columns: 120px 1fr;
+            grid-template-columns: 1fr;
             gap: 2rem;
         }
 
         .label {
-            text-align: right;
+            text-align: left; /* Align text to the left */
             opacity: 0.5;
             color: black;
             font-weight: 400; /* Changed font weight to 400 */
@@ -85,16 +85,17 @@
 
         .header {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 2rem;
+            flex-direction: column;
+            text-align: left; /* Align text to the left */
         }
 
         .header-name {
-            text-align: center; /* Center align text */
+            text-align: left; /* Align text to the left */
             padding-right: 2rem;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Vertically center the content */
         }
 
         .header-name span {
@@ -105,6 +106,7 @@
             flex: 1;
             position: relative;
             white-space: nowrap; /* Prevent wrapping */
+            text-align: left; /* Align text to the left */
         }
 
         .header-title {
@@ -126,26 +128,26 @@
 
             .grid-layout {
                 display: grid;
-                grid-template-columns: 120px 1fr;
+                grid-template-columns: 1fr;
                 gap: 1rem;
             }
 
             .label {
-                text-align: right;
+                text-align: left;
                 opacity: 0.5;
                 color: black;
             }
 
             .header {
                 display: grid;
-                grid-template-columns: 120px 1fr;
+                grid-template-columns: 1fr;
                 gap: 1rem;
                 align-items: flex-start;
             }
 
             .header-name {
                 width: 120px;
-                text-align: right;
+                text-align: left;
                 padding-right: 2rem;
                 display: flex;
                 flex-direction: column;
