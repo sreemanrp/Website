@@ -87,15 +87,18 @@
             display: flex;
             align-items: flex-start;
             margin-bottom: 2rem;
-            flex-wrap: nowrap; /* Prevent wrapping */
         }
 
         .header-name {
-            text-align: right;
+            text-align: center; /* Center align text */
             padding-right: 2rem;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* Move the name down */
+            justify-content: center; /* Vertically center the content */
+        }
+
+        .header-name span {
+            display: block;
         }
 
         .header-content {
@@ -178,12 +181,13 @@
 <body>
     <div class="container">
         <div class="header">
+            <div class="header-name">
+                <span>sreeman</span>
+                <span>reddy</span>
+            </div>
             <div class="header-content">
                 <div class="header-title">design <span>✺</span> tech <span>∿</span> build <span>◳</span></div>
                 <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
-            </div>
-            <div class="header-name">
-                <span>sreeman reddy</span>
             </div>
         </div>
 
