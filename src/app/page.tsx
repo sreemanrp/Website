@@ -19,8 +19,6 @@ export default function Home() {
               <h1>
                 <ScrambleCombined
                   delay={0}
-                  scrambledLetterCount={SCRAMBLED_LETTER_COUNT}
-                  scrambleSpeed={SCRAMBLE_SPEED}
                 >
                   Sreeman Reddy
                 </ScrambleCombined>
@@ -30,8 +28,6 @@ export default function Home() {
               <h1 className="pb-0.5 md:pb-0.5 lg>pb-1">
                 <ScrambleIn
                   delay={getAnimationDuration("Sreeman Reddy")}
-                  scrambledLetterCount={SCRAMBLED_LETTER_COUNT}
-                  scrambleSpeed={SCRAMBLE_SPEED}
                 >
                   design ✺ tech ∿ build ◳
                 </ScrambleIn>
@@ -43,8 +39,6 @@ export default function Home() {
               >
                 <ScrambleCombined
                   delay={getAnimationDuration("Sreeman Reddy") + ROW_DELAY}
-                  scrambledLetterCount={SCRAMBLED_LETTER_COUNT}
-                  scrambleSpeed={SCRAMBLE_SPEED}
                   className="whitespace-pre"
                 >
                   <span className="w-full whitespace-pre">
@@ -63,8 +57,6 @@ export default function Home() {
             <h2 className="w-1/5 text-right pr-4 sm:pr-6 md:pr-8 lg:pr-12 sm:w-1/3 md:w-1/4 lg:w-1/4 xl:w-[22%]">
               <ScrambleIn
                 delay={ROW_DELAY * 3}
-                scrambledLetterCount={SCRAMBLED_LETTER_COUNT}
-                scrambleSpeed={SCRAMBLE_SPEED}
               >
                 past
               </ScrambleIn>
@@ -94,8 +86,6 @@ export default function Home() {
                       getAnimationDuration("Sreeman Reddy") +
                       ROW_DELAY * index
                     }
-                    scrambledLetterCount={SCRAMBLED_LETTER_COUNT}
-                    scrambleSpeed={SCRAMBLE_SPEED}
                     containerClassName="group justify-between border-b-2 md:hover:border-foreground border-b-transparent cursor-pointer pb-0.5 md:pb-0.5 lg:pb-1"
                   />
                 </a>
@@ -108,8 +98,6 @@ export default function Home() {
             <h2 className="w-1/5 text-right pr-4 sm:pr-6 md:pr-8 lg:pr-12  sm:w-1/3 md:w-1/4 lg:w-1/4 xl:w-[22%]">
               <ScrambleIn
                 delay={ROW_DELAY * 7}
-                scrambledLetterCount={SCRAMBLED_LETTER_COUNT}
-                scrambleSpeed={SCRAMBLE_SPEED}
               >
                 <span className="md:hidden">proj</span>
                 <span className="hidden md:block">projects</span>
@@ -143,8 +131,6 @@ export default function Home() {
                       img={project.img}
                       imgAlt={`${project.title} project thumbnail`}
                       showImage={true}
-                      scrambledLetterCount={SCRAMBLED_LETTER_COUNT}
-                      scrambleSpeed={SCRAMBLE_SPEED}
                       containerClassName="group justify-between border-b-2 md:hover:border-foreground border-b-transparent cursor-pointer pb-0.5 md:pb-0.5 lg:pb-1"
                     />
                   </a>
