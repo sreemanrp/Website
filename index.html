@@ -36,10 +36,37 @@
             margin: 0 auto;
         }
 
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .header-name {
+            text-align: left; /* Align text to the left */
+            margin-right: 2rem;
+            white-space: nowrap;
+        }
+
+        .header-content {
+            flex: 1;
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        .header-title {
+            margin-bottom: 0.5rem;
+            font-weight: 400; /* Changed font weight to 400 */
+        }
+
+        .position-link {
+            font-size: 19px;
+            font-weight: 400; /* Changed font weight to 400 */
+        }
+
         .grid-layout {
             display: flex;
-            flex-direction: row;
             gap: 2rem;
+            align-items: flex-start;
         }
 
         .label {
@@ -84,44 +111,14 @@
             margin-bottom: 0.5rem;
         }
 
-        .header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .header-name {
-            text-align: left; /* Align text to the left */
-            display: flex;
-            flex-direction: column;
-        }
-
-        .header-name span {
-            display: block;
-        }
-
-        .header-content {
-            flex: 1;
-            position: relative;
-            white-space: nowrap; /* Prevent wrapping */
-            text-align: left; /* Align text to the left */
-        }
-
-        .header-title {
-            margin-bottom: 0.5rem;
-            font-weight: 400; /* Changed font weight to 400 */
-        }
-
-        .position-link {
-            position: relative;
-            top: -10px;
-            font-size: 19px;
-            font-weight: 400; /* Changed font weight to 400 */
-        }
-
         @media (max-width: 768px) {
             body {
                 font-size: 21px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             .grid-layout {
@@ -134,21 +131,8 @@
                 color: black;
             }
 
-            .header {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                align-items: flex-start;
-            }
-
-            .header-name {
-                text-align: left;
-                display: flex;
-                flex-direction: column;
-            }
-
             .header-content {
-                text-align: left;
+                margin-top: 1rem;
             }
 
             .position-link {
@@ -179,7 +163,6 @@
         <div class="header">
             <div class="header-name">
                 <span>sreeman</span>
-                <span>reddy</span>
             </div>
             <div class="header-content">
                 <div class="header-title">design <span>✺</span> tech <span>∿</span> build <span>◳</span></div>
@@ -196,7 +179,9 @@
                     <li><a href="https://kluniversity.in" class="external-link">tech & research intern, kl university</a></li>
                 </ul>
             </div>
+        </div>
 
+        <div class="grid-layout">
             <div class="label">contact</div>
             <div class="content">
                 <ul class="link-list">
