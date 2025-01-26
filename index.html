@@ -25,71 +25,34 @@
             padding: 5vh 5vw;
             font-family: 'Satoshi-Variable', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.5;
-            font-size: 18px;
+            font-size: 18px; /* Increased font size */
             color: #000;
-            font-weight: 400;
+            font-weight: 400; /* Changed font weight to 400 */
             background-color: #f5f5f5;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .header-name {
-            text-align: left;
-            margin-right: 2rem;
-            white-space: nowrap;
-            font-weight: 400;
-        }
-
-        .header-content {
-            flex: 1;
-            white-space: nowrap;
-        }
-
-        .header-title {
-            margin-bottom: 0.5rem;
-            font-weight: 400;
-        }
-
-        .position-link {
-            font-size: 19px;
-            font-weight: 400;
-        }
-
         .grid-layout {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 2rem;
         }
 
         .label {
-            text-align: left;
+            text-align: right;
             opacity: 0.5;
             color: black;
-            font-weight: 400;
-            min-width: 120px;
+            font-weight: 400; /* Changed font weight to 400 */
         }
 
         .content {
+            margin-bottom: 2rem;
             color: black;
-            font-weight: 400;
-            flex: 1;
-            display: flex;
-            justify-content: center;
+            font-weight: 400; /* Changed font weight to 400 */
         }
 
         a {
@@ -97,7 +60,7 @@
             text-decoration: none;
             position: relative;
             display: inline-block;
-            font-weight: 400;
+            font-weight: 400; /* Changed font weight to 400 */
         }
 
         a:hover {
@@ -114,11 +77,46 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            font-weight: 400;
         }
 
         .link-list li {
             margin-bottom: 0.5rem;
+        }
+
+        .header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .header-name {
+            text-align: center; /* Center align text */
+            padding-right: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertically center the content */
+        }
+
+        .header-name span {
+            display: block;
+        }
+
+        .header-content {
+            flex: 1;
+            position: relative;
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        .header-title {
+            margin-bottom: 0.5rem;
+            font-weight: 400; /* Changed font weight to 400 */
+        }
+
+        .position-link {
+            position: relative;
+            top: -10px;
+            font-size: 19px;
+            font-weight: 400; /* Changed font weight to 400 */
         }
 
         @media (max-width: 768px) {
@@ -126,22 +124,35 @@
                 font-size: 21px;
             }
 
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .row {
-                flex-direction: column;
-                align-items: flex-start;
+            .grid-layout {
+                display: grid;
+                grid-template-columns: 120px 1fr;
+                gap: 1rem;
             }
 
             .label {
-                text-align: left;
+                text-align: right;
+                opacity: 0.5;
+                color: black;
+            }
+
+            .header {
+                display: grid;
+                grid-template-columns: 120px 1fr;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .header-name {
+                width: 120px;
+                text-align: right;
+                padding-right: 2rem;
+                display: flex;
+                flex-direction: column;
             }
 
             .header-content {
-                margin-top: 1rem;
+                flex: 1;
             }
 
             .position-link {
@@ -155,7 +166,7 @@
             }
 
             .container {
-                max-width: 1200px;
+                max-width: 1600px;
             }
         }
 
@@ -171,37 +182,35 @@
     <div class="container">
         <div class="header">
             <div class="header-name">
-                <span>sreeman reddy</span>
+                <span>sreeman</span>
+                <span>reddy</span>
             </div>
             <div class="header-content">
                 <div class="header-title">design <span>✺</span> tech <span>∿</span> build <span>◳</span></div>
-                <a href="#" class="external-link position-link" id="special-link">founder & ceo @ Encom</a>
+                <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
             </div>
         </div>
 
         <div class="grid-layout">
-            <div class="row">
-                <div class="label">project</div>
-                <div class="content">
-                    <ul class="link-list">
-                        <li><a href="https://sreeman.sh" class="external-link">Portfolio</a></li>
-                        <li><a href="https://2024.sreeman.app" class="external-link">Prev. Portfolio</a></li>
-                        <li><a href="https://encom.vercel.app" class="external-link">Encom</a></li>
-                        <li><a href="https://github.com/sreemanrp/Notes" class="external-link">Notes</a></li>
-                    </ul>
-                </div>
+            <div class="label">education</div>
+            <div class="content">
+                <ul class="link-list">
+                    <li><a href="https://bhashyam.in" class="external-link">intermediate, bhashyam</a></li>
+                    <li><a href="https://kluniversity.in" class="external-link">studying ai&ds, kl university</a></li>
+                    <li><a href="https://kluniversity.in" class="external-link">tech & research intern, kl
+                            university</a></li>
+                </ul>
             </div>
 
-            <div class="row">
-                <div class="label">contact</div>
-                <div class="content">
-                    <ul class="link-list">
-                        <li><a href="https://x.com/sreemanrp" class="external-link">twitter</a></li>
-                        <li><a href="https://" class="external-link">github</a></li>
-                        <li><a href="https://youtube.com/@sreemanrp" class="external-link">youtube</a></li>
-                        <li><a href="https://instagram.com/sreemanrp" class="external-link">instagram</a></li>
-                    </ul>
-                </div>
+            <div class="label">contact</div>
+            <div class="content">
+                <ul class="link-list">
+                    <li><a href="mailto:sreemanthink@gmail.com">abc@sreeman.sh</a></li>
+                    <li><a href="https://x.com/sreemanrp" class="external-link">twitter</a></li>
+                    <li><a href="https://" class="external-link">github</a></li>
+                    <li><a href="https://youtube.com/@sreemanrp" class="external-link">youtube</a></li>
+                    <li><a href="https://instagram.com/sreemanrp" class="external-link">instagram</a></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -230,14 +239,14 @@
                         element.textContent = text;
                     }
                     iterations += 1;
-                }, 15);
+                }, 15); // Faster scramble effect
             }
 
             specialLink.addEventListener('mouseenter', () => scrambleEffect(specialLink, originalText));
             specialLink.addEventListener('mouseleave', () => {
                 setTimeout(() => {
                     specialLink.textContent = originalText;
-                }, 1600);
+                }, 1600); // Adjust delay if needed
             });
         });
     </script>
