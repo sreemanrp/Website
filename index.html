@@ -37,8 +37,8 @@
         }
 
         .grid-layout {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: row;
             gap: 2rem;
         }
 
@@ -47,6 +47,7 @@
             opacity: 0.5;
             color: black;
             font-weight: 400; /* Changed font weight to 400 */
+            min-width: 120px; /* Ensure labels have a minimum width */
         }
 
         .content {
@@ -86,7 +87,6 @@
         .header {
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Space between items */
             margin-bottom: 2rem;
         }
 
@@ -104,7 +104,7 @@
             flex: 1;
             position: relative;
             white-space: nowrap; /* Prevent wrapping */
-            text-align: right; /* Align text to the right */
+            text-align: left; /* Align text to the left */
         }
 
         .header-title {
@@ -125,9 +125,7 @@
             }
 
             .grid-layout {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 1rem;
+                flex-direction: column;
             }
 
             .label {
