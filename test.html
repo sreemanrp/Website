@@ -22,7 +22,7 @@
 
         body {
             margin: 0;
-            padding: 5vh 5vw;
+            padding: 5vh 2vw;
             font-family: 'Satoshi-Variable', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.5;
             font-size: 18px;
@@ -33,14 +33,44 @@
 
         .container {
             max-width: 800px;
-            margin: 0 auto 0 5vw; /* Shifted content slightly to the left */
+            margin: 0 auto 0 8vw;
             padding-left: 2vw;
+        }
+
+        .header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .header-name {
+            text-align: left;
+            padding-right: 2rem;
+            display: flex;
+            flex-direction: column;
+            font-weight: normal;
+        }
+
+        .header-content {
+            flex: 1;
+            white-space: nowrap;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-title {
+            font-weight: normal;
+        }
+
+        .position-link {
+            font-size: 19px;
+            font-weight: normal;
         }
 
         .grid-layout {
             display: grid;
             grid-template-columns: 120px 1fr;
-            gap: 1.5rem;
+            gap: 2rem;
             align-items: start;
         }
 
@@ -52,7 +82,7 @@
         }
 
         .content {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             color: black;
             font-weight: 400;
         }
@@ -83,53 +113,16 @@
             margin-bottom: 0.5rem;
         }
 
-        .header {
-            display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            align-items: start;
-        }
-
-        .header-title {
-            font-weight: 400;
-            white-space: nowrap;
-        }
-
-        .position-link {
-            font-size: 16px;
-            font-weight: 400;
-            white-space: nowrap;
-            display: block;
-        }
-
         @media (max-width: 768px) {
-            body {
-                font-size: 19px;
-            }
-
             .container {
                 max-width: 90%;
-                margin-left: 3vw; /* Less shift on smaller screens */
-            }
-
-            .grid-layout {
-                grid-template-columns: 100px 1fr;
-                gap: 1rem;
-            }
-
-            .header {
-                grid-template-columns: 100px 1fr;
+                margin-left: 5vw;
             }
         }
 
         @media (max-width: 480px) {
-            body {
-                font-size: 17px;
-            }
-
             .container {
-                margin-left: 2vw; /* Even less shift for very small screens */
+                margin-left: 3vw;
             }
         }
     </style>
@@ -137,20 +130,24 @@
 
 <body>
     <div class="container">
-        <div class="grid-layout">
-            <div class="label">name</div>
-            <div class="content">
-                Sreeman Reddy <br>
-                <span class="header-title">design ✺ tech ∿ build ◳</span><br>
-                <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
+        <div class="header">
+            <div class="header-name">
+                <span>Sreeman</span>
+                <span>Reddy</span>
             </div>
+            <div class="header-content">
+                <div class="header-title">design <span>✺</span> tech <span>∿</span> build <span>◳</span></div>
+                <a href="#" class="external-link position-link">founder & COO @ Encom</a>
+            </div>
+        </div>
 
+        <div class="grid-layout">
             <div class="label">project</div>
             <div class="content">
                 <ul class="link-list">
                     <li><a href="https://sreeman.sh" class="external-link">website 2025</a></li>
                     <li><a href="https://2024.sreeman.app" class="external-link">prev. website</a></li>
-                    <li><a href="https://encom.com" class="external-link">encom </a></li>
+                    <li><a href="https://encom.com" class="external-link">encom</a></li>
                 </ul>
             </div>
 
@@ -191,17 +188,18 @@
                         element.textContent = text;
                     }
                     iterations += 1;
-                }, 15);
+                }, 15); // Faster scramble effect
             }
 
             specialLink.addEventListener('mouseenter', () => scrambleEffect(specialLink, originalText));
             specialLink.addEventListener('mouseleave', () => {
                 setTimeout(() => {
                     specialLink.textContent = originalText;
-                }, 1600);
+                }, 1600); // Adjust delay if needed
             });
         });
     </script>
 
 </body>
+
 </html>
