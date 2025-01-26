@@ -39,21 +39,18 @@
         .header {
             display: flex;
             align-items: flex-start;
-            justify-content: space-between;
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
         .header-name {
-            display: flex;
-            flex-direction: column;
             font-size: 22px;
-            font-weight: 600;
+            font-weight: normal; /* Normal font weight */
         }
 
-        .header-title-container {
+        .header-info {
             display: flex;
             flex-direction: column;
-            text-align: left;
         }
 
         .header-title {
@@ -135,7 +132,7 @@
                 align-items: flex-start;
             }
 
-            .header-title-container {
+            .header-info {
                 margin-top: 0.5rem;
             }
         }
@@ -166,11 +163,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="header-name">
-                <span>Sreeman</span>
-                <span>Reddy</span>
-            </div>
-            <div class="header-title-container">
+            <div class="header-name">Sreeman Reddy</div>
+            <div class="header-info">
                 <div class="header-title">
                     design <span>✺</span> tech <span>∿</span> build <span>◳</span>
                 </div>
