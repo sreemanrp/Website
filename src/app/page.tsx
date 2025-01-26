@@ -1,6 +1,3 @@
-import ScrambleCombined from "@/components/scramble-combined";
-import ScrambleIn from "@/components/scramble-in";
-import ScrambleCombinedPair from "@/components/scramble-combined-pair";
 import { experiences, projects, socials } from "@/data/content";
 
 const ROW_DELAY = 30;
