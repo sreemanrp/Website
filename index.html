@@ -87,10 +87,11 @@
             display: flex;
             align-items: flex-start;
             margin-bottom: 2rem;
+            flex-wrap: nowrap; /* Prevent wrapping */
         }
 
         .header-name {
-            width: 120px;
+            white-space: nowrap; /* Prevent wrapping */
             text-align: right;
             padding-right: 2rem;
             display: flex;
@@ -100,6 +101,7 @@
         .header-content {
             flex: 1;
             position: relative;
+            white-space: nowrap; /* Prevent wrapping */
         }
 
         .header-title {
