@@ -33,7 +33,7 @@
 
         .container {
             max-width: 800px;
-            margin-left: 8vw; /* Shift content slightly to the left */
+            margin-left: 8vw;
             padding-left: 2vw;
         }
 
@@ -63,14 +63,14 @@
         }
 
         .header-title span {
-            font-size: 1.5em; /* Default size for all symbols */
-            font-weight: bold; /* Default weight for all symbols */
+            font-size: 1.5em;
+            font-weight: bold;
         }
 
-        .header-title span:nth-child(2), 
+        .header-title span:nth-child(2),
         .header-title span:nth-child(3) {
-            font-size: 20px; /* Set font size specifically for ∿ and ◳ */
-            font-weight: 600; /* Optional: Keep the weight if you prefer it bold */
+            font-size: 20px;
+            font-weight: 600;
         }
 
         .position-link {
@@ -79,14 +79,12 @@
         }
 
         .grid-layout {
-            display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: 2rem;
-            align-items: start;
+            display: block; /* Change to block for left alignment */
+            margin-left: 0; /* Align all content to the left */
         }
 
-        .label {
-            text-align: left; /* Align to the left like the name */
+        .label, .content {
+            text-align: left;
             opacity: 0.5;
             color: black;
             font-weight: 400;
@@ -103,7 +101,7 @@
             text-decoration: none;
             font-weight: 400;
             display: block;
-            margin-left: 0; /* Align links to the left */
+            margin-left: 0;
         }
 
         a:hover {
@@ -213,4 +211,5 @@
     </script>
 
 </body>
+
 </html>
