@@ -36,6 +36,38 @@
             margin: 0 auto;
         }
 
+        .header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .header-name {
+            display: flex;
+            flex-direction: column;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .header-title-container {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .header-title {
+            white-space: nowrap;
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        .position-link {
+            font-size: 16px;
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
         .grid-layout {
             display: grid;
             grid-template-columns: 120px 1fr;
@@ -84,36 +116,6 @@
             margin-bottom: 0.5rem;
         }
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            gap: 1rem; /* Ensures spacing between name and details */
-            flex-wrap: nowrap;
-        }
-
-        .header-name {
-            white-space: nowrap;
-            font-weight: 600;
-        }
-
-        .header-title {
-            font-weight: 400;
-            white-space: nowrap;
-        }
-
-        .position-link {
-            font-size: 18px;
-            font-weight: 400;
-            white-space: nowrap;
-        }
-
         @media (max-width: 768px) {
             body {
                 font-size: 19px;
@@ -133,9 +135,8 @@
                 align-items: flex-start;
             }
 
-            .header-content {
-                flex-direction: column;
-                align-items: flex-start;
+            .header-title-container {
+                margin-top: 0.5rem;
             }
         }
 
@@ -154,7 +155,7 @@
                 font-size: 17px;
             }
 
-            .header-content {
+            .header {
                 flex-direction: column;
                 align-items: flex-start;
             }
@@ -165,12 +166,15 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="header-content">
-                <div class="header-name">sreeman reddy</div>
+            <div class="header-name">
+                <span>Sreeman</span>
+                <span>Reddy</span>
+            </div>
+            <div class="header-title-container">
                 <div class="header-title">
-                    design <span>✺</span> tech <span>∿</span> build <span>◳</span> 
-                    <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
+                    design <span>✺</span> tech <span>∿</span> build <span>◳</span>
                 </div>
+                <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
             </div>
         </div>
 
