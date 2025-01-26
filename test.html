@@ -32,7 +32,7 @@
         }
 
         .container {
-            max-width: 750px; /* Adjusted width to keep content left-aligned */
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -86,27 +86,32 @@
 
         .header {
             display: flex;
-            justify-content: space-between; /* Ensures the header is balanced */
+            justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
-            gap: 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem; /* Ensures spacing between name and details */
+            flex-wrap: nowrap;
         }
 
         .header-name {
-            text-align: right;
-            display: flex;
-            flex-direction: column;
+            white-space: nowrap;
+            font-weight: 600;
         }
 
         .header-title {
-            margin-bottom: 0.5rem;
             font-weight: 400;
+            white-space: nowrap;
         }
 
         .position-link {
             font-size: 18px;
             font-weight: 400;
-            white-space: nowrap; /* Ensures it stays on the same line */
+            white-space: nowrap;
         }
 
         @media (max-width: 768px) {
@@ -128,8 +133,9 @@
                 align-items: flex-start;
             }
 
-            .position-link {
-                font-size: 19px;
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
 
@@ -147,6 +153,11 @@
             body {
                 font-size: 17px;
             }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -154,13 +165,12 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="header-name">
-                <span>sreeman</span>
-                <span>reddy</span>
-            </div>
             <div class="header-content">
-                <div class="header-title">design <span>✺</span> tech <span>∿</span> build <span>◳</span></div>
-                <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
+                <div class="header-name">sreeman reddy</div>
+                <div class="header-title">
+                    design <span>✺</span> tech <span>∿</span> build <span>◳</span> 
+                    <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
+                </div>
             </div>
         </div>
 
