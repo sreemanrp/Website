@@ -9,6 +9,7 @@
     <meta property="og:description" content="sreeman - ai engineer">
     <meta property="og:image" content="path/to/og-image.jpg">
     <meta property="og:url" content="https://sreeman.sh">
+    <link rel="stylesheet" href="styles.css">
     <title>sreeman - ai engineer</title>
     <style>
         @font-face {
@@ -21,7 +22,7 @@
 
         body {
             margin: 0;
-            padding: 5vh 2vw;
+            padding: 5vh 5vw;
             font-family: 'Satoshi-Variable', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.5;
             font-size: 18px;
@@ -31,55 +32,19 @@
         }
 
         .container {
-            max-width: 800px;
-            margin-left: 8vw;
-            padding-left: 2vw;
-        }
-
-        .header {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 2rem;
-        }
-
-        .header-name {
-            text-align: left;
-            padding-right: 2rem;
-            display: flex;
-            flex-direction: column;
-            font-weight: normal;
-        }
-
-        .header-content {
-            flex: 1;
-            white-space: nowrap;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .header-title {
-            font-weight: normal;
-        }
-
-        .header-title span {
-            font-size: 1.5em; /* Default size for all symbols */
-            font-weight: normal; /* Default weight for all symbols */
-        }
-
-        .position-link {
-            font-size: 19px;
-            font-weight: normal;
+            max-width: 1000px;
+            width: 90%;
+            margin: 0 auto;
         }
 
         .grid-layout {
             display: grid;
             grid-template-columns: 120px 1fr;
             gap: 2rem;
-            align-items: start;
         }
 
         .label {
-            text-align: left;
+            text-align: right;
             opacity: 0.5;
             color: black;
             font-weight: 400;
@@ -94,9 +59,9 @@
         a {
             color: inherit;
             text-decoration: none;
+            position: relative;
+            display: inline-block;
             font-weight: 400;
-            display: block;
-            margin-left: 0;
         }
 
         a:hover {
@@ -118,6 +83,105 @@
         .link-list li {
             margin-bottom: 0.5rem;
         }
+
+        .header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .header-name {
+            text-align: center;
+            padding-right: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header-name span {
+            display: block;
+        }
+
+        .header-content {
+            flex: 1;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .header-title {
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .position-link {
+            position: relative;
+            top: -10px;
+            font-size: 19px;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 21px;
+            }
+
+            .grid-layout {
+                display: grid;
+                grid-template-columns: 120px 1fr;
+                gap: 1rem;
+            }
+
+            .label {
+                text-align: right;
+                opacity: 0.5;
+                color: black;
+            }
+
+            .header {
+                display: grid;
+                grid-template-columns: 120px 1fr;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .header-name {
+                width: 120px;
+                text-align: right;
+                padding-right: 2rem;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .header-content {
+                flex: 1;
+            }
+            .container {
+                width: 95%;
+            }
+
+            .position-link {
+                font-size: 22px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            body {
+                font-size: 24px;
+            }
+
+            .container {
+                max-width: 1400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 18px;
+            }
+            .container {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -125,11 +189,12 @@
     <div class="container">
         <div class="header">
             <div class="header-name">
-                <span>sreeman<br> reddy</span>
+                <span>sreeman</span>
+                <span>reddy</span>
             </div>
             <div class="header-content">
                 <div class="header-title">design <span>✺</span> tech <span>∿</span> build <span>◳</span></div>
-                <a href="#" class="external-link position-link">founder & COO @ Encom</a>
+                <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
             </div>
         </div>
 
@@ -137,16 +202,16 @@
             <div class="label">project</div>
             <div class="content">
                 <ul class="link-list">
-                    <li><a href="https://sreeman.sh" class="external-link">website 2025</a></li>
+                    <li><a href="https://sreeman.sh" class="external-link">webite 2025</a></li>
                     <li><a href="https://2024.sreeman.app" class="external-link">prev. website</a></li>
-                    <li><a href="https://encom.com" class="external-link">encom</a></li>
+                    <li><a href="https://encom.com" class="external-link">encom </a></li>
                 </ul>
             </div>
 
             <div class="label">contact</div>
             <div class="content">
                 <ul class="link-list">
-                    <li><a>abc@sreeman.sh</a></li>
+                    <li><a><span class="__cf_email__" data-cfemail="8decefeecdfeffe8e8e0ece3a3fee5">[email&#160;protected]</span></a></li>
                     <li><a href="https://x.com/sreemanrp" class="external-link">twitter</a></li>
                     <li><a href="https://github.com/sreemanrp" class="external-link">github</a></li>
                     <li><a href="https://youtube.com/@sreemanrp" class="external-link">youtube</a></li>
@@ -156,7 +221,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         document.addEventListener('DOMContentLoaded', function () {
             const specialLink = document.getElementById('special-link');
             const originalText = specialLink.textContent;
@@ -191,6 +256,6 @@
             });
         });
     </script>
-</body>
 
+</body>
 </html>
