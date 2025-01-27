@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Designer Portfolio</title>
+    <title>sreeman - ai engineer</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        ::-webkit-scrollbar {
+            display: none;
+            width: 0;
+            background: transparent;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        html {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
         }
 
         body {
@@ -20,15 +33,14 @@
             font-size: 20px;
             opacity: 0;
             transition: opacity 1s ease-in;
+            overflow-y: scroll;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
         }
 
         body::-webkit-scrollbar {
-            display: none;
-        }
-
-        body {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+            width: 0;
+            height: 0;
         }
 
         .container {
@@ -77,28 +89,28 @@
 </head>
 <body>
     <div class="container">
-        <section class="screen" id="contact">
-            <div class="content">
-                <p>dms are opened on <span class="underline">twitter</span> and <span class="underline">telegram</span>. i can do <span class="underline">email</span> too. love.</p>
-                <p class="update">updated on oct 13th 2023.</p>
-            </div>
-        </section>
-
         <section class="screen" id="intro">
             <div class="content">
-                <p>i'm a designer currently living in nyc. i've been designing different type of things for the internet, from tiny controversial experiments to larger-scale consumer products through conceptual art images i share on <span class="underline">twitter</span>. <span class="underline" id="scroll-down">scroll down</span> to check out my journey.</p>
+                <p>i'm a student currently living in india. i've been designing different type of things for the internet, from tiny controversial experiments to larger-scale consumer products through conceptual art images i share on <span class="underline">twitter</span>. <span class="underline" id="scroll-down">scroll down</span> to check out my journey.</p>
             </div>
         </section>
 
         <section class="screen" id="journey">
             <div class="content">
-                <p>i started sharing free ideas organically on <span class="underline">twitter</span>, on apr 1 2021. the first idea was an april fool and i kept going from there. i use interface elements and internet brands to express my emotions and ideas.</p>
+                <p>i started sharing free ideas organically on <span class="underline">twitter</span>, on jan 1th 2025. the first idea was based on ai. i use interface elements and internet brands to express my emotions and ideas.</p>
             </div>
         </section>
 
         <section class="screen" id="background">
             <div class="content">
-                <p>born and raised in paris, france. i started designing at 16 on a cracked version of photoshop cs2. my first gigs were terrible logos & websites for my counter strike friends. aim, msn or mirc. the early days of remote work.</p>
+                <p>born and raised in andhra pradesh, india. i started designing at 16 on a cracked version of photoshop cs2. my first gigs were terrible logos & websites for my counter strike friends. aim, msn or mirc.</p>
+            </div>
+        </section>
+
+        <section class="screen" id="contact">
+            <div class="content">
+                <p>dms are opened on <span class="underline">twitter</span> and <span class="underline">discord</span>. i can do <span class="underline">email</span> too. love.</p>
+                <p class="update">updated on jan 1th 2025.</p>
             </div>
         </section>
     </div>
