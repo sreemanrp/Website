@@ -18,6 +18,17 @@
             line-height: 1.6;
             overflow-x: hidden;
             font-size: 20px;
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
         .container {
@@ -96,6 +107,9 @@
         document.addEventListener('DOMContentLoaded', () => {
             const screens = document.querySelectorAll('.screen');
             
+            // Fade in the body
+            document.body.style.opacity = '1';
+
             // Initial check for visible sections
             checkVisibility();
 
@@ -120,10 +134,8 @@
             // Add click event listener to the "scroll down" text
             const scrollDownElement = document.getElementById('scroll-down');
             scrollDownElement.addEventListener('click', () => {
-                window.scrollTo({
-                    top: window.innerHeight,
-                    behavior: 'smooth'
-                });
+                const nextScreen = document.getElementById('journey');
+                nextScreen.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
