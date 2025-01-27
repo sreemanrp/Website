@@ -20,9 +20,13 @@
             font-style: normal;
         }
 
-        body {
+        /* Prevents unwanted scrolling */
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
             font-family: 'Satoshi-Variable', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.5;
             font-size: 18px;
@@ -31,7 +35,7 @@
             background-color: #f5f5f5;
             display: flex;
             justify-content: center;
-            min-height: 100vh;
+            align-items: center;
         }
 
         .container {
@@ -39,6 +43,7 @@
             width: 90%;
             padding: 5vh 5vw;
             box-sizing: border-box;
+            overflow: hidden; /* Ensures no content overflows */
         }
 
         .grid-layout {
@@ -92,6 +97,7 @@
             display: flex;
             align-items: flex-start;
             margin-bottom: 2rem;
+            flex-wrap: wrap; /* Ensures proper wrapping */
         }
 
         .header-name {
@@ -109,7 +115,8 @@
         .header-content {
             flex: 1;
             position: relative;
-            white-space: nowrap;
+            white-space: normal; /* Prevents unwanted horizontal scrolling */
+            overflow: hidden;
         }
 
         .header-title {
@@ -130,35 +137,32 @@
             }
 
             .grid-layout {
-                display: grid;
-                grid-template-columns: 120px 1fr;
+                grid-template-columns: 1fr; /* Single column for small screens */
                 gap: 1rem;
             }
 
             .label {
-                text-align: right;
+                text-align: left;
                 opacity: 0.5;
                 color: black;
             }
 
             .header {
-                display: grid;
-                grid-template-columns: 120px 1fr;
-                gap: 1rem;
-                align-items: flex-start;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
 
             .header-name {
-                width: 120px;
-                text-align: right;
-                padding-right: 2rem;
-                display: flex;
-                flex-direction: column;
+                width: auto;
+                text-align: center;
+                padding-right: 0;
             }
 
             .header-content {
                 flex: 1;
             }
+
             .container {
                 width: 95%;
                 padding: 3vh 2.5vw;
@@ -208,9 +212,9 @@
             <div class="label">project</div>
             <div class="content">
                 <ul class="link-list">
-                    <li><a href="https://sreeman.sh" class="external-link">webite 2025</a></li>
+                    <li><a href="https://sreeman.sh" class="external-link">website 2025</a></li>
                     <li><a href="https://2024.sreeman.app" class="external-link">prev. website</a></li>
-                    <li><a href="https://encom.com" class="external-link">encom </a></li>
+                    <li><a href="https://encom.com" class="external-link">encom</a></li>
                 </ul>
             </div>
 
@@ -227,7 +231,7 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             const specialLink = document.getElementById('special-link');
             const originalText = specialLink.textContent;
@@ -265,4 +269,3 @@
 
 </body>
 </html>
-
