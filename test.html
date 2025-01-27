@@ -92,21 +92,17 @@
         }
 
         .header {
-            display: flex;
-            align-items: flex-start;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 2rem;
             margin-bottom: 2rem;
         }
 
         .header-name {
-            text-align: center;
-            padding-right: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .header-name span {
-            display: block;
+            text-align: right;
+            opacity: 0.5;
+            color: black;
+            font-weight: 400;
         }
 
         .header-content {
@@ -180,13 +176,9 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="header-name">
-                <span>sreeman</span>
-                <span>reddy</span>
-            </div>
-            <div class="header-content">
-                <div class="header-title">design <span>✺</span> tech <span>∿</span> build <span>◳</span></div>
-                <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
+            <div class="label">name</div>
+            <div class="content">
+                sreeman reddy
             </div>
         </div>
 
