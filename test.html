@@ -29,15 +29,12 @@
             color: #000;
             font-weight: 400;
             background-color: #f5f5f5;
-            display: flex;
-            justify-content: flex-start; /* Move everything left */
-            align-items: flex-start;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         .container {
-            max-width: 800px;
-            width: 90%;
-            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 0 2rem; /* Add padding for better alignment */
         }
 
         .grid-layout {
@@ -91,13 +88,14 @@
             display: flex;
             align-items: flex-start;
             margin-bottom: 2rem;
-            flex-direction: column;
         }
 
         .header-name {
-            font-size: 32px;
-            font-weight: 600;
-            line-height: 1.1;
+            text-align: center;
+            padding-right: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .header-name span {
@@ -105,19 +103,21 @@
         }
 
         .header-content {
-            margin-top: 0.5rem;
+            flex: 1;
+            position: relative;
+            white-space: nowrap;
         }
 
         .header-title {
-            font-size: 20px;
+            margin-bottom: 0.5rem;
             font-weight: 400;
         }
 
         .position-link {
-            font-size: 18px;
+            position: relative;
+            top: -12px;
+            font-size: 19px;
             font-weight: 400;
-            display: block;
-            margin-top: 5px;
         }
 
         @media (max-width: 768px) {
@@ -126,11 +126,19 @@
             }
 
             .grid-layout {
+                display: grid;
                 grid-template-columns: 120px 1fr;
                 gap: 1rem;
             }
 
+            .label {
+                text-align: right;
+                opacity: 0.5;
+                color: black;
+            }
+
             .header {
+                display: grid;
                 grid-template-columns: 120px 1fr;
                 gap: 1rem;
                 align-items: flex-start;
@@ -138,7 +146,14 @@
 
             .header-name {
                 width: 120px;
-                text-align: left;
+                text-align: right;
+                padding-right: 2rem;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .header-content {
+                flex: 1;
             }
 
             .position-link {
@@ -149,10 +164,6 @@
         @media (min-width: 1920px) {
             body {
                 font-size: 24px;
-            }
-
-            .container {
-                max-width: 1200px;
             }
         }
 
