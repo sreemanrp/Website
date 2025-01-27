@@ -9,6 +9,7 @@
     <meta property="og:description" content="sreeman - ai engineer">
     <meta property="og:image" content="path/to/og-image.jpg">
     <meta property="og:url" content="https://sreeman.sh">
+    <link rel="stylesheet" href="styles.css">
     <title>sreeman - ai engineer</title>
     <style>
         @font-face {
@@ -19,11 +20,9 @@
             font-style: normal;
         }
 
-        html, body {
-            height: 100%;
-            width: 100%;
+        body {
             margin: 0;
-            padding: 0;
+            padding: 5vh 5vw;
             font-family: 'Satoshi-Variable', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.5;
             font-size: 18px;
@@ -31,51 +30,20 @@
             font-weight: 400;
             background-color: #f5f5f5;
             display: flex;
-            justify-content: flex-start;
+            justify-content: flex-start; /* Move everything left */
             align-items: flex-start;
-            padding-left: 5vw; /* Move everything left */
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             width: 90%;
             box-sizing: border-box;
-        }
-
-        .header {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 2rem;
-            flex-direction: column;
-        }
-
-        .header-name {
-            font-size: 32px;
-            font-weight: 600;
-            line-height: 1.1;
-        }
-
-        .header-content {
-            margin-top: 0.5rem;
-        }
-
-        .header-title {
-            font-size: 20px;
-            font-weight: 400;
-        }
-
-        .position-link {
-            font-size: 18px;
-            font-weight: 400;
-            display: block;
-            margin-top: 5px;
         }
 
         .grid-layout {
             display: grid;
             grid-template-columns: 120px 1fr;
             gap: 2rem;
-            margin-top: 2rem;
         }
 
         .label {
@@ -119,6 +87,80 @@
             margin-bottom: 0.5rem;
         }
 
+        .header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            flex-direction: column;
+        }
+
+        .header-name {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        .header-name span {
+            display: block;
+        }
+
+        .header-content {
+            margin-top: 0.5rem;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .position-link {
+            font-size: 18px;
+            font-weight: 400;
+            display: block;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 21px;
+            }
+
+            .grid-layout {
+                grid-template-columns: 120px 1fr;
+                gap: 1rem;
+            }
+
+            .header {
+                grid-template-columns: 120px 1fr;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .header-name {
+                width: 120px;
+                text-align: left;
+            }
+
+            .position-link {
+                font-size: 22px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            body {
+                font-size: 24px;
+            }
+
+            .container {
+                max-width: 1200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 
@@ -148,7 +190,7 @@
             <div class="label">contact</div>
             <div class="content">
                 <ul class="link-list">
-                    <li><a><span class="__cf_email__" data-cfemail="8decefeecdfeffe8e8e0ece3a3fee5">[email&#160;protected]</span></a></li>
+                    <li><a>abc@sreeman.sh</a></li>
                     <li><a href="https://x.com/sreemanrp" class="external-link">twitter</a></li>
                     <li><a href="https://github.com/sreemanrp" class="external-link">github</a></li>
                     <li><a href="https://youtube.com/@sreemanrp" class="external-link">youtube</a></li>
