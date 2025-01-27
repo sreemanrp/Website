@@ -17,6 +17,7 @@
             color: white;
             line-height: 1.6;
             overflow-x: hidden;
+            font-size: 18px;
         }
 
         .container {
@@ -43,8 +44,6 @@
         .content {
             max-width: 600px;
             text-align: left;
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-            font-weight: 300;
         }
 
         .underline {
@@ -60,7 +59,6 @@
 
         @media (max-width: 768px) {
             .content {
-                font-size: clamp(1rem, 4vw, 1.4rem);
                 padding: 0 1rem;
             }
         }
@@ -77,7 +75,7 @@
 
         <section class="screen" id="intro">
             <div class="content">
-                <p>i'm a designer currently living in nyc. i've been designing different type of things for the internet, from tiny controversial experiments to larger-scale consumer products through conceptual art images i share on <span class="underline">twitter</span>. <span class="underline">scroll down</span> to check out my journey.</p>
+                <p>i'm a designer currently living in nyc. i've been designing different type of things for the internet, from tiny controversial experiments to larger-scale consumer products through conceptual art images i share on <span class="underline">twitter</span>. <span class="underline" id="scroll-down">scroll down</span> to check out my journey.</p>
             </div>
         </section>
 
@@ -118,6 +116,15 @@
 
             // Make the first screen visible immediately
             screens[0].classList.add('visible');
+
+            // Add click event listener to the "scroll down" text
+            const scrollDownElement = document.getElementById('scroll-down');
+            scrollDownElement.addEventListener('click', () => {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 </body>
