@@ -22,19 +22,23 @@
 
         body {
             margin: 0;
-            padding: 5vh 5vw;
+            padding: 0;
             font-family: 'Satoshi-Variable', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.5;
             font-size: 18px;
             color: #000;
             font-weight: 400;
             background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
         }
 
         .container {
             max-width: 1000px;
             width: 90%;
-            margin: 0 auto;
+            padding: 5vh 5vw;
+            box-sizing: border-box;
         }
 
         .grid-layout {
@@ -157,6 +161,7 @@
             }
             .container {
                 width: 95%;
+                padding: 3vh 2.5vw;
             }
 
             .position-link {
@@ -180,6 +185,7 @@
             }
             .container {
                 width: 100%;
+                padding: 2vh 5vw;
             }
         }
     </style>
@@ -259,3 +265,4 @@
 
 </body>
 </html>
+
