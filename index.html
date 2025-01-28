@@ -1,256 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./sreemanrp_dp.jpg" type="image/x-icon">
-    <meta property="og:title" content="sreeman - ai engineer">
-    <meta property="og:description" content="sreeman - ai engineer">
-    <meta property="og:image" content="path/to/og-image.jpg">
-    <meta property="og:url" content="https://sreeman.sh">
-    <link rel="stylesheet" href="styles.css">
-    <title>sreeman - ai engineer</title>
+    <title>Joshua Guo - Digital Product Engineer</title>
     <style>
-        @font-face {
-            font-family: 'Satoshi-Variable';
-            src: url('path/to/Satoshi-Variable.woff2') format('woff2'),
-                url('path/to/Satoshi-Variable.woff') format('woff');
-            font-weight: 400;
-            font-style: normal;
-        }
-
         body {
-            width: 100px;
-            max-width: 100px;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
             margin: 0;
-            padding: 5vh 5vw;
-            font-family: 'Satoshi-Variable', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.5;
-            font-size: 18px; /* Increased font size */
-            color: #000;
-            font-weight: 400; /* Changed font weight to 400 */
-            background-color: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
         }
-
         .container {
-            max-width: 800px; /* Decreased max-width */
+            max-width: 800px;
             margin: 0 auto;
         }
-
-        .grid-layout {
-            display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: 2rem;
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
         }
-
-        .label {
-            text-align: right;
-            opacity: 0.5;
-            color: black;
-            font-weight: 400; /* Changed font weight to 400 */
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-
-        .content {
-            margin-bottom: 2rem;
-            color: black;
-            font-weight: 400; /* Changed font weight to 400 */
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            position: relative;
-            display: inline-block;
-            font-weight: 400; /* Changed font weight to 400 */
-        }
-
-        a:hover {
-            opacity: 0.7;
-        }
-
-        .external-link::after {
-            content: "↗";
-            display: inline-block;
-            margin-left: 0.25rem;
-        }
-
-        .link-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .link-list li {
-            margin-bottom: 0.5rem;
-        }
-
-        .header {
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 2rem;
+            align-items: center;
         }
-
-        .header-name {
-            text-align: center; /* Center align text */
-            padding-right: 2rem;
+        .verified {
+            width: 20px;
+            height: 20px;
+            background-color: #1DA1F2;
+            border-radius: 50%;
+            margin-left: 10px;
             display: flex;
-            flex-direction: column;
-            justify-content: center; /* Vertically center the content */
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 12px;
         }
-
-        .header-name span {
-            display: block;
+        h2 {
+            font-size: 1.2em;
+            font-weight: normal;
+            color: #888;
+            margin-bottom: 30px;
         }
-
-        .header-content {
-            flex: 1;
-            position: relative;
-            white-space: nowrap; /* Prevent wrapping */
+        .section {
+            margin-bottom: 40px;
         }
-
-        .header-title {
-            margin-bottom: 0.5rem;
-            font-weight: 400; /* Changed font weight to 400 */
+        .card {
+            background-color: #111;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
         }
-
-        .position-link {
-            position: relative;
-            top: -12px;
-            font-size: 19px;
-            font-weight: 400; /* Changed font weight to 400 */
+        .card h3 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0;
         }
-
-        @media (max-width: 768px) {
-            body {
-                font-size: 21px;
-            }
-
-            .grid-layout {
-                display: grid;
-                grid-template-columns: 120px 1fr;
-                gap: 1rem;
-            }
-
-            .label {
-                text-align: right;
-                opacity: 0.5;
-                color: black;
-            }
-
-            .header {
-                display: grid;
-                grid-template-columns: 120px 1fr;
-                gap: 1rem;
-                align-items: flex-start;
-            }
-
-            .header-name {
-                width: 120px;
-                text-align: right;
-                padding-right: 2rem;
-                display: flex;
-                flex-direction: column;
-            }
-
-            .header-content {
-                flex: 1;
-            }
-
-            .position-link {
-                font-size: 22px;
-            }
+        .card p {
+            color: #888;
         }
-
-        @media (min-width: 1920px) {
-            body {
-                font-size: 24px;
-            }
-
-            .container {
-                max-width: -1200px; /* Adjusted for larger screens */
-            }
+        .arrow {
+            font-size: 1.2em;
         }
-
-        @media (max-width: 480px) {
-            body {
-                font-size: 18px;
-            }
+        footer {
+            text-align: center;
+            color: #888;
+            margin-top: 40px;
         }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <div class="header">
-            <div class="header-name">
-                <span>sreeman</span>
-                <span>reddy</span>
+        <header>
+            <div class="profile-img">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0195-sjxE57TzJkRYfcmm9NKclyh2Fdwtw2.jpeg" alt="Profile picture">
             </div>
-            <div class="header-content">
-                <div class="header-title">design <span>✺</span> tech <span>∿</span> build <span>◳</span></div>
-                <a href="#" class="external-link position-link" id="special-link">founder & COO @ Encom</a>
-            </div>
-        </div>
+            <h1>Joshua Guo <span class="verified">✓</span></h1>
+            <h2>Digital Product Engineer / Former Industrial Designer</h2>
+        </header>
 
-        <div class="grid-layout">
-            <div class="label">project</div>
-            <div class="content">
-                <ul class="link-list">
-                    <li><a href="https://sreeman.sh" class="external-link">webite 2025</a></li>
-                    <li><a href="https://2024.sreeman.app" class="external-link">prev. website</a></li>
-                    <li><a href="https://encom.com" class="external-link">encom </a></li>
-                </ul>
-            </div>
+        <section class="section">
+            <h2>About me</h2>
+            <p>Hello! I am Joshua Guo who is a Digital Product Engineer with a rich background in Industrial Design. As a modernist and minimalist designer, I am passionate about creating elegant and functional solutions.</p>
+            <p>Feel free to reach out to me ( Email / X ) if you have any questions or just want to chat.</p>
+        </section>
 
-            <div class="label">contact</div>
-            <div class="content">
-                <ul class="link-list">
-                    <li><a>abc@sreeman.sh</a></li>
-                    <li><a href="https://x.com/sreemanrp" class="external-link">twitter</a></li>
-                    <li><a href="https://github.com/sreemanrp" class="external-link">github</a></li>
-                    <li><a href="https://youtube.com/@sreemanrp" class="external-link">youtube</a></li>
-                    <li><a href="https://instagram.com/sreemanrp" class="external-link">instagram</a></li>
-                </ul>
+        <section class="section">
+            <h2>What I build</h2>
+            <div class="card">
+                <h3>INTERFACES.SUPPLY <span class="arrow">↗</span></h3>
+                <p>The Interfaces Design System is currently in the alpha stage and still under active development. If you're interested in gaining early access and are willing to provide valuable feedback to help shape its future, we'd love to have you on board.</p>
             </div>
-        </div>
+            <div class="card">
+                <h3>CHARTS.SUPPLY <span class="arrow">↗</span></h3>
+                <p>Charts solution for Framer helps you build data-driven charts. It seamlessly integrates with Google Sheets and databases, allowing you to tell compelling stories with real data.</p>
+            </div>
+            <div class="card">
+                <h3>DIMENSIONS.SUPPLY <span>Coming soon</span></h3>
+                <p>A 3D asset store. Resources for digital product designers. Coming in Q3 2025.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025. All rights reserved.</p>
+        </footer>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const specialLink = document.getElementById('special-link');
-            const originalText = specialLink.textContent;
-            const chars = 'qwertyuiopasdfghjklzxcvbnm!<>-_\\/[]{}—=+*^?#________';
-
-            function scrambleEffect(element, text) {
-                let iterations = 0;
-                const scrambleInterval = setInterval(() => {
-                    element.textContent = text
-                        .split('')
-                        .map((char, index) => {
-                            if (index < iterations) {
-                                return text[index];
-                            }
-                            return chars[Math.floor(Math.random() * chars.length)];
-                        })
-                        .join('');
-
-                    if (iterations >= text.length) {
-                        clearInterval(scrambleInterval);
-                        element.textContent = text;
-                    }
-                    iterations += 1;
-                }, 15); // Faster scramble effect
-            }
-
-            specialLink.addEventListener('mouseenter', () => scrambleEffect(specialLink, originalText));
-            specialLink.addEventListener('mouseleave', () => {
-                setTimeout(() => {
-                    specialLink.textContent = originalText;
-                }, 1600); // Adjust delay if needed
-            });
-        });
-    </script>
-
 </body>
 </html>
