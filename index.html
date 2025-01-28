@@ -17,21 +17,29 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
         .profile-img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             overflow: hidden;
-            margin-bottom: 20px;
+            margin-right: 15px;
         }
         .profile-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+        .name-title {
+            flex-grow: 1;
+        }
         h1 {
             font-size: 2.5em;
-            margin-bottom: 5px;
+            margin: 0;
             display: flex;
             align-items: center;
         }
@@ -48,13 +56,22 @@
             font-size: 12px;
         }
         h2 {
-            font-size: 1.2em;
+            font-size: 1em;
             font-weight: normal;
             color: #888;
-            margin-bottom: 30px;
+            margin: 5px 0 0 0;
+        }
+        .divider {
+            height: 1px;
+            background-color: #333;
+            margin: 20px 0;
         }
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-size: 1.2em;
+            margin-bottom: 15px;
         }
         .card {
             background-color: #111;
@@ -75,30 +92,39 @@
             font-size: 1.2em;
         }
         footer {
-            text-align: center;
             color: #888;
             margin-top: 40px;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="header">
             <div class="profile-img">
                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0195-sjxE57TzJkRYfcmm9NKclyh2Fdwtw2.jpeg" alt="Profile picture">
             </div>
-            <h1>Joshua Guo <span class="verified">✓</span></h1>
-            <h2>Digital Product Engineer / Former Industrial Designer</h2>
+            <div class="name-title">
+                <h1>Joshua Guo <span class="verified">✓</span></h1>
+                <h2>Digital Product Engineer / Former Industrial Designer</h2>
+            </div>
         </header>
 
-        <section class="section">
-            <h2>About me</h2>
-            <p>Hello! I am Joshua Guo who is a Digital Product Engineer with a rich background in Industrial Design. As a modernist and minimalist designer, I am passionate about creating elegant and functional solutions.</p>
-            <p>Feel free to reach out to me ( Email / X ) if you have any questions or just want to chat.</p>
-        </section>
+        <div class="divider"></div>
 
         <section class="section">
-            <h2>What I build</h2>
+            <h2 class="section-title">About me</h2>
+            <p>Hello! I am Joshua Guo who is a Digital Product Engineer with a rich background in Industrial Design. As a modernist and minimalist designer, I am passionate about creating elegant and functional solutions.</p>
+            <p>Feel free to reach out to me (<a href="mailto:your.email@example.com">Email</a> / <a href="https://twitter.com/yourusername">𝕏</a>) if you have any questions or just want to chat.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="section">
+            <h2 class="section-title">What I build</h2>
             <div class="card">
                 <h3>INTERFACES.SUPPLY <span class="arrow">↗</span></h3>
                 <p>The Interfaces Design System is currently in the alpha stage and still under active development. If you're interested in gaining early access and are willing to provide valuable feedback to help shape its future, we'd love to have you on board.</p>
