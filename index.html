@@ -78,8 +78,9 @@
         .newsletter-form {
             display: flex;
             gap: 0.5rem;
-            justify-content: center; /* Center the items horizontally */
-            align-items: center; /* Align them vertically */
+            flex-direction: row; /* Ensure side by side on large screens */
+            align-items: center; /* Align the input and button vertically */
+            justify-content: center; /* Center horizontally */
         }
 
         .newsletter-input {
@@ -122,11 +123,12 @@
 
         @media (max-width: 640px) {
             .newsletter-form {
-                flex-direction: column;
+                flex-direction: column; /* Stack vertically on small screens */
+                gap: 1rem;
             }
 
             .newsletter-button {
-                width: 100%;
+                width: 100%; /* Make the button full-width on small screens */
             }
         }
     </style>
