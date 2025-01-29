@@ -29,7 +29,7 @@
             flex-direction: column;
             min-height: 100vh;
             align-items: flex-start; /* Align all content to the left */
-            justify-content: center; /* Vertically center the content */
+            justify-content: flex-start; /* Align content to the top */
             text-align: left; /* Align text to the left */
             padding: 2rem;
         }
@@ -38,13 +38,9 @@
             position: absolute; /* Position the nav at the top right corner */
             top: 1rem;
             right: 1rem;
-        }
-
-        .nav-links {
             display: flex;
-            gap: 1rem;
             align-items: center;
-            justify-content: flex-end;
+            gap: 0.5rem; /* Space between links */
         }
 
         .nav-link {
@@ -58,24 +54,14 @@
         }
 
         .hero {
-            margin-bottom: 2rem;
+            margin-top: 2rem; /* Space between top and text */
         }
 
         .hero h1 {
             font-size: 18px;
             font-weight: 400;
             line-height: 1.4;
-        }
-
-        .hero a {
-            color: hsl(var(--link));
-            text-decoration: underline;
-            font-size: 1rem;
-            line-height: 1.4;
-        }
-
-        .hero a:hover {
-            text-decoration: underline;
+            margin-bottom: 1rem; /* Add some space below the heading */
         }
 
         .ui-link {
@@ -89,26 +75,19 @@
             text-decoration: underline;
         }
 
-        /* Ensure responsiveness and center alignment for small screens */
+        /* Ensure responsiveness */
         @media (max-width: 640px) {
             body {
                 padding: 1rem;
-            }
-
-            .nav {
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <nav class="nav">
-        <div class="nav-links">
-            <a href="https://twitter.com/shadcn" class="nav-link">twitter</a>
-            <a href="https://github.com/shadcn" class="nav-link">github</a>
-        </div>
+        <a href="https://twitter.com/shadcn" class="nav-link">twitter</a>
+        <span>/</span>
+        <a href="https://github.com/shadcn" class="nav-link">github</a>
     </nav>
     
     <main class="hero">
