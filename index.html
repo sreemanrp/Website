@@ -4,205 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shadcn</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
     <style>
         :root {
-    --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-        "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-        "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --link: 221.2 83.2% 53.3%;
-}
+            --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+                "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+                "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+            --background: 0 0% 0%;
+            --foreground: 0 0% 100%;
+            --link: 221.2 83.2% 53.3%;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: var(--font-mono);
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    -webkit-font-smoothing: antialiased;
-}
+        body {
+            font-family: var(--font-mono);
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+        }
 
-.root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+        .nav {
+            margin-bottom: 4rem;
+        }
 
-.header {
-    padding-top: 2rem;
-}
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+        }
 
-.nav {
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-}
+        .nav-link {
+            color: hsl(var(--link));
+            text-decoration: none;
+            font-size: 1rem;
+        }
 
-.nav-links {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
+        .nav-link:hover {
+            text-decoration: underline;
+        }
 
-.nav-link {
-    color: hsl(var(--link));
-    text-decoration: none;
-    font-size: 1rem;
-}
+        .nav span {
+            color: hsl(var(--foreground));
+        }
 
-.nav span {
-    color: hsl(var(--foreground));
-}
+        .hero {
+            margin-bottom: 2rem;
+        }
 
-.main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 1rem;
-    margin-top: -4rem;
-}
+        .hero h1 {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
 
-.hero {
-    margin-bottom: 2rem;
-}
+        .newsletter {
+            width: 100%;
+            max-width: 28rem;
+            margin-bottom: 2rem;
+        }
 
-.hero h1 {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.4;
-}
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
 
-.newsletter {
-    width: 100%;
-    max-width: 28rem;
-    margin-bottom: 2rem;
-}
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            border: 1px solid hsl(var(--foreground) / 0.2);
+            border-radius: 0.375rem;
+            background: transparent;
+            color: hsl(var(--foreground));
+        }
 
-.newsletter-form {
-    display: flex;
-    gap: 0.5rem;
-}
+        .newsletter-button {
+            padding: 0.75rem 1rem;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            color: hsl(var(--background));
+            background-color: hsl(var(--link));
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
 
-.newsletter-input {
-    flex: 1;
-    padding: 0.75rem 1rem;
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    border: 1px solid hsl(var(--primary) / 0.2);
-    border-radius: 0.375rem;
-    background: transparent;
-}
+        .newsletter-button:hover {
+            opacity: 0.9;
+        }
 
-.newsletter-button {
-    padding: 0.75rem 1rem;
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    color: hsl(var(--primary-foreground));
-    background-color: hsl(var(--link));
-    border: none;
-    border-radius: 0.375rem;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
+        .ui-link {
+            color: hsl(var(--link));
+            text-decoration: none;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
 
-.newsletter-button:hover {
-    opacity: 0.9;
-}
+        .ui-link:hover {
+            text-decoration: underline;
+        }
 
-.ui-link {
-    color: hsl(var(--link));
-    text-decoration: none;
-    font-size: 1rem;
-    line-height: 1.4;
-}
-
-@media (max-width: 640px) {
-    .newsletter-form {
-        flex-direction: column;
-    }
-    
-    .newsletter-button {
-        width: 100%;
-    }
-    
-    .hero h1 {
-        font-size: 1.75rem;
-    }
-}
+        @media (max-width: 640px) {
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-button {
+                width: 100%;
+            }
+        }
     </style>
+</head>
 <body>
-    <div class="root">
-        <header class="header">
-            <nav class="nav">
-                <div class="nav-links">
-                    <a href="/" class="nav-link">shadcn</a>
-                    <span>/</span>
-                    <a href="https://twitter.com/shadcn" class="nav-link">twitter</a>
-                    <span>/</span>
-                    <a href="https://github.com/shadcn" class="nav-link">github</a>
-                </div>
-            </nav>
-        </header>
-        
-        <main class="main">
-            <section class="hero">
-                <h1>
-                    I run a newsletter about design,<br>
-                    coding, developer life and open<br>
-                    source.
-                </h1>
-            </section>
+    <nav class="nav">
+        <div class="nav-links">
+            <a href="/" class="nav-link">shadcn</a>
+            <span>/</span>
+            <a href="https://twitter.com/shadcn" class="nav-link">twitter</a>
+            <span>/</span>
+            <a href="https://github.com/shadcn" class="nav-link">github</a>
+        </div>
+    </nav>
+    
+    <main>
+        <section class="hero">
+            <h1>
+                I run a newsletter about design,<br>
+                coding, developer life and open<br>
+                source.
+            </h1>
+        </section>
 
-            <section class="newsletter">
-                <form class="newsletter-form" id="newsletter-form">
-                    <input 
-                        type="email" 
-                        placeholder="m@example.com"
-                        class="newsletter-input"
-                        required
-                    >
-                    <button type="submit" class="newsletter-button">
-                        Subscribe
-                    </button>
-                </form>
-            </section>
+        <section class="newsletter">
+            <form class="newsletter-form" id="newsletter-form">
+                <input 
+                    type="email" 
+                    placeholder="m@example.com"
+                    class="newsletter-input"
+                    required
+                >
+                <button type="submit" class="newsletter-button">
+                    Subscribe
+                </button>
+            </form>
+        </section>
 
-            <section class="ui-section">
-                <a href="https://ui.shadcn.com" class="ui-link">
-                    If you're looking for the shadcn/ui<br>
-                    components, you can find it here.
-                </a>
-            </section>
-        </main>
-    </div>
+        <section>
+            <a href="https://ui.shadcn.com" class="ui-link">
+                If you're looking for the shadcn/ui<br>
+                components, you can find it here.
+            </a>
+        </section>
+    </main>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('newsletter-form');
-    
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = e.target.querySelector('input[type="email"]').value;
-        
-        // Here you would typically send the email to your backend
-        console.log('Subscribing:', email);
-        
-        // Demo alert
-        alert('Thanks for subscribing! This is a demo.');
-        form.reset();
-    });
-});
+            const form = document.getElementById('newsletter-form');
+            
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = e.target.querySelector('input[type="email"]').value;
+                
+                // Here you would typically send the email to your backend
+                console.log('Subscribing:', email);
+                
+                // Demo alert
+                alert('Thanks for subscribing! This is a demo.');
+                form.reset();
+            });
+        });
     </script>
 </body>
 </html>
