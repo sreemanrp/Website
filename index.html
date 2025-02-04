@@ -90,6 +90,26 @@
             transform: scale(1.05);
         }
 
+        .cta-button-transparent {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2); /* Light transparent background */
+            color: #ffffff; /* White text */
+            width: 100px; /* Fixed width */
+            height: 20px; /* Fixed height */
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 14px; 
+            font-weight: 500; /* Updated font weight */
+            margin-top: 2rem;
+            transition: transform 0.2s ease;
+            line-height: 20px; /* Center text vertically */
+            text-align: center; /* Center text horizontally */
+        }
+
+        .cta-button-transparent:hover {
+            transform: scale(1.05);
+        }
+
         .social-media {
             display: flex;
             gap: 1rem;
@@ -142,16 +162,19 @@
             <a href="https://github.com/sreemanrp" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
         <a href="mailto:sreemanthink@gmail.com" class="cta-button">Got an idea?</a>
+        <a href="#" class="cta-button-transparent">New Button</a>
     </div>
 
     <script>
         // Add hover effect to the button
-        document.querySelector('.cta-button').addEventListener('mouseover', function() {
-            this.style.transform = 'scale(1.05)';
-        });
+        document.querySelectorAll('.cta-button, .cta-button-transparent').forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.05)';
+            });
 
-        document.querySelector('.cta-button').addEventListener('mouseout', function() {
-            this.style.transform = 'scale(1)';
+            button.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
         });
     </script>
 </body>
