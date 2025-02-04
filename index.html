@@ -20,6 +20,14 @@
             flex-direction: column;
             justify-content: center;
             padding-left: 4rem;
+            overflow: hidden; /* Ensures no scrollbars appear */
+        }
+
+        .container {
+            min-height: 100vh; /* Ensures the container takes up at least the full height of the viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .logo {
@@ -94,16 +102,18 @@
     </style>
 </head>
 <body>
-    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0001-GZpuYNB1iRQy83vezf2HUjKQo5egUN.jpeg" alt="Logo" class="logo">
-    <div class="bio">
-        I'm a student based in India. 
-        <div class="links">
-            <a href="https://x.com/encomHQ" target="_blank" rel="noopener noreferrer">
-                founder & ceo @ Encom <span class="arrow">↗</span>
-            </a>
+    <div class="container">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0001-GZpuYNB1iRQy83vezf2HUjKQo5egUN.jpeg" alt="Logo" class="logo">
+        <div class="bio">
+            I'm a student based in India. 
+            <div class="links">
+                <a href="https://x.com/encomHQ" target="_blank" rel="noopener noreferrer">
+                    founder & ceo @ Encom <span class="arrow">↗</span>
+                </a>
+            </div>
         </div>
+        <a href="mailto:sreemanthink@gmail.com" class="cta-button">Got an idea?</a>
     </div>
-    <a href="mailto:sreemanthink@gmail.com" class="cta-button">Got an idea?</a>
 
     <script>
         // Add hover effect to the button
