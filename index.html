@@ -20,13 +20,7 @@
             justify-content: center;
             align-items: center;
             overflow: hidden; /* Ensures no scrollbars appear */
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            animation: float 3s ease-in-out infinite; /* Add floating animation to the entire website */
         }
 
         @keyframes float {
@@ -38,12 +32,19 @@
             }
         }
 
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align items to the left */
+            text-align: left; /* Align text to the left */
+            padding-left: 4rem; /* Add padding to the left */
+        }
+
         .logo {
             width: 64px;
             height: 64px;
             margin-bottom: 1.5rem;
             border-radius: 50%;
-            animation: float 3s ease-in-out infinite; /* Add floating animation to the logo */
         }
 
         .bio {
@@ -90,8 +91,8 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                padding: 2rem;
+            .container {
+                padding-left: 2rem;
             }
 
             .bio {
@@ -100,8 +101,8 @@
         }
 
         @media (max-width: 480px) {
-            body {
-                padding: 1.5rem;
+            .container {
+                padding-left: 1.5rem;
             }
 
             .bio {
