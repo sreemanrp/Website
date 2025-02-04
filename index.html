@@ -27,7 +27,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-left: 4rem;
+            padding: 4rem;
             overflow: hidden;
         }
 
@@ -106,6 +106,9 @@
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
+            flex-wrap: wrap;
+            justify-content: flex-start; /* Align to the left */
+            align-items: flex-start;
         }
 
         .social-media a {
@@ -120,6 +123,8 @@
             border-radius: 10px;
             transition: opacity 0.2s ease, transform 0.2s ease;
             height: 24px;
+            width: 80px;
+            white-space: nowrap;
         }
 
         .social-media a:hover {
@@ -163,7 +168,13 @@
             }
 
             .social-media {
-                flex-direction: column;
+                flex-direction: row; /* Keep links in a row */
+                flex-wrap: wrap;
+                justify-content: flex-start; /* Always left-aligned */
+            }
+
+            .social-media a {
+                width: 80px;
             }
         }
     </style>
@@ -189,7 +200,6 @@
     </div>
 
     <script>
-        // Add hover effect to the button
         document.querySelectorAll('.cta-button').forEach(button => {
             button.addEventListener('mouseover', function() {
                 this.style.transform = 'scale(1.05)';
