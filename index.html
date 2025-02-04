@@ -3,16 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sreeman - ai engineer</title>
+    <title>Design and Engineering Studio</title>
     <style>
-        :root {
-            --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-                "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-                "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-            --foreground: 0 0% 100%;
-            --link: 221.2 83.2% 53.3%;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -20,91 +12,83 @@
         }
 
         body {
-            font-family: var(--font-mono);
-            background-color: #282b30;
-            color: hsl(var(--foreground));
-            -webkit-font-smoothing: antialiased;
+            background-color: #000000;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 80vh; /* Adjust the height to 80% of the viewport */
-            align-items: flex-start;
-            justify-content: flex-start;
-            text-align: left;
             padding: 2rem;
         }
 
-        .nav {
-            position: absolute; /* Position the nav at the top right corner */
-            top: 1rem;
-            right: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem; /* Space between links */
+        .logo {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
         }
 
-        .nav-link {
-            color: #458eff;
-            text-decoration: underline;
+        .tagline {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            text-decoration: none;
             font-size: 1rem;
+            font-weight: 500;
+            transition: transform 0.2s ease;
         }
 
-        .nav-link:hover {
-            text-decoration: underline;
+        .cta-button:hover {
+            transform: scale(1.05);
         }
 
-        .hero {
-            margin-top: 2rem; /* Space between top and text */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 3rem;
+            }
+
+            .tagline {
+                font-size: 2rem;
+            }
         }
 
-        .hero h1 {
-            font-size: 18px;
-            font-weight: 100;
-            line-height: 1.4;
-            margin-bottom: 1rem; /* Add some space below the heading */
-        }
-
-        .ui-link {
-            color: #458eff;
-            text-decoration: underline;
-            font-size: 1rem;
-            line-height: 1.4;
-        }
-
-        .ui-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Ensure responsiveness */
-        @media (max-width: 640px) {
+        @media (max-width: 480px) {
             body {
-                padding: 1rem;
+                padding: 1.5rem;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
-    <br>
 <body>
-    <nav class="nav">
-        <a href="https://twitter.com/shadcn" class="nav-link">twitter</a>
-        <span>/</span>
-        <a href="https://github.com/shadcn" class="nav-link">github</a>
-    </nav>
-    <br>
-    <br>
-    <br>
-    <main class="hero">
-        <h1>
-            I'm a student currently living in India.  
-            I started sharing free ideas organically on Twitter, on Jan 1st, 2025.  
-            I started design at 16 on a cracked version of Photoshop CS2.  
-            My first gigs were terrible logos & websites for my Counter Strike friends.  
-            I'm the founder & CEO @ Encom.
-        </h1>
+    <div class="logo">8</div>
+    <h1 class="tagline">Design and engineering studio.</h1>
+    <a href="#" class="cta-button">Got an idea?</a>
 
-        <a href="https://encom.com/clu" class="ui-link">
-            If you're looking for the encom/clu<br>
-            components, you can find it here.
-        </a>
-    </main>
+    <script>
+        // Add hover effect to the button
+        document.querySelector('.cta-button').addEventListener('mouseover', function() {
+            this.style.transform = 'scale(1.05)';
+        });
+
+        document.querySelector('.cta-button').addEventListener('mouseout', function() {
+            this.style.transform = 'scale(1)';
+        });
+    </script>
 </body>
 </html>
