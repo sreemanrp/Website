@@ -90,6 +90,15 @@
             transform: scale(1.05);
         }
 
+        .social-media {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            background-color: rgba(128, 128, 128, 0.3); /* Transparent gray background */
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 2rem;
@@ -108,6 +117,10 @@
             .bio {
                 font-size: 1.1rem;
             }
+
+            .social-media {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -116,11 +129,17 @@
         <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0001-GZpuYNB1iRQy83vezf2HUjKQo5egUN.jpeg" alt="Logo" class="logo">
         <div class="bio">
             I'm a student based in India. 
-            <div class="links">
-                <a href="https://x.com/encomHQ" target="_blank" rel="noopener noreferrer">
-                    founder & ceo @ Encom <span class="arrow">↗</span>
-                </a>
-            </div>
+            <br>
+            Started developing things at the age of 18.
+        </div>
+        <div class="links">
+            <a href="https://x.com/encomHQ" target="_blank" rel="noopener noreferrer">
+                founder & ceo @ Encom <span class="arrow">↗</span>
+            </a>
+        </div>
+        <div class="social-media">
+            <a href="https://x.com/sreemanrp" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://github.com/sreemanrp" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
         <a href="mailto:sreemanthink@gmail.com" class="cta-button">Got an idea?</a>
     </div>
