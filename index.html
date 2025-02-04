@@ -94,18 +94,21 @@
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
-            background-color: rgba(255, 255, 255, 0.2); /* Light transparent background */
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
         }
 
         .social-media a {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2); /* Light transparent background */
             color: #ffffff; /* Custom color for links */
             text-decoration: none; /* No text decoration */
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: opacity 0.2s ease, transform 0.2s ease;
         }
 
         .social-media a:hover {
             opacity: 0.7;
+            transform: scale(1.05);
         }
 
         @media (max-width: 768px) {
