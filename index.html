@@ -29,6 +29,7 @@
             justify-content: center;
             padding: 4rem;
             overflow: hidden;
+            cursor: pointer; /* Indicate click action */
         }
 
         .container {
@@ -107,7 +108,7 @@
             gap: 1rem;
             margin-top: 1rem;
             flex-wrap: wrap;
-            justify-content: flex-start; /* Align to the left */
+            justify-content: flex-start; /* Left-aligned */
             align-items: flex-start;
         }
 
@@ -132,22 +133,6 @@
             transform: scale(1.05);
         }
 
-        @font-face {
-            font-family: 'Satoshi';
-            src: url('fonts/Satoshi-Variable.woff2') format('woff2'),
-                  url('fonts/Satoshi-Variable.woff2') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'Satoshi';
-            src: url('fonts/Satoshi-Variable.woff2') format('woff2'),
-                  url('fonts/Satoshi-Variable.woff2') format('woff');
-            font-weight: bold;
-            font-style: normal;
-        }
-
         @media (max-width: 768px) {
             body {
                 padding: 2rem;
@@ -168,7 +153,7 @@
             }
 
             .social-media {
-                flex-direction: row; /* Keep links in a row */
+                flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: flex-start; /* Always left-aligned */
             }
@@ -199,7 +184,27 @@
         <a href="mailto:sreemanthink@gmail.com" class="cta-button">Got an idea?</a>
     </div>
 
+    <audio id="bg-music" loop>
+        <source src="bg_music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <script>
+        // Select the audio element
+        const audio = document.getElementById("bg-music");
+        let isPlaying = false;
+
+        // Toggle music on click
+        document.body.addEventListener("click", function() {
+            if (isPlaying) {
+                audio.pause();
+            } else {
+                audio.play().catch(error => console.log("Audio playback failed:", error));
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Add hover effect to the button
         document.querySelectorAll('.cta-button').forEach(button => {
             button.addEventListener('mouseover', function() {
                 this.style.transform = 'scale(1.05)';
