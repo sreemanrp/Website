@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sreeman - ai engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>sreeman - ai engineer</title>
     <style>
-        /* The rest of your CSS */
         * {
             margin: 0;
             padding: 0;
@@ -22,11 +20,11 @@
             flex-direction: column;
             justify-content: center;
             padding-left: 4rem;
-            overflow: hidden; /* Ensures no scrollbars appear */
+            overflow: hidden;
         }
 
         .container {
-            min-height: 100vh; /* Ensures the container takes up at least the full height of the viewport */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -37,7 +35,7 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-10px); /* Adjust the floating distance */
+                transform: translateY(-10px);
             }
         }
 
@@ -46,7 +44,7 @@
             height: 64px;
             margin-bottom: 1.5rem;
             border-radius: 50%;
-            animation: float 3s ease-in-out infinite; /* Add floating animation to the logo */
+            animation: float 3s ease-in-out infinite;
         }
 
         .bio {
@@ -58,6 +56,9 @@
         }
 
         .links a {
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 300;
             color: #ffffff;
             text-decoration: none;
             transition: opacity 0.2s ease;
@@ -70,22 +71,23 @@
         .arrow {
             display: inline-block;
             margin-left: 4px;
+            font-size: 18px;
         }
 
         .cta-button {
             display: inline-block;
             background-color: #ffffff;
             color: #000000;
-            width: 100px; /* Fixed width */
-            height: 20px; /* Fixed height */
+            width: 100px;
+            height: 20px;
             border-radius: 100px;
             text-decoration: none;
             font-size: 14px;
-            font-weight: 500; /* Updated font weight */
+            font-weight: 300;
             margin-top: 2rem;
             transition: transform 0.2s ease;
-            line-height: 20px; /* Center text vertically */
-            text-align: center; /* Center text horizontally */
+            line-height: 20px;
+            text-align: center;
         }
 
         .cta-button:hover {
@@ -100,21 +102,37 @@
 
         .social-media a {
             display: inline-block;
-            background-color: rgba(255, 255, 255, 0.2); /* Light transparent background */
-            color: #ffffff; /* Custom color for links */
-            text-decoration: none; /* No text decoration */
-            width: 20px; /* Fixed width */
-            height: 20px; /* Fixed height */
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 10px;
             transition: opacity 0.2s ease, transform 0.2s ease;
+            height: 24px;
         }
 
         .social-media a:hover {
             opacity: 0.7;
             transform: scale(1.05);
+        }
+
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('fonts/Satoshi-Variable.woff2') format('woff2'),
+                  url('fonts/Satoshi-Variable.woff2') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('fonts/Satoshi-Variable.woff2') format('woff2'),
+                  url('fonts/Satoshi-Variable.woff2') format('woff');
+            font-weight: bold;
+            font-style: normal;
         }
 
         @media (max-width: 768px) {
@@ -152,12 +170,12 @@
         </div>
         <div class="links">
             <a href="https://x.com/encomHQ" target="_blank" rel="noopener noreferrer">
-                founder & ceo @ Encom <span class="arrow">↗</span>
+                founder & ceo @ encom <span class="arrow">↗</span>
             </a>
         </div>
         <div class="social-media">
-            <a href="https://x.com/sreemanrp" target="_blank" rel="noopener noreferrer">T</a>
-            <a href="https://github.com/sreemanrp" target="_blank" rel="noopener noreferrer">G</a>
+            <a href="https://x.com/sreemanrp" target="_blank" rel="noopener noreferrer">twitter</a>
+            <a href="https://github.com/sreemanrp" target="_blank" rel="noopener noreferrer">github</a>
         </div>
         <a href="mailto:sreemanthink@gmail.com" class="cta-button">Got an idea?</a>
     </div>
