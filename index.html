@@ -28,6 +28,16 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            animation: float 3s ease-in-out infinite; /* Add floating animation */
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px); /* Adjust the floating distance */
+            }
         }
 
         .logo {
