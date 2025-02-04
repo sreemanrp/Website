@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design and Engineering Studio</title>
+    <title>Sreemanth Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -18,20 +18,32 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            padding: 2rem;
+            justify-content: center;
+            padding-left: 4rem;
         }
 
         .logo {
             font-size: 4rem;
             font-weight: bold;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .tagline {
-            font-size: 2.5rem;
+        .bio {
+            font-size: 1.5rem;
             font-weight: 400;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             max-width: 600px;
+            line-height: 1.4;
+        }
+
+        .links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .links a:hover {
+            opacity: 0.7;
         }
 
         .cta-button {
@@ -43,6 +55,7 @@
             text-decoration: none;
             font-size: 1rem;
             font-weight: 500;
+            margin-top: 2rem;
             transition: transform 0.2s ease;
         }
 
@@ -50,13 +63,23 @@
             transform: scale(1.05);
         }
 
+        .arrow {
+            display: inline-block;
+            transform: rotate(-45deg);
+            margin-left: 4px;
+        }
+
         @media (max-width: 768px) {
+            body {
+                padding: 2rem;
+            }
+
             .logo {
                 font-size: 3rem;
             }
 
-            .tagline {
-                font-size: 2rem;
+            .bio {
+                font-size: 1.25rem;
             }
         }
 
@@ -69,16 +92,23 @@
                 font-size: 2.5rem;
             }
 
-            .tagline {
-                font-size: 1.5rem;
+            .bio {
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="logo">8</div>
-    <h1 class="tagline">Design and engineering studio.</h1>
-    <a href="#" class="cta-button">Got an idea?</a>
+    <div class="logo">S</div>
+    <div class="bio">
+        I'm a student based in India. 
+        <div class="links">
+            <a href="https://x.com/encomHQ" target="_blank" rel="noopener noreferrer">
+                founder & ceo @ Encom <span class="arrow">↗</span>
+            </a>
+        </div>
+    </div>
+    <a href="mailto:sreemanthink@gmail.com" class="cta-button">Got an idea?</a>
 
     <script>
         // Add hover effect to the button
