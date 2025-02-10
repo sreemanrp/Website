@@ -1,0 +1,129 @@
+:root {
+    --text-primary: #0e0e10;
+    --text-secondary: #0e0f1199;
+    --bg-primary: #fff;
+    --bg-hover: #0e0f1114;
+    --card-bg: #fff;
+}
+
+[data-theme="dark"] {
+    --text-primary: #fff;
+    --text-secondary: #ffffff99;
+    --bg-primary: #0e0f11;
+    --bg-hover: #ffffff14;
+    --card-bg: #0e0f11;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+h2{
+    font-weight: 400;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.card {
+    width: 567px;
+    height: 513px;
+    position: relative;
+    background-color: var(--card-bg);
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.theme-toggle:hover {
+    background-color: var(--bg-hover);
+}
+
+.sun-icon, .moon-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 110px 84px 0;
+}
+
+.header {
+    padding: 0 0.75rem;
+}
+
+h2 {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.features-container {
+    position: relative;
+    width: 100%;
+}
+
+.highlight-pill {
+    position: absolute;
+    background-color: var(--bg-hover);
+    border-radius: 10px;
+    transition: all 0.3s ease-out;
+    opacity: 0;
+}
+
+.features {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.feature-item {
+    display: block;
+    padding: 0.75rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.feature-title {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    line-height: 1.25;
+    white-space: nowrap;
+}
+
+.feature-description {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.25;
+    white-space: nowrap;
+}
