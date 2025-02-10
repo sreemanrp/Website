@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Sreeman Reddy">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://sreeman.sh">
+    <meta property="og:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0001-GZpuYNB1iRQy83vezf2HUjKQo5egUN.jpeg">
+    <meta property="og:description" content="student & ai engineer">
+    <meta name="author" content="Sreeman Reddy">
+    <meta name="keywords" content="ai, website, portfolio, ai designer, designer, aiwebsite, ai portfolio, developer, developers">
+    <meta name="description" content="student & ai engineer">
+    <link rel="stylesheet" href="./style.css">
+    <title>sreeman - ai engineer</title>
+</head>
+<style>
+    :root {
+    --text-primary: #0e0e10;
+    --text-secondary: #0e0f1199;
+    --bg-primary: #fff;
+    --bg-hover: #0e0f1114;
+    --card-bg: #fff;
+}
+
+[data-theme="dark"] {
+    --text-primary: #fff;
+    --text-secondary: #ffffff99;
+    --bg-primary: #0e0f11;
+    --bg-hover: #ffffff14;
+    --card-bg: #0e0f11;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-primary);
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.card {
+    width: 100%;
+    max-width: 567px;
+    min-height: 513px;
+    height: auto;
+    position: relative;
+    background-color: var(--card-bg);
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+}
+
+.theme-toggle:hover {
+    background-color: var(--bg-hover);
+}
+
+.sun-icon, .moon-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 110px 84px 0;
+}
+
+.header {
+    padding: 0 0.75rem;
+}
+
+h2 {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.features-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.highlight-pill {
+    position: absolute;
+    background-color: var(--bg-hover);
+    border-radius: 10px;
+    transition: all 0.3s ease-out;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.features {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.feature-item {
+    display: block;
+    padding: 0.75rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.feature-title {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    line-height: 1.25;
+}
+
+.feature-description {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.25;
+}
+
+/* Media Queries for responsive design */
+@media (max-width: 768px) {
+    .content {
+        padding: 80px 20px 20px;
+    }
+
+    .feature-title,
+    .feature-description {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .content {
+        padding: 60px 16px 16px;
+    }
+
+    .card {
+        min-height: auto;
+    }
+
+    .feature-item {
+        padding: 12px;
+    }
+
+    .features {
+        gap: 0.25rem;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .highlight-pill {
+        display: none;
+    }
+
+    .feature-item:active {
+        background-color: var(--bg-hover);
+    }
+}
+
+/* Ensure content doesn't overflow on very small devices */
+@media (max-width: 320px) {
+    .content {
+        padding: 50px 12px 12px;
+    }
+
+    .feature-title {
+        font-size: 0.8rem;
+    }
+
+    .feature-description {
+        font-size: 0.75rem;
+    }
+}
+</style>
+<body>
+    <div class="container">
+        <div class="card">
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="sun-icon hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <div class="content">
+                <div class="header">
+                    <h2>Sreeman Reddy</h2>
+                </div>
+                <div class="features-container">
+                    <div class="highlight-pill"></div>
+                    <div class="features">
+                        <a href="https://x.com/sreemanrp" class="feature-item">
+                            <div class="feature-title">Twiitter/X</div>
+                            <div class="feature-description">Layouts that adapt to various screen sizes</div>
+                        </a>
+                        <a href="https://youtube.com/@sreemanrp" class="feature-item">
+                            <div class="feature-title">YouTube</div>
+                            <div class="feature-description">Ensuring usability for all users</div>
+                        </a>
+                        <a href="https://github.com/sreemanrp" class="feature-item">
+                            <div class="feature-title">Github</div>
+                            <div class="feature-description">Fast loading and smooth interactions</div>
+                        </a>
+                        <a href="https://instagram.com/sreemanrp" class="feature-item">
+                            <div class="feature-title">Instagram</div>
+                            <div class="feature-description">Consistent experience across platforms</div>
+                        </a>
+                        <a href="https://ioi.ai/sreemanrp" class="feature-item">
+                            <div class="feature-title">I O I</div>
+                            <div class="feature-description">Intuitive interfaces</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const sunIcon = document.querySelector('.sun-icon');
+    const moonIcon = document.querySelector('.moon-icon');
+    const featureItems = document.querySelectorAll('.feature-item');
+    const highlightPill = document.querySelector('.highlight-pill');
+    
+    // Check if device supports hover
+    const hasHover = window.matchMedia('(hover: hover)').matches;
+
+    // Theme toggle functionality
+    themeToggle.addEventListener('click', () => {
+        document.documentElement.setAttribute(
+            'data-theme',
+            document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+        );
+        sunIcon.classList.toggle('hidden');
+        moonIcon.classList.toggle('hidden');
+    });
+
+    // Only add hover effects if device supports hover
+    if (hasHover) {
+        featureItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const rect = item.getBoundingClientRect();
+                const containerRect = item.parentElement.getBoundingClientRect();
+                
+                requestAnimationFrame(() => {
+                    highlightPill.style.top = `${rect.top - containerRect.top}px`;
+                    highlightPill.style.left = `${rect.left - containerRect.left}px`;
+                    highlightPill.style.width = `${rect.width}px`;
+                    highlightPill.style.height = `${rect.height}px`;
+                    highlightPill.style.opacity = '1';
+                });
+            });
+
+            item.addEventListener('mouseleave', () => {
+                highlightPill.style.opacity = '0';
+            });
+        });
+
+        // Update highlight pill position on resize
+        window.addEventListener('resize', () => {
+            if (document.querySelector('.feature-item:hover')) {
+                const hoveredItem = document.querySelector('.feature-item:hover');
+                const rect = hoveredItem.getBoundingClientRect();
+                const containerRect = hoveredItem.parentElement.getBoundingClientRect();
+
+                requestAnimationFrame(() => {
+                    highlightPill.style.top = `${rect.top - containerRect.top}px`;
+                    highlightPill.style.left = `${rect.left - containerRect.left}px`;
+                    highlightPill.style.width = `${rect.width}px`;
+                    highlightPill.style.height = `${rect.height}px`;
+                });
+            }
+        });
+    }
+});
+    </script>
+</body>
+</html>
