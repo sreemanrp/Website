@@ -43,9 +43,10 @@ html, body {
     background-color: var(--bg-primary);
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     transition: background-color 0.3s ease;
+    overflow: hidden;
 }
 
 .container {
@@ -65,6 +66,7 @@ html, body {
     position: relative;
     background-color: var(--card-bg);
     transition: background-color 0.3s ease;
+    margin-left: 1rem; /* Adjust this margin as needed to align the card to left-center */
 }
 
 .theme-toggle {
@@ -118,7 +120,7 @@ h2 {
 
 .highlight-pill {
     position: absolute;
-    background-color: var(--bg-hover);
+    background-color: var (--bg-hover);
     border-radius: 10px;
     transition: all 0.3s ease-out;
     opacity: 0;
