@@ -14,6 +14,12 @@
     --card-bg: #0e0f11;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: system-ui, -apple-system, sans-serif;
@@ -24,20 +30,19 @@ body {
     transition: background-color 0.3s ease;
 }
 
-h2{
-    font-weight: 400;
-}
-
 .container {
     display: flex;
     justify-content: center;
     width: 100%;
     min-height: 100vh;
+    padding: 1rem;
 }
 
 .card {
-    width: 567px;
-    height: 513px;
+    width: 100%;
+    max-width: 567px;
+    min-height: 513px;
+    height: auto;
     position: relative;
     background-color: var(--card-bg);
     transition: background-color 0.3s ease;
@@ -53,6 +58,7 @@ h2{
     color: var(--text-primary);
     padding: 0.5rem;
     border-radius: 0.5rem;
+    z-index: 10;
 }
 
 .theme-toggle:hover {
@@ -88,6 +94,7 @@ h2 {
 .features-container {
     position: relative;
     width: 100%;
+    margin-bottom: 2rem;
 }
 
 .highlight-pill {
@@ -96,6 +103,7 @@ h2 {
     border-radius: 10px;
     transition: all 0.3s ease-out;
     opacity: 0;
+    pointer-events: none;
 }
 
 .features {
@@ -112,18 +120,78 @@ h2 {
     border-radius: 10px;
     text-decoration: none;
     transition: background-color 0.3s;
+    width: 100%;
 }
 
 .feature-title {
     font-size: 0.875rem;
     color: var(--text-primary);
     line-height: 1.25;
-    white-space: nowrap;
 }
 
 .feature-description {
     font-size: 0.875rem;
     color: var(--text-secondary);
     line-height: 1.25;
-    white-space: nowrap;
+}
+
+/* Media Queries for responsive design */
+@media (max-width: 768px) {
+    .content {
+        padding: 80px 20px 20px;
+    }
+
+    .feature-title,
+    .feature-description {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .content {
+        padding: 60px 16px 16px;
+    }
+
+    .card {
+        min-height: auto;
+    }
+
+    .feature-item {
+        padding: 12px;
+    }
+
+    .features {
+        gap: 0.25rem;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .highlight-pill {
+        display: none;
+    }
+
+    .feature-item:active {
+        background-color: var(--bg-hover);
+    }
+}
+
+/* Ensure content doesn't overflow on very small devices */
+@media (max-width: 320px) {
+    .content {
+        padding: 50px 12px 12px;
+    }
+
+    .feature-title {
+        font-size: 0.8rem;
+    }
+
+    .feature-description {
+        font-size: 0.75rem;
+    }
 }
