@@ -12,208 +12,46 @@
     <meta name="keywords" content="ai, website, portfolio, ai designer, designer, aiwebsite, ai portfolio, developer, developers">
     <meta name="description" content="student & ai engineer">
     <title>sreeman - ai engineer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #000000;
-            color: #ffffff;
-            font-family: 'Satoshi', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 4rem;
-            overflow: hidden;
-            cursor: pointer; /* Indicate click action */
-        }
-
-        .container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .logo {
-            width: 64px;
-            height: 64px;
-            margin-bottom: 1.5rem;
-            border-radius: 50%;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .bio {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-            max-width: 600px;
-            line-height: 1.4;
-        }
-
-        .links a {
-            font-size: 28px;
-            font-style: normal;
-            font-weight: 300;
-            color: #ffffff;
-            text-decoration: none;
-            transition: opacity 0.2s ease;
-        }
-
-        .links a:hover {
-            opacity: 0.7;
-        }
-
-        .arrow {
-            display: inline-block;
-            margin-left: 4px;
-            font-size: 18px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #ffffff;
-            color: #000000;
-            width: 100px;
-            height: 20px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 300;
-            margin-top: 2rem;
-            transition: transform 0.2s ease;
-            line-height: 20px;
-            text-align: center;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-        }
-
-        .social-media {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-            justify-content: flex-start; /* Left-aligned */
-            align-items: flex-start;
-        }
-
-        .social-media a {
-            display: inline-block;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            transition: opacity 0.2s ease, transform 0.2s ease;
-            height: 24px;
-            width: 80px;
-            white-space: nowrap;
-        }
-
-        .social-media a:hover {
-            opacity: 0.7;
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 2rem;
-            }
-
-            .bio {
-                font-size: 1.25rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 1.5rem;
-            }
-
-            .bio {
-                font-size: 1.1rem;
-            }
-
-            .social-media {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: flex-start; /* Always left-aligned */
-            }
-
-            .social-media a {
-                width: 80px;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="container">
-        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0001-GZpuYNB1iRQy83vezf2HUjKQo5egUN.jpeg" alt="Logo" class="logo">
-        <div class="bio">
-            I'm a student based in India.
-            <br>
-            Started developing things at the age of 18.
+        <div class="card">
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="sun-icon hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <div class="content">
+                <div class="header">
+                    <h2>Sreeman Reddy</h2>
+                </div>
+                <div class="features-container">
+                    <div class="highlight-pill"></div>
+                    <div class="features">
+                        <a href="https://x.com/sreemanrp" class="feature-item">
+                            <div class="feature-title">Twiitter/X</div>
+                            <div class="feature-description">Layouts that adapt to various screen sizes</div>
+                        </a>
+                        <a href="https://youtube.com/@sreemanrp" class="feature-item">
+                            <div class="feature-title">YouTube</div>
+                            <div class="feature-description">Ensuring usability for all users</div>
+                        </a>
+                        <a href="https://github.com/sreemanrp" class="feature-item">
+                            <div class="feature-title">Github</div>
+                            <div class="feature-description">Fast loading and smooth interactions</div>
+                        </a>
+                        <a href="https://instagram.com/sreemanrp" class="feature-item">
+                            <div class="feature-title">Instagram</div>
+                            <div class="feature-description">Consistent experience across platforms</div>
+                        </a>
+                        <a href="https://ioi.ai/sreemanrp" class="feature-item">
+                            <div class="feature-title">I O I</div>
+                            <div class="feature-description">Intuitive interfaces</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="links">
-            <a href="https://x.com/encomHQ" target="_blank" rel="noopener noreferrer">
-                founder & ceo @ encom <span class="arrow">↗</span>
-            </a>
-        </div>
-        <div class="social-media">
-            <a href="https://x.com/sreemanrp" target="_blank" rel="noopener noreferrer">twitter</a>
-            <a href="https://github.com/sreemanrp" target="_blank" rel="noopener noreferrer">github</a>
-        </div>
-        <a href="mailto:sreemanthink@gmail.com" class="cta-button">Got an idea?</a>
     </div>
-
-    <audio id="bg-music" loop>
-        <source src="bg_music.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <script>
-        // Select the audio element
-        const audio = document.getElementById("bg-music");
-        let isPlaying = false;
-
-        // Toggle music on click
-        document.body.addEventListener("click", function() {
-            if (isPlaying) {
-                audio.pause();
-            } else {
-                audio.play().catch(error => console.log("Audio playback failed:", error));
-            }
-            isPlaying = !isPlaying;
-        });
-
-        // Add hover effect to the button
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('mouseover', function() {
-                this.style.transform = 'scale(1.05)';
-            });
-
-            button.addEventListener('mouseout', function() {
-                this.style.transform = 'scale(1)';
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
