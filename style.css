@@ -19,6 +19,7 @@
     padding: 0;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing:grayscale;
 }
 
 body {
@@ -140,6 +141,17 @@ h2 {
 }
 
 /* Media Queries for responsive design */
+@media (max-width: 900px) {
+    body {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing:grayscale;
+    }
+}
+
 @media (max-width: 768px) {
     .content {
         padding: 80px 20px 20px;
