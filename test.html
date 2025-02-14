@@ -65,8 +65,42 @@
             margin-bottom: 60px;
         }
         .message {
+            display: flex;
+            flex-direction: column;
             margin-bottom: 10px;
             word-wrap: break-word;
+        }
+        .message-content {
+            display: flex;
+            align-items: center;
+        }
+        .message-text {
+            margin-left: 10px;
+            word-wrap: break-word;
+        }
+        .image-message {
+            max-width: 100%;
+            max-height: 300px;
+            border: 1px solid white;
+        }
+        .text-message {
+            display: flex;
+            align-items: center;
+            border: 1px solid white;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .text-message-buttons {
+            display: flex;
+            gap: 10px;
+            margin-left: 10px;
+        }
+        .text-message-buttons button {
+            background: none;
+            border: 1px solid white;
+            color: white;
+            padding: 5px;
+            cursor: pointer;
         }
         #input-container {
             display: flex;
@@ -106,15 +140,6 @@
         }
         #file-input {
             display: none;
-        }
-        .image-message {
-            max-width: 100%;
-            max-height: 300px;
-            border: 1px solid white;
-        }
-        .text-message {
-            border: 1px solid white;
-            padding: 5px;
         }
         ::selection {
             background-color: gray;
@@ -194,26 +219,46 @@
         function addMessage(message, sender, isImage = false, isText = false) {
             const messageElement = document.createElement('div');
             messageElement.classList.add('message');
-            if (isImage) {
-                const img = document.createElement('img');
-                img.src = message;
-                img.classList.add('image-message');
-                messageElement.appendChild(img);
-            } else if (isText) {
-                const textDiv = document.createElement('div');
-                textDiv.textContent = message;
-                textDiv.classList.add('text-message');
-                messageElement.appendChild(textDiv);
-            } else {
-                const textDiv = document.createElement('div');
-                textDiv.innerHTML = message.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
-                messageElement.appendChild(textDiv);
-            }
             const senderElement = document.createElement('div');
             senderElement.textContent = sender;
             senderElement.style.fontSize = '12px';
             senderElement.style.color = 'gray';
+            const messageContent = document.createElement('div');
+            messageContent.classList.add('message-content');
+            if (isImage) {
+                const img = document.createElement('img');
+                img.src = message;
+                img.classList.add('image-message');
+                messageContent.appendChild(img);
+            } else if (isText) {
+                const textDiv = document.createElement('div');
+                textDiv.classList.add('text-message');
+                textDiv.textContent = message;
+                const buttonsDiv = document.createElement('div');
+                buttonsDiv.classList.add('text-message-buttons');
+                const previewButton = document.createElement('button');
+                previewButton.textContent = 'Preview';
+                previewButton.addEventListener('click', () => {
+                    alert(message);
+                });
+                const copyButton = document.createElement('button');
+                copyButton.textContent = 'Copy';
+                copyButton.addEventListener('click', () => {
+                    navigator.clipboard.writeText(message);
+                    alert('Text copied to clipboard');
+                });
+                buttonsDiv.appendChild(previewButton);
+                buttonsDiv.appendChild(copyButton);
+                messageContent.appendChild(textDiv);
+                messageContent.appendChild(buttonsDiv);
+            } else {
+                const textDiv = document.createElement('div');
+                textDiv.innerHTML = message.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+                textDiv.classList.add('message-text');
+                messageContent.appendChild(textDiv);
+            }
             messageElement.appendChild(senderElement);
+            messageElement.appendChild(messageContent);
             chatContainer.appendChild(messageElement);
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
