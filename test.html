@@ -14,6 +14,32 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
+            overflow: hidden;
+        }
+        #login-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input {
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            padding: 5px;
+        }
+        button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
         }
         #header {
             padding: 10px;
@@ -78,29 +104,81 @@
             50% { opacity: 1; }
             100% { opacity: 0; }
         }
+        #file-input {
+            display: none;
+        }
+        .image-message {
+            max-width: 100%;
+            max-height: 300px;
+        }
+        ::selection {
+            background-color: gray;
+        }
     </style>
 </head>
 <body>
-    <div id="header">
-        <div id="ip-address">Loading IP address...</div>
-        <div id="version">MARS v1.0</div>
+    <div id="login-screen">
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
     </div>
-    <div id="chat-container"></div>
-    <div id="input-container">
-        <div id="plus-icon">+</div>
-        <input type="text" id="message-input" autocomplete="off">
+    <div id="chat-screen" style="display: none;">
+        <div id="header">
+            <div id="ip-address">Loading IP address...</div>
+            <div id="version">MARS v1.0</div>
+        </div>
+        <div id="chat-container"></div>
+        <div id="input-container">
+            <div id="plus-icon">+</div>
+            <input type="text" id="message-input" autocomplete="off">
+        </div>
+        <input type="file" id="file-input" accept=".txt,.jpg,image/jpeg">
     </div>
 
     <script>
+        const loginScreen = document.getElementById('login-screen');
+        const chatScreen = document.getElementById('chat-screen');
+        const loginForm = document.getElementById('login-form');
         const chatContainer = document.getElementById('chat-container');
         const messageInput = document.getElementById('message-input');
         const ipAddressElement = document.getElementById('ip-address');
+        const plusIcon = document.getElementById('plus-icon');
+        const fileInput = document.getElementById('file-input');
         let typingTimeout;
 
-        function addMessage(message) {
+        const users = [
+            { username: 'sreeman', password: '1325' },
+            { username: 'loki', password: 'dreamer' },
+            { username: 'irfan', password: '7070' }
+        ];
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const user = users.find(u => u.username === username && u.password === password);
+            if (user) {
+                loginScreen.style.display = 'none';
+                chatScreen.style.display = 'block';
+                fetchIPAddress();
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+
+        function addMessage(message, isImage = false) {
             const messageElement = document.createElement('div');
             messageElement.classList.add('message');
-            messageElement.textContent = message;
+            if (isImage) {
+                const img = document.createElement('img');
+                img.src = message;
+                img.classList.add('image-message');
+                messageElement.appendChild(img);
+            } else {
+                messageElement.textContent = message;
+            }
             chatContainer.appendChild(messageElement);
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
@@ -110,14 +188,16 @@
             audio.play();
         }
 
-        function showTypingStatus() {
+        function showTypingStatus(text) {
             const typingElement = document.querySelector('.typing-status');
             if (!typingElement) {
                 const newTypingElement = document.createElement('div');
                 newTypingElement.classList.add('message', 'typing-status');
-                newTypingElement.innerHTML = 'Typing<span id="cursor"></span>';
+                newTypingElement.innerHTML = `${text}<span id="cursor"></span>`;
                 chatContainer.appendChild(newTypingElement);
                 chatContainer.scrollTop = chatContainer.scrollHeight;
+            } else {
+                typingElement.innerHTML = `${text}<span id="cursor"></span>`;
             }
         }
 
@@ -130,7 +210,7 @@
 
         messageInput.addEventListener('input', () => {
             playTypingSound();
-            showTypingStatus();
+            showTypingStatus(messageInput.value);
             clearTimeout(typingTimeout);
             typingTimeout = setTimeout(hideTypingStatus, 1000);
         });
@@ -140,6 +220,35 @@
                 hideTypingStatus();
                 addMessage(messageInput.value.trim());
                 messageInput.value = '';
+            }
+        });
+
+        plusIcon.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('File size must be less than 5MB');
+                    return;
+                }
+                if (file.type === 'text/plain') {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        addMessage(e.target.result);
+                    };
+                    reader.readAsText(file);
+                } else if (file.type === 'image/jpeg') {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        addMessage(e.target.result, true);
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Only .txt and .jpg files are allowed');
+                }
             }
         });
 
@@ -153,15 +262,16 @@
         // Clear chat on page load
         window.addEventListener('load', clearChat);
 
-        // Get IP address
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                ipAddressElement.textContent = `IP: ${data.ip}`;
-            })
-            .catch(error => {
-                ipAddressElement.textContent = 'IP: Unable to fetch';
-            });
+        function fetchIPAddress() {
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    ipAddressElement.textContent = `IP: ${data.ip}`;
+                })
+                .catch(error => {
+                    ipAddressElement.textContent = 'IP: Unable to fetch';
+                });
+        }
     </script>
 </body>
 </html>
