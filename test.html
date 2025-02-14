@@ -18,18 +18,25 @@
         #header {
             padding: 10px;
             border-bottom: 1px solid white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: black;
         }
-        #name {
-            font-size: 24px;
-            font-weight: bold;
+        #ip-address {
+            font-size: 14px;
         }
-        #line {
+        #version {
+            font-size: 12px;
             margin-top: 5px;
         }
         #chat-container {
             flex-grow: 1;
             overflow-y: auto;
             padding: 10px;
+            margin-top: 60px;
+            margin-bottom: 60px;
         }
         .message {
             margin-bottom: 10px;
@@ -39,6 +46,11 @@
             display: flex;
             padding: 10px;
             border-top: 1px solid white;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: black;
         }
         #plus-icon {
             font-size: 24px;
@@ -59,6 +71,7 @@
             height: 20px;
             background-color: white;
             animation: blink 0.7s infinite;
+            vertical-align: middle;
         }
         @keyframes blink {
             0% { opacity: 0; }
@@ -69,20 +82,20 @@
 </head>
 <body>
     <div id="header">
-        <div id="name">MARS</div>
-        <div id="line">-</div>
+        <div id="ip-address">Loading IP address...</div>
+        <div id="version">MARS v1.0</div>
     </div>
     <div id="chat-container"></div>
     <div id="input-container">
         <div id="plus-icon">+</div>
         <input type="text" id="message-input" autocomplete="off">
-        <span id="cursor"></span>
     </div>
 
     <script>
         const chatContainer = document.getElementById('chat-container');
         const messageInput = document.getElementById('message-input');
-        const cursor = document.getElementById('cursor');
+        const ipAddressElement = document.getElementById('ip-address');
+        let typingTimeout;
 
         function addMessage(message) {
             const messageElement = document.createElement('div');
@@ -97,12 +110,34 @@
             audio.play();
         }
 
+        function showTypingStatus() {
+            const typingElement = document.querySelector('.typing-status');
+            if (!typingElement) {
+                const newTypingElement = document.createElement('div');
+                newTypingElement.classList.add('message', 'typing-status');
+                newTypingElement.innerHTML = 'Typing<span id="cursor"></span>';
+                chatContainer.appendChild(newTypingElement);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+        }
+
+        function hideTypingStatus() {
+            const typingElement = document.querySelector('.typing-status');
+            if (typingElement) {
+                typingElement.remove();
+            }
+        }
+
         messageInput.addEventListener('input', () => {
             playTypingSound();
+            showTypingStatus();
+            clearTimeout(typingTimeout);
+            typingTimeout = setTimeout(hideTypingStatus, 1000);
         });
 
         messageInput.addEventListener('keydown', (event) => {
             if (event.key === 'Enter' && messageInput.value.trim() !== '') {
+                hideTypingStatus();
                 addMessage(messageInput.value.trim());
                 messageInput.value = '';
             }
@@ -117,6 +152,16 @@
 
         // Clear chat on page load
         window.addEventListener('load', clearChat);
+
+        // Get IP address
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                ipAddressElement.textContent = `IP: ${data.ip}`;
+            })
+            .catch(error => {
+                ipAddressElement.textContent = 'IP: Unable to fetch';
+            });
     </script>
 </body>
 </html>
