@@ -16,8 +16,30 @@
             height: 100vh;
             overflow: hidden;
         }
-        #login-screen {
+        #loading-screen {
             display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: white;
+            border-radius: 50%;
+            display: inline-block;
+            animation: dot 1.4s infinite ease-in-out;
+        }
+        .dot:nth-child(1) { animation-delay: -0.32s; }
+        .dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes dot {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+        #login-screen {
+            display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -163,6 +185,11 @@
     </style>
 </head>
 <body>
+    <div id="loading-screen">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
     <div id="login-screen">
         <form id="login-form">
             <input type="text" id="username" placeholder="Username" required>
@@ -184,6 +211,7 @@
     </div>
 
     <script>
+        const loadingScreen = document.getElementById('loading-screen');
         const loginScreen = document.getElementById('login-screen');
         const chatScreen = document.getElementById('chat-screen');
         const loginForm = document.getElementById('login-form');
@@ -200,6 +228,13 @@
             { username: 'loki', password: 'dreamer' },
             { username: 'irfan', password: '7070' }
         ];
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                loginScreen.style.display = 'flex';
+            }, 2000);
+        });
 
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -222,7 +257,7 @@
             const senderElement = document.createElement('div');
             senderElement.textContent = sender;
             senderElement.style.fontSize = '12px';
-            senderElement.style.color = 'gray';
+            senderElement.style.color = 'white';
             const messageContent = document.createElement('div');
             messageContent.classList.add('message-content');
             if (isImage) {
@@ -257,7 +292,7 @@
                 textDiv.classList.add('message-text');
                 messageContent.appendChild(textDiv);
             }
-            messageElement.appendChild(senderElement);
+            messageContent.insertBefore(senderElement, messageContent.firstChild);
             messageElement.appendChild(messageContent);
             chatContainer.appendChild(messageElement);
             chatContainer.scrollTop = chatContainer.scrollHeight;
@@ -273,7 +308,7 @@
             if (!typingElement) {
                 const newTypingElement = document.createElement('div');
                 newTypingElement.classList.add('message', 'typing-status');
-                newTypingElement.innerHTML = `Typing<span id="cursor"></span>`;
+                newTypingElement.innerHTML = `${currentUser} is typing<span id="cursor"></span>`;
                 chatContainer.appendChild(newTypingElement);
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }
