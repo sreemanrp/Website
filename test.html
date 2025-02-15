@@ -88,15 +88,12 @@
         }
         .message {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            align-items: center;
             margin-bottom: 10px;
             word-wrap: break-word;
         }
         .message-content {
-            display: flex;
-            align-items: center;
-        }
-        .message-text {
             margin-left: 10px;
             word-wrap: break-word;
         }
@@ -246,6 +243,7 @@
                 loginScreen.style.display = 'none';
                 chatScreen.style.display = 'block';
                 fetchIPAddress();
+                initializeWebSocket();
             } else {
                 alert('Invalid username or password');
             }
@@ -303,12 +301,12 @@
             audio.play();
         }
 
-        function showTypingStatus() {
+        function showTypingStatus(username) {
             const typingElement = document.querySelector('.typing-status');
             if (!typingElement) {
                 const newTypingElement = document.createElement('div');
                 newTypingElement.classList.add('message', 'typing-status');
-                newTypingElement.innerHTML = `${currentUser} is typing<span id="cursor"></span>`;
+                newTypingElement.innerHTML = `${username} is typing<span id="cursor"></span>`;
                 chatContainer.appendChild(newTypingElement);
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }
@@ -324,9 +322,10 @@
         messageInput.addEventListener('input', () => {
             if (messageInput.value.trim() !== '') {
                 playTypingSound();
-                showTypingStatus();
+                showTypingStatus(currentUser);
                 clearTimeout(typingTimeout);
                 typingTimeout = setTimeout(hideTypingStatus, 1000);
+                sendTypingStatus();
             } else {
                 hideTypingStatus();
             }
@@ -335,8 +334,10 @@
         messageInput.addEventListener('keydown', (event) => {
             if (event.key === 'Enter' && messageInput.value.trim() !== '') {
                 hideTypingStatus();
-                addMessage(messageInput.value.trim(), currentUser);
+                const message = messageInput.value.trim();
+                addMessage(message, currentUser);
                 messageInput.value = '';
+                sendMessage(message);
             }
         });
 
@@ -354,13 +355,17 @@
                 if (file.type === 'text/plain') {
                     const reader = new FileReader();
                     reader.onload = (e) => {
-                        addMessage(e.target.result, currentUser, false, true);
+                        const message = e.target.result;
+                        addMessage(message, currentUser, false, true);
+                        sendMessage(message);
                     };
                     reader.readAsText(file);
                 } else if (file.type === 'image/jpeg') {
                     const reader = new FileReader();
                     reader.onload = (e) => {
-                        addMessage(e.target.result, currentUser, true);
+                        const message = e.target.result;
+                        addMessage(message, currentUser, true);
+                        sendMessage(message);
                     };
                     reader.readAsDataURL(file);
                 } else {
@@ -388,6 +393,51 @@
                 .catch(error => {
                     ipAddressElement.textContent = 'IP: Unable to fetch';
                 });
+        }
+
+        // WebSocket setup
+        let socket;
+
+        function initializeWebSocket() {
+            socket = new WebSocket('wss://your-websocket-server-url');
+            socket.onopen = () => {
+                console.log('WebSocket connection established');
+            };
+            socket.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                if (data.type === 'message') {
+                    addMessage(data.message, data.sender, data.isImage, data.isText);
+                } else if (data.type === 'typing') {
+                    showTypingStatus(data.sender);
+                    clearTimeout(typingTimeout);
+                    typingTimeout = setTimeout(hideTypingStatus, 1000);
+                }
+            };
+            socket.onclose = () => {
+                console.log('WebSocket connection closed');
+            };
+            socket.onerror = (error) => {
+                console.error('WebSocket error:', error);
+            };
+        }
+
+        function sendMessage(message) {
+            const data = {
+                type: 'message',
+                message: message,
+                sender: currentUser,
+                isImage: message.startsWith('data:image/'),
+                isText: !message.startsWith('data:image/') && message.length > 0
+            };
+            socket.send(JSON.stringify(data));
+        }
+
+        function sendTypingStatus() {
+            const data = {
+                type: 'typing',
+                sender: currentUser
+            };
+            socket.send(JSON.stringify(data));
         }
     </script>
 </body>
