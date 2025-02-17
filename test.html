@@ -32,8 +32,8 @@
         .options-text {
             cursor: pointer;
             z-index: 1000;
-            background-color: gray;
-            color: white;
+            background-color: #808080;
+            color: #a0a0a0;
             font-size: 12px;
             padding: 5px;
             border: 1px solid white;
@@ -55,8 +55,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #808080;
-            color: #a0a0a0;
+            background-color: rgba(0, 0, 0, 0.95);
+            color: white;
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
@@ -266,13 +266,20 @@
         optionsText.addEventListener('click', (e) => {
             e.stopPropagation();
             menu.classList.toggle('open');
+            if (menu.classList.contains('open')) {
+                optionsText.style.display = 'none';
+                shareIcon.style.display = 'none';
+            } else {
+                optionsText.style.display = 'inline-block';
+                shareIcon.style.display = 'inline-block';
+            }
         });
 
         shareIcon.addEventListener('click', (e) => {
             e.stopPropagation();
             const link = "https://sreeman.app/test.html";
             navigator.clipboard.writeText(link).then(() => {
-                alert("Link copied to clipboard: " + link);
+                // Link copied to clipboard
             }, (err) => {
                 console.error('Could not copy text: ', err);
             });
@@ -281,11 +288,15 @@
         document.addEventListener('click', (e) => {
             if (!menu.contains(e.target) && !optionsText.contains(e.target) && !shareIcon.contains(e.target)) {
                 menu.classList.remove('open');
+                optionsText.style.display = 'inline-block';
+                shareIcon.style.display = 'inline-block';
             }
         });
 
         function closeMenu() {
             menu.classList.remove('open');
+            optionsText.style.display = 'inline-block';
+            shareIcon.style.display = 'inline-block';
         }
     </script>
 </body>
