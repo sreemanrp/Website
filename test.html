@@ -19,18 +19,21 @@
             display: flex;
             flex-direction: column;
             color: white;
-            overflow-y: auto;
+            overflow: hidden;
         }
 
-        .book-icon {
+        .options-text {
             position: absolute;
             top: 20px;
             left: 20px;
-            width: 40px;
-            height: 40px;
             cursor: pointer;
             z-index: 1000;
-            filter: invert(70%);
+            background-color: gray;
+            color: white;
+            font-size: 14px;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 4px;
         }
 
         .menu {
@@ -146,7 +149,7 @@
         .contact-text {
             font-size: 14px;
             color: rgba(255, 255, 255, 0.7);
-            margin-top: 10px;
+            margin-top: 30px;
             display: flex;
             align-items: flex-start;
         }
@@ -172,8 +175,8 @@
 </head>
 
 <body>
-    <img src="https://api.iconify.design/ic:outline-menu-book.svg?color=gray" alt="Book Icon" class="book-icon" id="book-icon">
-    
+    <div class="options-text" id="options-text">~ options</div>
+
     <div class="menu" id="menu">
         <a href="#" class="menu-item">Books</a>
         <a href="#" class="menu-item">Docs</a>
@@ -215,7 +218,7 @@
         const emailInput = document.querySelector('.email-input');
         const submitBtn = document.querySelector('.submit-btn');
         const errorMessage = document.querySelector('.error-message');
-        const bookIcon = document.getElementById('book-icon');
+        const optionsText = document.getElementById('options-text');
         const menu = document.getElementById('menu');
 
         function validateEmail(email) {
@@ -242,8 +245,15 @@
             emailInput.style.borderColor = 'rgba(255, 255, 255, 0.3)';
         });
 
-        bookIcon.addEventListener('click', () => {
+        optionsText.addEventListener('click', (e) => {
+            e.stopPropagation();
             menu.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!menu.contains(e.target) && !optionsText.contains(e.target)) {
+                menu.classList.remove('open');
+            }
         });
     </script>
 </body>
