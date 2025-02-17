@@ -19,7 +19,7 @@
             display: flex;
             flex-direction: column;
             color: white;
-            overflow: hidden;
+            overflow-y: auto;
         }
 
         .book-icon {
@@ -43,9 +43,10 @@
             background-color: rgba(0, 0, 0, 0.95);
             color: white;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-start;
+            align-items: flex-start;
             z-index: 999;
+            padding: 60px 20px;
         }
 
         .menu.open {
@@ -174,10 +175,10 @@
     <img src="https://api.iconify.design/ic:outline-menu-book.svg?color=gray" alt="Book Icon" class="book-icon" id="book-icon">
     
     <div class="menu" id="menu">
-        <div class="menu-item">Books</div>
-        <div class="menu-item">Docs</div>
-        <div class="menu-item">Contact Us</div>
-        <div class="menu-item">Support</div>
+        <a href="#" class="menu-item">Books</a>
+        <a href="#" class="menu-item">Docs</a>
+        <a href="#" class="menu-item">Contact Us</a>
+        <a href="#" class="menu-item">Support</a>
     </div>
 
     <div class="container">
