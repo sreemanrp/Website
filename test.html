@@ -19,6 +19,47 @@
             display: flex;
             flex-direction: column;
             color: white;
+            overflow: hidden;
+        }
+
+        .book-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            color: white;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .menu.open {
+            display: flex;
+        }
+
+        .menu-item {
+            font-size: 24px;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .menu-item:hover {
+            color: #a0a0a0;
         }
 
         .container {
@@ -129,6 +170,15 @@
 </head>
 
 <body>
+    <img src="https://api.iconify.design/ic:outline-menu-book.svg?color=white" alt="Book Icon" class="book-icon" id="book-icon">
+    
+    <div class="menu" id="menu">
+        <div class="menu-item">Books</div>
+        <div class="menu-item">Docs</div>
+        <div class="menu-item">Contact Us</div>
+        <div class="menu-item">Support</div>
+    </div>
+
     <div class="container">
         <div class="form-group">
             <input type="email" class="email-input" placeholder="Enter your email" required>
@@ -163,6 +213,8 @@
         const emailInput = document.querySelector('.email-input');
         const submitBtn = document.querySelector('.submit-btn');
         const errorMessage = document.querySelector('.error-message');
+        const bookIcon = document.getElementById('book-icon');
+        const menu = document.getElementById('menu');
 
         function validateEmail(email) {
             const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -186,6 +238,10 @@
         emailInput.addEventListener('input', () => {
             errorMessage.style.display = 'none';
             emailInput.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+        });
+
+        bookIcon.addEventListener('click', () => {
+            menu.classList.toggle('open');
         });
     </script>
 </body>
