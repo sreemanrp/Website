@@ -23,17 +23,16 @@
         }
 
         .options-text {
-            position: absolute;
-            top: 20px;
-            left: 20px;
             cursor: pointer;
             z-index: 1000;
             background-color: gray;
             color: white;
-            font-size: 14px;
-            padding: 10px;
+            font-size: 12px;
+            padding: 5px;
             border: 1px solid white;
             border-radius: 4px;
+            display: inline-block;
+            margin-top: 20px;
         }
 
         .menu {
@@ -175,15 +174,6 @@
 </head>
 
 <body>
-    <div class="options-text" id="options-text">~ options</div>
-
-    <div class="menu" id="menu">
-        <a href="#" class="menu-item">Books</a>
-        <a href="#" class="menu-item">Docs</a>
-        <a href="#" class="menu-item">Contact Us</a>
-        <a href="#" class="menu-item">Support</a>
-    </div>
-
     <div class="container">
         <div class="form-group">
             <input type="email" class="email-input" placeholder="Enter your email" required>
@@ -211,7 +201,16 @@
                     <a href="https://telegram.org" class="social-link" target="_blank">telegram</a>
                 </span>
             </div>
+
+            <div class="options-text" id="options-text">~ options</div>
         </div>
+    </div>
+
+    <div class="menu" id="menu">
+        <a href="#" class="menu-item">Books</a>
+        <a href="#" class="menu-item">Docs</a>
+        <a href="#" class="menu-item">Contact Us</a>
+        <a href="#" class="menu-item">Support</a>
     </div>
 
     <script>
