@@ -55,8 +55,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            color: white;
+            background-color: #808080;
+            color: #a0a0a0;
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
@@ -270,10 +270,12 @@
 
         shareIcon.addEventListener('click', (e) => {
             e.stopPropagation();
-            const shareLink = prompt('Where would you like to share this link?');
-            if (shareLink) {
-                alert(`You chose to share on: ${shareLink}`);
-            }
+            const link = "https://sreeman.app/test.html";
+            navigator.clipboard.writeText(link).then(() => {
+                alert("Link copied to clipboard: " + link);
+            }, (err) => {
+                console.error('Could not copy text: ', err);
+            });
         });
 
         document.addEventListener('click', (e) => {
