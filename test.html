@@ -22,10 +22,10 @@
 
         .logo {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
+            top: 40px;
+            right: 40px;
+            width: 120px;
+            height: 120px;
         }
 
         .container {
@@ -35,6 +35,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            margin-top: -100px; /* Adjust vertical centering */
         }
 
         .form-group {
@@ -71,6 +72,7 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
+            margin-bottom: 40px; /* Added space below button */
         }
 
         .submit-btn:hover {
@@ -84,10 +86,38 @@
             margin-top: 8px;
             align-items: center;
             gap: 8px;
+            margin-bottom: 10px;
         }
 
         .error-icon {
             font-size: 18px;
+        }
+
+        .info-text {
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .contact-text {
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 10px;
+        }
+
+        .social-link {
+            color: #808080;
+            text-decoration: none;
+            border-bottom: 1px solid white;
+            padding-bottom: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #a0a0a0;
         }
     </style>
 </head>
@@ -97,10 +127,24 @@
     <div class="container">
         <div class="form-group">
             <input type="email" class="email-input" placeholder="Enter your email" required>
-            <button class="submit-btn">Join Waitlist</button>
             <div class="error-message">
                 <span class="error-icon">❕</span>
                 <span>Invalid email, please try again</span>
+            </div>
+            <button class="submit-btn">Join Waitlist</button>
+            
+            <div class="info-text">
+                /we are under development please be patient.
+            </div>
+            <div class="info-text">
+                /for assignments, tutorials, workbook join our waitlist to download.
+            </div>
+            <div class="contact-text">
+                /contact our admin via (
+                <a href="https://twitter.com" class="social-link" target="_blank">twitter</a>
+                /
+                <a href="https://telegram.org" class="social-link" target="_blank">telegram</a>
+                )
             </div>
         </div>
     </div>
@@ -125,8 +169,6 @@
             } else {
                 errorMessage.style.display = 'none';
                 emailInput.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                // Here you would typically send the email to your server
-                alert('Thank you for joining the waitlist!');
                 emailInput.value = '';
             }
         });
