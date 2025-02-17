@@ -22,6 +22,13 @@
             overflow: hidden;
         }
 
+        .options-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
         .options-text {
             cursor: pointer;
             z-index: 1000;
@@ -32,7 +39,13 @@
             border: 1px solid white;
             border-radius: 4px;
             display: inline-block;
-            margin-top: 20px;
+        }
+
+        .share-icon {
+            cursor: pointer;
+            z-index: 1000;
+            width: 24px;
+            height: 24px;
         }
 
         .menu {
@@ -59,6 +72,8 @@
             font-size: 24px;
             margin: 20px 0;
             cursor: pointer;
+            color: white;
+            text-decoration: none;
             transition: color 0.3s ease;
         }
 
@@ -202,15 +217,18 @@
                 </span>
             </div>
 
-            <div class="options-text" id="options-text">~ options</div>
+            <div class="options-container">
+                <div class="options-text" id="options-text">~ options</div>
+                <img src="https://api.iconify.design/ic:outline-share.svg?color=white" alt="Share Icon" class="share-icon" id="share-icon">
+            </div>
         </div>
     </div>
 
     <div class="menu" id="menu">
-        <a href="#" class="menu-item">Books</a>
-        <a href="#" class="menu-item">Docs</a>
-        <a href="#" class="menu-item">Contact Us</a>
-        <a href="#" class="menu-item">Support</a>
+        <a href="#" class="menu-item" onclick="closeMenu()">Books</a>
+        <a href="#" class="menu-item" onclick="closeMenu()">Docs</a>
+        <a href="#" class="menu-item" onclick="closeMenu()">Contact Us</a>
+        <a href="#" class="menu-item" onclick="closeMenu()">Support</a>
     </div>
 
     <script>
@@ -218,6 +236,7 @@
         const submitBtn = document.querySelector('.submit-btn');
         const errorMessage = document.querySelector('.error-message');
         const optionsText = document.getElementById('options-text');
+        const shareIcon = document.getElementById('share-icon');
         const menu = document.getElementById('menu');
 
         function validateEmail(email) {
@@ -249,11 +268,23 @@
             menu.classList.toggle('open');
         });
 
+        shareIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const shareLink = prompt('Where would you like to share this link?');
+            if (shareLink) {
+                alert(`You chose to share on: ${shareLink}`);
+            }
+        });
+
         document.addEventListener('click', (e) => {
-            if (!menu.contains(e.target) && !optionsText.contains(e.target)) {
+            if (!menu.contains(e.target) && !optionsText.contains(e.target) && !shareIcon.contains(e.target)) {
                 menu.classList.remove('open');
             }
         });
+
+        function closeMenu() {
+            menu.classList.remove('open');
+        }
     </script>
 </body>
 </html>
