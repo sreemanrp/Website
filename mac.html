@@ -3,103 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeGrid Clone</title>
+    <title>Sreeman's Website</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: monospace;
         }
 
         body {
-            background-color: #1a1a1a;
-            color: #fff;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            height: 100vh;
-            overflow: hidden;
+            background-color: #000000;
+            color: #ffffff;
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            align-items: flex-end;
             padding: 2rem;
         }
 
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
+        .content {
+            max-width: 800px;
+            padding-bottom: 4rem;
         }
 
-        .top-text {
-            align-self: flex-start;
-            font-size: clamp(2.5rem, 5vw, 5rem);
-            font-weight: 400;
-            line-height: 1.1;
-            max-width: 1200px;
+        .heading {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
         }
 
-        .bottom-links {
-            display: flex;
-            gap: 2rem;
-            align-self: flex-start;
-            margin-bottom: 4rem; /* Adjust this value to move the links more up */
+        .heading span {
+            color: #808080;
         }
 
-        .link {
-            font-size: clamp(2rem, 3vw, 2.5rem);
-            color: #fff;
+        .main-text {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .special-char {
+            font-size: 2.5rem;
+            display: inline-block;
+            transform: translateY(-5px);
+            margin: 0 5px;
+        }
+
+        .arrow {
+            display: inline-block;
+            transform: scaleX(-1);
+            margin: 0 5px;
+        }
+
+        .diamond {
+            display: inline-block;
+            transform: rotate(45deg);
+            margin: 0 5px;
+        }
+
+        .cta {
+            font-size: 2rem;
             text-decoration: none;
-            position: relative;
-            transition: opacity 0.3s ease;
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 5px;
+            display: inline-block;
         }
 
-        .link:hover {
-            opacity: 0.7;
-        }
-
-        .link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background-color: #fff;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .link:hover::after {
-            transform: scaleX(1);
-        }
-
-        .slash {
-            font-size: clamp(2rem, 3vw, 2.5rem);
-            opacity: 0.5;
-        }
-
-        @media (max-width: 768px) {
-            .top-text {
-                font-size: clamp(2rem, 4vw, 3rem);
-            }
-            
-            .bottom-links {
-                gap: 1rem;
-            }
+        .cta:hover {
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-    <div class="main-content">
-        <div class="top-text">
-            Sharing all the sauce behind building dope interactive experiences and the finest websites that truly stand out.
+    <div class="content">
+        <h1 class="heading">
+            Sreeman <span>- I'm building</span>
+        </h1>
+        <div class="main-text">
+            generative creativity <span class="special-char">✱</span> that helps you <span class="arrow">←</span> craft beautiful designs <span class="diamond">◆</span>
         </div>
-        <div class="bottom-links">
-            <a href="https://codegrid.com/subscribe" target="_blank" rel="noopener noreferrer" class="link">Subscribe</a>
-            <span class="slash">/</span>
-            <a href="https://twitter.com/codegrid" target="_blank" rel="noopener noreferrer" class="link">Twitter</a>
-        </div>
+        <a href="#" class="cta">@sreemanrp</a>
     </div>
 </body>
 </html>
