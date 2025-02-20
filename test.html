@@ -1,59 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="bg-cream text-base antialiased dark:bg-black dark:text-white/65" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paper Design</title>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: #ccc;
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            flex-direction: column;
+    <title>Innovative Online Intelligence ( IOI )</title>
+    <link rel="icon" href="/favicon.ico"/>
+ </head>
+ <style>
+    /*! tailwindcss v4.0.0-beta.8 | MIT License | https://tailwindcss.com */
+@layer base {
+    *, ::backdrop, :after, :before {
+        box-sizing: border-box;
+        border: 0 solid;
+        margin: 0;
+        padding:0
+    }
+
+    ::file-selector-button {
+        box-sizing: border-box;
+        border: 0 solid;
+        margin: 0;
+        padding:0
+    }
+
+    :host, html {
+        -webkit-text-size-adjust: 100%;
+        tab-size: 4;
+        line-height: 1.5;
+        font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+        font-feature-settings: var(--default-font-feature-settings, normal);
+        font-variation-settings: var(--default-font-variation-settings, normal);
+        -webkit-tap-highlight-color:transparent
+    }
+
+    body {
+        line-height:inherit
+    }
+
+    hr {
+        height: 0;
+        color: inherit;
+        border-top-width:1px
+    }
+
+    abbr:where([title]) {
+        -webkit-text-decoration: underline dotted;
+        text-decoration:underline dotted
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: inherit;
+        font-weight:inherit
+    }
+
+    a {
+        color: inherit;
+        -webkit-text-decoration: inherit;
+        text-decoration:inherit
+    }
+}
+
+@layer theme, components;
+@layer utilities {
+    .m-auto {
+        margin:auto
+    }
+
+    .mx-4 {
+        margin-inline:calc(var(--spacing) * 4)
+    }
+
+    .mb-8 {
+        margin-bottom:calc(var(--spacing) * 8)
+    }
+
+    .flex {
+        display:flex
+    }
+
+    .inline-block {
+        display:inline-block
+    }
+
+    .h-screen {
+        height:100vh
+    }
+
+    .max-w-560 {
+        max-width:calc(var(--spacing) * 560)
+    }
+
+    .flex-col {
+        flex-direction:column
+    }
+
+    .items-center {
+        align-items:center
+    }
+
+    .justify-center {
+        justify-content:center
+    }
+
+    .gap-9 {
+        gap:calc(var(--spacing) * 9)
+    }
+
+    .gap-12 {
+        gap:calc(var(--spacing) * 12)
+    }
+
+    .bg-cream {
+        background-color:var(--color-cream)
+    }
+
+    .px-24 {
+        padding-inline:calc(var(--spacing) * 24)
+    }
+
+    .pt-24 {
+        padding-top:calc(var(--spacing) * 24)
+    }
+
+    .pb-64 {
+        padding-bottom:calc(var(--spacing) * 64)
+    }
+
+    .text-center {
+        text-align:center
+    }
+
+    .font-\[system-ui\] {
+        font-family:system-ui
+    }
+
+    .text-base {
+        font-size: var(--text-base);
+        line-height:var(--tw-leading, var(--text-base--line-height))
+    }
+
+    .antialiased {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing:grayscale
+    }
+
+    .select-none {
+        -webkit-user-select: none;
+        user-select:none
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .dark\:bg-black {
+            background-color:var(--color-black)
         }
 
-        .logo {
-            width: 50px;
-            height: 50px;
-            background-color: #6d9dfc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
+        .dark\:text-white\/65 {
+            color:color-mix(in oklab, var(--color-white)65%, transparent)
         }
+    }
+}
 
-        .logo::before {
-            content: "";
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            display: block;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 30%, 30% 30%, 30% 70%, 70% 70%, 70% 0, 100% 0, 100% 100%, 0 100%);
-        }
+@font-face {
+    font-family: Matter;
+    src:url(/matter.woff2)
+}
 
-        .text {
-            margin-top: 20px;
-            font-size: 18px;
-        }
+:root {
+    --spacing: 1px;
+    --color-blue: oklch(74% .104 258);
+    --color-cream: #f6f4e9;
+    --color-off-white: #f5f5f2;
+    --color-gray: #909090;
+    --color-black: #000;
+    --color-white: #fff;
+    --color-transparent: #0000;
+    --color-amber: oklch(87% .1785 92);
+    --color-focus: oklch(74% 26% 258);
+    --color-selection: oklch(78% 35% 258/50%);
+    --default-font-family: Matter, system-ui;
+    --text-base: 20px;
+    --text-base--line-height:28px
+}
 
-        .text a {
-            color: #6d9dfc;
-            text-decoration: none;
-        }
-    </style>
-</head>
+html {
+    text-wrap: pretty;
+    font-synthesis: none;
+    font-feature-settings: "ss02" 1, "ss04" 1, "calt" 1
+}
+
+::selection {
+    background-color:oklch(78% 35% 258/50%)
+}
+
+a {
+    color: oklch(60% .15 258);
+    outline:0
+}
+
+@media (prefers-color-scheme: dark) {
+    a {
+        color:oklch(72% .12 258)
+    }
+}
+
+a:focus-visible {
+    outline-offset: 2px;
+    outline: 2px solid var(--color-focus);
+    border-radius: 2px
+}
+ </style>
 <body>
-    <div class="logo"></div>
-    <div class="text">
-        <a href="#">Sign up</a> to get your place on the early access list.
+    <div class="m-auto flex h-screen max-w-560 flex-col items-center justify-center gap-9 px-24 pt-24 pb-64 text-center">
+        <img alt="alien" width="64" height="64" src="/paper-app.png" class="mb-8 select-none"/>
+        <div class="flex flex-col gap-12">
+            <p>
+                <a href="https://api.paper.design/auth/sign-up?final_redirect_uri=https://paper.design">Sign up</a>
+                 to get your place
+                <br/>
+                on the early access list.
+            </p>
+        </div>
     </div>
 </body>
 </html>
