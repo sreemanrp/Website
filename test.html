@@ -3,113 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vertical Cut Reveal</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <title>Paper Design</title>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: #ccc;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
 
-body,
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  font-family: "Roboto", sans-serif;
-}
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: #6d9dfc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
 
-.container {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: #0015ff;
-  font-size: 3rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  line-height: 1.2;
-}
+        .logo::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            display: block;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 30%, 30% 30%, 30% 70%, 70% 70%, 70% 0, 100% 0, 100% 100%, 0 100%);
+        }
 
-.text-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
+        .text {
+            margin-top: 20px;
+            font-size: 18px;
+        }
 
-.text-line {
-  position: relative;
-  overflow: hidden;
-  height: 1.2em;
-  margin-bottom: 0.2em;
-}
-
-.text-line span {
-  display: inline-block;
-  transform: translateY(100%);
-  transition: transform 0.5s ease-in-out;
-}
-
-.text-line.animate span {
-  transform: translateY(0);
-}
-
-#animate-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  background-color: #0015ff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .container {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    font-size: 1.5rem;
-  }
-}
+        .text a {
+            color: #6d9dfc;
+            text-decoration: none;
+        }
     </style>
+</head>
 <body>
-    <div class="container">
-        <div class="text-container">
-            <div class="text-line"><span data-text="HI 👋, FRIEND!">HI 👋, FRIEND!</span></div>
-            <div class="text-line"><span data-text="🌤️ IT IS NICE ⇗ TO">🌤️ IT IS NICE ⇗ TO</span></div>
-            <div class="text-line"><span data-text="MEET 😊 YOU.">MEET 😊 YOU.</span></div>
-        </div>
+    <div class="logo"></div>
+    <div class="text">
+        <a href="#">Sign up</a> to get your place on the early access list.
     </div>
-    <button id="animate-btn">Animate</button>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-  const lines = document.querySelectorAll(".text-line")
-  const animateBtn = document.getElementById("animate-btn")
-
-  function animateLines() {
-    lines.forEach((line, index) => {
-      setTimeout(() => {
-        line.classList.add("animate")
-      }, index * 500)
-    })
-  }
-
-  animateBtn.addEventListener("click", () => {
-    lines.forEach((line) => line.classList.remove("animate"))
-    setTimeout(animateLines, 100)
-  })
-
-  // Initial animation
-  animateLines()
-})
-
-
-    </script>
 </body>
 </html>
