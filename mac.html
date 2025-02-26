@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Shimmer Effect</title>
+    <title>Shimmer Text with Left-Aligned Content</title>
     <style>
+        /* Global styles */
+        body {
+            background-color: black; /* Set background to black */
+            color: white; /* Default text color */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Shimmer effect */
         @keyframes shimmer {
             0% {
                 background-position: 100% center;
@@ -39,11 +49,34 @@
                 --base-gradient-color: #60a5fa; /* Blue 400 */
             }
         }
+
+        /* Positioning */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align everything to the left */
+        }
+
+        .content {
+            margin-top: 20px; /* Space between shimmer text and content */
+            font-size: 18px;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
 
-    <p class="text-shimmer">Hi, how are you?</p>
+    <div class="container">
+        <!-- Shimmer Text -->
+        <p class="text-shimmer">Hi, how are you?</p>
+
+        <!-- Additional content -->
+        <div class="content">
+            <p>This is some content below the shimmer text.</p>
+            <p>It is aligned to the left side of the page.</p>
+            <p>You can add more text, images, or elements here.</p>
+        </div>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
