@@ -3,87 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sreeman's Website</title>
+    <title>Text Shimmer Effect</title>
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: monospace;
-        }
-
-        body {
-            background-color: #000000;
-            color: #ffffff;
-            min-height: 100vh;
             display: flex;
-            align-items: flex-end;
-            padding: 2rem;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
         }
 
-        .content {
-            max-width: 800px;
-            padding-bottom: 4rem;
+        .text-shimmer {
+            font-size: 24px;
+            font-weight: 500;
+            color: transparent;
+            background: linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0) calc(50% - 40px),
+                #3b82f6 50%,
+                rgba(0, 0, 0, 0) calc(50% + 40px)
+            );
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            animation: shimmer 2s infinite linear;
+            margin-left: 20px;
         }
 
-        .heading {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 1rem;
+        @keyframes shimmer {
+            0% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
-        .heading span {
-            color: #808080;
-        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+            }
 
-        .main-text {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 2rem;
-        }
-
-        .special-char {
-            font-size: 2.5rem;
-            display: inline-block;
-            transform: translateY(-5px);
-            margin: 0 5px;
-        }
-
-        .arrow {
-            display: inline-block;
-            transform: scaleX(-1);
-            margin: 0 5px;
-        }
-
-        .diamond {
-            display: inline-block;
-            transform: rotate(45deg);
-            margin: 0 5px;
-        }
-
-        .cta {
-            font-size: 2rem;
-            text-decoration: none;
-            color: #ffffff;
-            border-bottom: 2px solid #ffffff;
-            padding-bottom: 5px;
-            display: inline-block;
-        }
-
-        .cta:hover {
-            opacity: 0.8;
+            .text-shimmer {
+                background: linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0) calc(50% - 40px),
+                    #60a5fa 50%,
+                    rgba(255, 255, 255, 0) calc(50% + 40px)
+                );
+            }
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1 class="heading">
-            Sreeman <span>- I'm building</span>
-        </h1>
-        <div class="main-text">
-            generative creativity <span class="special-char">✱</span> that helps you <span class="arrow">←</span> craft beautiful designs <span class="diamond">◆</span>
-        </div>
-        <a href="#" class="cta">@sreemanrp</a>
-    </div>
+    <div class="text-shimmer">Hi, how are you?</div>
+
+    <script>
+        // No JavaScript is required for this effect, as it's achieved purely with CSS.
+        // This script block is left here in case you want to add any dynamic behavior in the future.
+    </script>
 </body>
 </html>
