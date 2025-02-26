@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shimmer Text with Left-Aligned Content</title>
+    <title>Shimmer Text with Social Links</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&display=swap" rel="stylesheet">
+
     <style>
         /* Global styles */
         body {
             background-color: black; /* Set background to black */
             color: white; /* Default text color */
-            font-family: Arial, sans-serif;
+            font-family: 'Gruppo', sans-serif; /* Apply Gruppo font */
             margin: 0;
             padding: 20px;
         }
@@ -62,19 +66,43 @@
             font-size: 18px;
             line-height: 1.5;
         }
+
+        /* Social Media Links */
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: gray;
+            text-decoration: none;
+            font-size: 18px;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: white; /* Changes color on hover */
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <!-- Shimmer Text -->
-        <p class="text-shimmer">Sreeman Reddy</p>
+        <p class="text-shimmer">Hi, how are you?</p>
 
         <!-- Additional content -->
         <div class="content">
             <p>This is some content below the shimmer text.</p>
             <p>It is aligned to the left side of the page.</p>
             <p>You can add more text, images, or elements here.</p>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="social-links">
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://youtube.com" target="_blank">YouTube</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
         </div>
     </div>
 
