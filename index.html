@@ -3,56 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Sreeman Reddy">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="http://sreeman.sh">
-    <meta property="og:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0001-GZpuYNB1iRQy83vezf2HUjKQo5egUN.jpeg">
-    <meta property="og:description" content="student & ai engineer">
+    <title>Sreeman Reddy</title>
+    <meta name="description" content="Hey, I'm Sreeman Reddy, Student at KL University.">
+    <meta name="keywords" content="Sreeman Reddy, AI&DS, KL University, portfolio, student, India">
     <meta name="author" content="Sreeman Reddy">
-    <meta name="keywords" content="ai, website, portfolio, ai designer, designer, aiwebsite, ai portfolio, developer, developers">
-    <meta name="description" content="student & ai engineer">
-    <link rel="stylesheet" href="style.css">
-    <title>sreeman - ai engineer</title>
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Sreeman Reddy">
+    <meta property="og:description" content="Hey, I'm Sreeman Reddy, Student at KL University.">
+    <meta property="og:image" content="path/to/your/profile/image.jpg">
+    <meta property="og:url" content="https://sreeman.sh">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sreeman Reddy">
+    <meta name="twitter:description" content="Hey, I'm Sreeman Reddy, Student at KL University.">
+    <meta name="twitter:image" content="./media/Pro.jpeg">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Brass+Mono+Code&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Brass Mono Code', monospace;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-left: 20px;
+            margin-top: 50px;
+            display: none;
+        }
+
+        /* Loader */
+        .loader {
+            width: 100%;
+            height: 1px;
+            background-color: #222;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 100;
+        }
+
+        .loader-progress {
+            width: 200px;
+            height: 100%;
+            background: linear-gradient(to right, transparent, white, transparent);
+            position: absolute;
+            left: -100px;
+            animation: moveGlow 2s linear infinite alternate;
+        }
+
+        @keyframes moveGlow {
+            0% { left: -100px; }
+            100% { left: calc(100% - 100px); }
+        }
+
+        .content {
+            margin-top: 20px;
+            margin-left: 20px;
+            max-width: 600px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            display: none;
+        }
+
+        .profile-image-container {
+            position: relative;
+            width: 90%;
+            max-width: 400px;
+            height: 0;
+            padding-bottom: 100%;
+            margin-top: 20px;
+            /* Removed centering styles */
+        }
+
+        .profile-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 5%;
+            border: 2px solid white;
+        }
+
+        /* Footer */
+        .footer {
+            width: 100%;
+            background-color: black;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            display: none;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-info {
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <button class="theme-toggle" aria-label="Toggle theme">
-                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                <svg class="sun-icon hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            </button>
-            <div class="content">
-                <div class="header">
-                    <h2>Sreeman Reddy</h2>
-                </div>
-                <div class="features-container">
-                    <div class="highlight-pill"></div>
-                    <div class="features">
-                        <a href="https://x.com/sreemanrp" class="feature-item">
-                            <div class="feature-title">Twiitter/X</div>
-                            <div class="feature-description">Sharing about my company details and designs.</div>
-                        </a>
-                        <a href="https://youtube.com/@sreemanrp" class="feature-item">
-                            <div class="feature-title">YouTube</div>
-                            <div class="feature-description">New video every weakend.</div>
-                        </a>
-                        <a href="https://github.com/sreemanrp" class="feature-item">
-                            <div class="feature-title">Github</div>
-                            <div class="feature-description">All my projects will be shared here.</div>
-                        </a>
-                        <a href="https://instagram.com/sreemanrp" class="feature-item">
-                            <div class="feature-title">Instagram</div>
-                            <div class="feature-description">I share about my lifestyle.</div>
-                        </a>
-                        <a href="https://youtube.com" class="feature-item">
-                            <div class="feature-title">Fullstack Video</div>
-                            <div class="feature-description">Fullstack project video.</div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+
+    <div class="loader">
+        <div class="loader-progress"></div>
+    </div>
+
+    <div class="title">Sreeman</div>
+    <div class="content">
+        <p>Hey, I'm Sreeman Reddy based in India. Studying B-Tech 2-Year at KL University.</p>
+        <div class="profile-image-container">
+            <img class="profile-image" src="./media/Pro.jpeg" alt="Profile Picture">
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://github.com/sreemanrp">GITHUB</a>
+            <a href="https://x.com/sreemanrp">TWITTER</a>
+            <a href="https://instagram.com/sreemanrp">INSTAGRAM</a>
+        </div>
+        <div class="contact-info">
+            Sreeman ✌🏻
+        </div>
+    </footer>
+
+    <script>
+        function loadContent() {
+            setTimeout(() => {
+                document.querySelector('.title').style.display = 'block';
+            }, 1000);
+
+            setTimeout(() => {
+                document.querySelector('.content').style.display = 'block';
+            }, 2000);
+
+            setTimeout(() => {
+                document.querySelector('.footer').style.display = 'flex';
+                document.querySelector('.loader').style.display = 'none';
+            }, 3000);
+        }
+
+        window.onload = function() {
+            if (performance.navigation.type === 1) {
+                loadContent();
+            } else {
+                document.querySelector('.title').style.display = 'block';
+                document.querySelector('.content').style.display = 'block';
+                document.querySelector('.footer').style.display = 'flex';
+            }
+        };
+    </script>
+
 </body>
 </html>
