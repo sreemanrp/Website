@@ -1,225 +1,198 @@
 <!DOCTYPE html>
-<html class="bg-cream text-base antialiased dark:bg-black dark:text-white/65" lang="en">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innovative Online Intelligence ( IOI )</title>
-    <link rel="icon" href="/favicon.ico"/>
- </head>
- <style>
-    /*! tailwindcss v4.0.0-beta.8 | MIT License | https://tailwindcss.com */
-@layer base {
-    *, ::backdrop, :after, :before {
-        box-sizing: border-box;
-        border: 0 solid;
-        margin: 0;
-        padding:0
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertical Cut Reveal Animation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 
-    ::file-selector-button {
-        box-sizing: border-box;
-        border: 0 solid;
-        margin: 0;
-        padding:0
-    }
-
-    :host, html {
-        -webkit-text-size-adjust: 100%;
-        tab-size: 4;
-        line-height: 1.5;
-        font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
-        font-feature-settings: var(--default-font-feature-settings, normal);
-        font-variation-settings: var(--default-font-variation-settings, normal);
-        -webkit-tap-highlight-color:transparent
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-        line-height:inherit
+      width: 100dvw;
+      height: 100dvh;
+      font-family: 'Space Mono', monospace;
+      background-color: white;
+      color: #0015ff;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      letter-spacing: 0.05em;
+      overflow: hidden;
     }
 
-    hr {
-        height: 0;
-        color: inherit;
-        border-top-width:1px
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      align-items: flex-start;
+      gap: 1rem;
     }
 
-    abbr:where([title]) {
-        -webkit-text-decoration: underline dotted;
-        text-decoration:underline dotted
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      color: blue;
+      line-height: 1.5;
+      font-size: 1rem;
     }
 
-    h1, h2, h3, h4, h5, h6 {
-        font-size: inherit;
-        font-weight:inherit
+    .line-wrapper {
+      display: flex;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
     }
 
-    a {
-        color: inherit;
-        -webkit-text-decoration: inherit;
-        text-decoration:inherit
-    }
-}
-
-@layer theme, components;
-@layer utilities {
-    .m-auto {
-        margin:auto
+    .line {
+      display: inline-block;
+      transform: translateY(100%);
+      white-space: pre-wrap;
     }
 
-    .mx-4 {
-        margin-inline:calc(var(--spacing) * 4)
+    @media (min-width: 768px) {
+      body {
+        padding: 4rem;
+        font-size: 1.5rem;
+      }
     }
 
-    .mb-8 {
-        margin-bottom:calc(var(--spacing) * 8)
+    @media (min-width: 1024px) {
+      body {
+        padding: 5rem;
+        font-size: 2.5rem;
+      }
     }
 
-    .flex {
-        display:flex
+    @media (min-width: 1280px) {
+      body {
+        padding: 6rem;
+      }
     }
-
-    .inline-block {
-        display:inline-block
-    }
-
-    .h-screen {
-        height:100vh
-    }
-
-    .max-w-560 {
-        max-width:calc(var(--spacing) * 560)
-    }
-
-    .flex-col {
-        flex-direction:column
-    }
-
-    .items-center {
-        align-items:center
-    }
-
-    .justify-center {
-        justify-content:center
-    }
-
-    .gap-9 {
-        gap:calc(var(--spacing) * 9)
-    }
-
-    .gap-12 {
-        gap:calc(var(--spacing) * 12)
-    }
-
-    .bg-cream {
-        background-color:var(--color-cream)
-    }
-
-    .px-24 {
-        padding-inline:calc(var(--spacing) * 24)
-    }
-
-    .pt-24 {
-        padding-top:calc(var(--spacing) * 24)
-    }
-
-    .pb-64 {
-        padding-bottom:calc(var(--spacing) * 64)
-    }
-
-    .text-center {
-        text-align:center
-    }
-
-    .font-\[system-ui\] {
-        font-family:system-ui
-    }
-
-    .text-base {
-        font-size: var(--text-base);
-        line-height:var(--tw-leading, var(--text-base--line-height))
-    }
-
-    .antialiased {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing:grayscale
-    }
-
-    .select-none {
-        -webkit-user-select: none;
-        user-select:none
-    }
-
-    @media (prefers-color-scheme: dark) {
-        .dark\:bg-black {
-            background-color:var(--color-black)
-        }
-
-        .dark\:text-white\/65 {
-            color:color-mix(in oklab, var(--color-white)65%, transparent)
-        }
-    }
-}
-
-@font-face {
-    font-family: Matter;
-    src:url(/matter.woff2)
-}
-
-:root {
-    --spacing: 1px;
-    --color-blue: oklch(74% .104 258);
-    --color-cream: #f6f4e9;
-    --color-off-white: #f5f5f2;
-    --color-gray: #909090;
-    --color-black: #000;
-    --color-white: #fff;
-    --color-transparent: #0000;
-    --color-amber: oklch(87% .1785 92);
-    --color-focus: oklch(74% 26% 258);
-    --color-selection: oklch(78% 35% 258/50%);
-    --default-font-family: Matter, system-ui;
-    --text-base: 20px;
-    --text-base--line-height:28px
-}
-
-html {
-    text-wrap: pretty;
-    font-synthesis: none;
-    font-feature-settings: "ss02" 1, "ss04" 1, "calt" 1
-}
-
-::selection {
-    background-color:oklch(78% 35% 258/50%)
-}
-
-a {
-    color: oklch(60% .15 258);
-    outline:0
-}
-
-@media (prefers-color-scheme: dark) {
-    a {
-        color:oklch(72% .12 258)
-    }
-}
-
-a:focus-visible {
-    outline-offset: 2px;
-    outline: 2px solid var(--color-focus);
-    border-radius: 2px
-}
- </style>
+  </style>
+</head>
 <body>
-    <div class="m-auto flex h-screen max-w-560 flex-col items-center justify-center gap-9 px-24 pt-24 pb-64 text-center">
-        <img alt="alien" width="64" height="64" src="/paper-app.png" class="mb-8 select-none"/>
-        <div class="flex flex-col gap-12">
-            <p>
-                <a href="https://api.paper.design/auth/sign-up?final_redirect_uri=https://paper.design">Sign up</a>
-                 to get your place
-                <br/>
-                on the early access list.
-            </p>
-        </div>
+  <div class="container">
+    <div class="text-container" id="text-animation">
+      <!-- Lines will be inserted here by JavaScript -->
     </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Configuration
+      const config = {
+        text: "→ We're on a mission\nto make the 🌐 web \nsuper fun again! ☺",
+        staggerDuration: 0.2,
+        staggerFrom: "first", // Options: "first", "last", "center", "random"
+        initialDelay: 0.2,
+        springAnimation: {
+          stiffness: 250,
+          damping: 30
+        }
+      };
+
+      // Split text into lines
+      const lines = config.text.split('\n');
+      const textContainer = document.getElementById('text-animation');
+
+      // Create DOM elements for each line
+      lines.forEach(line => {
+        const lineWrapper = document.createElement('div');
+        lineWrapper.className = 'line-wrapper';
+        
+        const lineElement = document.createElement('div');
+        lineElement.className = 'line';
+        lineElement.textContent = line;
+        
+        lineWrapper.appendChild(lineElement);
+        textContainer.appendChild(lineWrapper);
+      });
+
+      // Get all line elements
+      const lineElements = document.querySelectorAll('.line');
+
+      // Calculate stagger delays based on staggerFrom
+      function getStaggerDelay(index, total) {
+        if (config.staggerFrom === "first") return index * config.staggerDuration;
+        if (config.staggerFrom === "last") return (total - 1 - index) * config.staggerDuration;
+        if (config.staggerFrom === "center") {
+          const center = Math.floor(total / 2);
+          return Math.abs(center - index) * config.staggerDuration;
+        }
+        if (config.staggerFrom === "random") {
+          const randomIndex = Math.floor(Math.random() * total);
+          return Math.abs(randomIndex - index) * config.staggerDuration;
+        }
+        return 0;
+      }
+
+      // Spring animation function
+      function springAnimation(element, delay) {
+        const { stiffness, damping } = config.springAnimation;
+        
+        // Spring physics parameters
+        let velocity = 0;
+        let position = 100; // Start at 100% (fully hidden)
+        const target = 0;   // Target is 0% (fully visible)
+        const mass = 1;
+        
+        let startTime = null;
+        let animationId = null;
+        
+        function animate(timestamp) {
+          if (!startTime) startTime = timestamp;
+          const elapsed = timestamp - startTime;
+          
+          // Only start the animation after the delay
+          if (elapsed < delay * 1000) {
+            animationId = requestAnimationFrame(animate);
+            return;
+          }
+          
+          // Spring force calculation
+          const displacement = position - target;
+          const springForce = -stiffness * displacement;
+          const dampingForce = -damping * velocity;
+          const force = springForce + dampingForce;
+          
+          // Update position and velocity
+          const acceleration = force / mass;
+          velocity += acceleration * 0.016; // Assuming ~60fps (16ms)
+          position += velocity * 0.016;
+          
+          // Apply the new position
+          element.style.transform = `translateY(${position}%)`;
+          
+          // Stop the animation when we're close enough to the target
+          if (Math.abs(displacement) < 0.1 && Math.abs(velocity) < 0.1) {
+            element.style.transform = 'translateY(0%)';
+            cancelAnimationFrame(animationId);
+            return;
+          }
+          
+          animationId = requestAnimationFrame(animate);
+        }
+        
+        // Start the animation
+        animationId = requestAnimationFrame(animate);
+      }
+
+      // Start animations with staggered delays
+      setTimeout(() => {
+        lineElements.forEach((element, index) => {
+          const delay = config.initialDelay + getStaggerDelay(index, lineElements.length);
+          springAnimation(element, delay);
+        });
+      }, 100); // Small initial delay to ensure DOM is ready
+    });
+  </script>
 </body>
 </html>
