@@ -1,119 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter Signup</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: black;
-            color: #FF6363; /* Blue text color */
-            flex-direction: column; /* Align items vertically */
-            text-align: center; /* Center text horizontally */
-        }
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Newsletter Signup</title>
+            <style>
+                body {
+                    font-family: sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    min-height: 100vh;
+                    background-color: black;
+                    color: #FF6363;
+                    flex-direction: column;
+                    text-align: center;
+                }
 
-        .container {
-            padding: 20px;
-        }
+                .container {
+                    padding: 20px;
+                    text-align: left;
+                }
 
-        p {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            text-align: left; /* Align text to the left */
-        }
+                p {
+                    font-size: 18px;
+                    margin-bottom: 20px;
+                }
 
-        a {
-            color: #FF6363; /* Blue link color */
-            text-decoration: underline;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
+                a {
+                    color: #FF6363;
+                    text-decoration: underline;
+                    font-size: 1.5em;
+                    cursor: pointer;
+                }
 
-        .email-container { /* New container for email input and button */
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #FF6363; /* Blue underline */
-            padding-bottom: 5px; /* Space between text and underline */
-            width: 300px; /* Adjust width as needed */
-            margin: 0 auto; /* Center the container */
-        }
+                .email-container {
+                    display: flex;
+                    align-items: center;
+                    border-bottom: 2px solid #FF6363;
+                    padding-bottom: 5px;
+                    width: 300px;
+                    margin: 0 auto 20px auto;
+                }
 
-        #emailInput {
-            border: none;
-            outline: none;
-            font-size: 1em;
-            color: lightgray;
-            flex-grow: 1;
-            padding: 5px 0;
-            background-color: transparent; /* Transparent background */
-        }
+                #emailInput {
+                    border: none;
+                    outline: none;
+                    font-size: 1em;
+                    color: lightgray;
+                    flex-grow: 1;
+                    padding: 5px 0;
+                    background-color: transparent;
+                }
 
-        #subscribeButton {
-            background: none;
-            border: none;
-            font-size: 1em;
-            cursor: pointer;
-            padding: 5px 10px;
-            color: #FF6363; /* Blue button text color */
-        }
+                #subscribeButton {
+                    background: none;
+                    border: none;
+                    font-size: 1em;
+                    cursor: pointer;
+                    padding: 5px 10px;
+                    color: #FF6363;
+                }
 
-        #subscribeButton::after {
-            content: '↗';
-            margin-left: 5px;
-        }
+                #subscribeButton::after {
+                    content: '↗';
+                    margin-left: 5px;
+                }
 
-        #message {
-            margin-top: 10px;
-            color: #FF6363;
-            text-align: left;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <p>design ✺︎ tech ∿︎ build ◳︎<br><br>I run a newsletter about design, coding, life and open source. <br> <a id="subscribeLink">subscribe</a></p>
-        <div class="email-container" style="display: none;">
-            <input type="email" id="emailInput" placeholder="enter your email">
-            <button id="subscribeButton">subscribe</button>
-        </div>
-        <div id="message"></div>
-    </div>
+                #message {
+                    margin-top: 10px;
+                    color: #FF6363;
+                    text-align: left;
+                }
 
-    <script>
-        const subscribeLink = document.getElementById('subscribeLink');
-        const emailContainer = document.querySelector('.email-container');
-        const emailInput = document.getElementById('emailInput');
-        const subscribeButton = document.getElementById('subscribeButton');
-        const message = document.getElementById('message');
+                .profile-link {
+                    font-size: 1em;
+                    color: #FF6363;
+                    text-decoration: none;
+                    display: block;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <p>design ✺︎ tech ∿︎ build ◳︎</p>
+                <p><a class="profile-link" href="https://x.com/sreemanrp" target="_blank">design engineer @ studio nand ↗</a></p>
 
-        subscribeLink.addEventListener('click', () => {
-            subscribeLink.style.display = 'none';
-            emailContainer.style.display = 'flex';
-            emailInput.focus();
-        });
+                <p>I run a newsletter about design, coding, life and open source. <a id="subscribeLink">subscribe</a></p>
+                <div class="email-container" style="display: none;">
+                    <input type="email" id="emailInput" placeholder="enter your email">
+                    <button id="subscribeButton">subscribe</button>
+                </div>
+                <div id="message"></div>
+            </div>
 
-        subscribeButton.addEventListener('click', () => {
-            const email = emailInput.value;
-            if (email.includes('@') && email.includes('.')) {
-                message.textContent = 'Subscribed!';
-                emailContainer.style.display = 'none';
-            } else {
-                message.textContent = 'Please enter a valid email.';
-            }
-        });
+            <script>
+                const subscribeLink = document.getElementById('subscribeLink');
+                const emailContainer = document.querySelector('.email-container');
+                const emailInput = document.getElementById('emailInput');
+                const subscribeButton = document.getElementById('subscribeButton');
+                const message = document.getElementById('message');
 
-        emailInput.addEventListener('keyup', (event) => {
-            if (event.key === 'Enter') {
-                subscribeButton.click();
-            }
-        });
-    </script>
-</body>
-</html>
+                subscribeLink.addEventListener('click', () => {
+                    subscribeLink.style.display = 'none';
+                    emailContainer.style.display = 'flex';
+                    emailInput.focus();
+                });
+
+                subscribeButton.addEventListener('click', () => {
+                    const email = emailInput.value;
+                    if (email.includes('@') && email.includes('.')) {
+                        message.textContent = 'Subscribed!';
+                        emailContainer.style.display = 'none';
+                    } else {
+                        message.textContent = 'Please enter a valid email.';
+                    }
+                });
+
+                emailInput.addEventListener('keyup', (event) => {
+                    if (event.key === 'Enter') {
+                        subscribeButton.click();
+                    }
+                });
+            </script>
+        </body>
+        </html>
+        ```
+
+        The text "design engineer @ studio nand ↗" is now a link, and the separate link below it has been removed. Is there anything else I can help you with?
