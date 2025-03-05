@@ -12,14 +12,103 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            min-height: 100vh; /* Set minimum height to 100% of viewport height */
+            min-height: 100vh;
             background-color: black;
             color: #FF6363;
             flex-direction: column;
             text-align: left;
         }
 
-        /* ... rest of the CSS ... */
+        .container {
+            padding: 20px;
+            text-align: left;
+        }
+
+        p {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #FF6363;
+            text-decoration: underline;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        /* Removed arrow styles */
+        a::after {
+            content: ''; /* Remove any content */
+            margin-left: 0; /* Reset margin */
+        }
+
+        .email-container {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #FF6363;
+            padding-bottom: 5px;
+            width: 300px;
+            margin: 20px auto 20px auto;
+        }
+
+        #emailInput {
+            border: none;
+            outline: none;
+            font-size: 1em;
+            color: lightgray;
+            flex-grow: 1;
+            padding: 5px 0;
+            background-color: transparent;
+        }
+
+        #subscribeButton {
+            background: none;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            padding: 5px 10px;
+            color: #FF6363;
+        }
+
+        /* Removed arrow styles */
+        #subscribeButton::after {
+            content: '↗'; /* Remove any content */
+            margin-left: 0; /* Reset margin */
+        }
+
+        #message {
+            margin-top: 10px;
+            color: #FF6363;
+            text-align: left;
+        }
+
+        .profile-link {
+            font-size: 1em;
+            color: #FF6363;
+            text-decoration: none;
+            display: block;
+        }
+
+        .email {
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 200;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: 100;
+            columns: 2;
+            column-gap: 20px;
+        }
+
+        .social-links a {
+            color: #FF6363;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
