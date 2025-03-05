@@ -1,168 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sreeman Reddy</title>
-    <meta name="description" content="Hey, I'm Sreeman Reddy, Student at KL University.">
-    <meta name="keywords" content="Sreeman Reddy, AI&DS, KL University, portfolio, student, India">
-    <meta name="author" content="Sreeman Reddy">
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Between Text</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <meta property="og:title" content="Sreeman Reddy">
-    <meta property="og:description" content="Hey, I'm Sreeman Reddy, Student at KL University.">
-    <meta property="og:image" content="path/to/your/profile/image.jpg">
-    <meta property="og:url" content="https://sreeman.sh">
-    <meta property="og:type" content="website">
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoratio: none;
+      background-color: #ffffff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sreeman Reddy">
-    <meta name="twitter:description" content="Hey, I'm Sreeman Reddy, Student at KL University.">
-    <meta name="twitter:image" content="./media/Pro.jpeg">
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Brass+Mono+Code&display=swap');
+    .media-between-text {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      color: #ff5941;
+      font-size: 2rem;
+      font-weight: 300;
+      text-transform: lowercase;
+      cursor: pointer;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .media-container {
+      width: 0;
+      height: 30px;
+      overflow: hidden;
+      margin: 1px;
+      margin-top: 1px;
+      transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
 
-        body {
-            background-color: black;
-            color: white;
-            font-family: 'Brass Mono Code', monospace;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    .media-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        .title {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-left: 20px;
-            margin-top: 50px;
-            display: none;
-        }
+    .media-between-text:hover .media-container {
+      width: 30px;
+    }
 
-        /* Loader */
-        .loader {
-            width: 100%;
-            height: 1px;
-            background-color: #222;
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            z-index: 100;
-        }
+    @media (min-width: 640px) {
+      .media-between-text {
+        font-size: 6rem;
+      }
 
-        .loader-progress {
-            width: 200px;
-            height: 100%;
-            background: linear-gradient(to right, transparent, white, transparent);
-            position: absolute;
-            left: -100px;
-            animation: moveGlow 2s linear infinite alternate;
-        }
+      .media-container {
+        height: 100px;
+        margin: 2px;
+        margin-top: 4px;
+      }
 
-        @keyframes moveGlow {
-            0% { left: -100px; }
-            100% { left: calc(100% - 100px); }
-        }
-
-        .content {
-            margin-top: 20px;
-            margin-left: 20px;
-            max-width: 600px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: left;
-            display: none;
-        }
-
-        /* Footer */
-        .footer {
-            width: 100%;
-            background-color: black;
-            color: white;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            display: none;
-        }
-
-        .footer-links {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 10px;
-            width: 100%;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .contact-info {
-            font-size: 0.9em;
-            margin-top: 20px;
-        }
-    </style>
+      .media-between-text:hover .media-container {
+        width: 100px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-    <div class="loader">
-        <div class="loader-progress"></div>
+  <a href="https://www.instagram.com/p/C3oL4euoc2l/?img_index=1" target="_blank" rel="noreferrer">
+    <div class="media-between-text">
+      <span>that's a nice (</span>
+      <div class="media-container">
+        <img src="https://cdn.cosmos.so/90e2192e-7bd4-44af-96ae-05cd955c0cfb?format=jpeg" alt="chair">
+      </div>
+      <span>) chair!</span>
     </div>
+  </a>
 
-    <div class="title">Sreeman</div>
-    <div class="content">
-        <p>Hey, I'm Sreeman Reddy based in India. Studying B-Tech 2-Year at KL University.</p
-    </div>
-
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="https://github.com/sreemanrp">GITHUB</a>
-            <a href="https://x.com/sreemanrp">TWITTER</a>
-            <a href="https://instagram.com/sreemanrp">INSTAGRAM</a>
-        </div>
-        <div class="contact-info">
-            Sreeman ✌🏻
-        </div>
-    </footer>
-
-    <script>
-        function loadContent() {
-            setTimeout(() => {
-                document.querySelector('.title').style.display = 'block';
-            }, 1000);
-
-            setTimeout(() => {
-                document.querySelector('.content').style.display = 'block';
-            }, 2000);
-
-            setTimeout(() => {
-                document.querySelector('.footer').style.display = 'flex';
-                document.querySelector('.loader').style.display = 'none';
-            }, 3000);
-        }
-
-        window.onload = function() {
-            if (performance.navigation.type === 1) {
-                loadContent();
-            } else {
-                document.querySelector('.title').style.display = 'block';
-                document.querySelector('.content').style.display = 'block';
-                document.querySelector('.footer').style.display = 'flex';
-            }
-        };
-    </script>
-
+  <script>
+    // This script handles any additional functionality
+    // For this simple example, most of the work is done with CSS transitions
+    // But we could add more complex animations or interactions here if needed
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if we're on mobile or desktop for responsive behavior
+      function checkScreenSize() {
+        return window.innerWidth >= 640 ? 'desktop' : 'mobile';
+      }
+      
+      // Update on resize
+      window.addEventListener('resize', function() {
+        const screenSize = checkScreenSize();
+        // You could add additional responsive behavior here if needed
+      });
+      
+      // Initial check
+      const initialScreenSize = checkScreenSize();
+    });
+  </script>
 </body>
 </html>
