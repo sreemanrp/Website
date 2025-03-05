@@ -1,111 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Between Text</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Signup</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: black;
+            color: #FF6363; /* Blue text color */
+            flex-direction: column; /* Align items vertically */
+            text-align: center; /* Center text horizontally */
+        }
 
-    body {
-      width: 100vw;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-decoratio: none;
-      background-color: black;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
+        .container {
+            padding: 20px;
+        }
 
-    .media-between-text {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      text-decoratio: none;
-      color: #ff5941;
-      font-size: 2rem;
-      font-weight: 300;
-      text-transform: lowercase;
-      cursor: pointer;
-    }
+        p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: left; /* Align text to the left */
+        }
 
-    .media-container {
-      width: 0;
-      height: 30px;
-      overflow: hidden;
-      text-decoratio: none;
-      margin: 1px;
-      margin-top: 1px;
-      transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
+        a {
+            color: #FF6363; /* Blue link color */
+            text-decoration: underline;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
 
-    .media-container img {
-      width: 100%;
-      height: 100%;
-      text-decoratio: none;
-      object-fit: cover;
-    }
+        .email-container { /* New container for email input and button */
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #FF6363; /* Blue underline */
+            padding-bottom: 5px; /* Space between text and underline */
+            width: 300px; /* Adjust width as needed */
+            margin: 0 auto; /* Center the container */
+        }
 
-    .media-between-text:hover .media-container {
-      width: 30px;
-      text-decoratio: none;
-    }
+        #emailInput {
+            border: none;
+            outline: none;
+            font-size: 1em;
+            color: lightgray;
+            flex-grow: 1;
+            padding: 5px 0;
+            background-color: transparent; /* Transparent background */
+        }
 
-    @media (min-width: 640px) {
-      .media-between-text {
-        font-size: 6rem;
-      }
+        #subscribeButton {
+            background: none;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            padding: 5px 10px;
+            color: #FF6363; /* Blue button text color */
+        }
 
-      .media-container {
-        height: 100px;
-        margin: 2px;
-        margin-top: 4px;
-      }
+        #subscribeButton::after {
+            content: '↗';
+            margin-left: 5px;
+        }
 
-      .media-between-text:hover .media-container {
-        width: 100px;
-      }
-    }
-  </style>
+        #message {
+            margin-top: 10px;
+            color: #FF6363;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
-  <a href="https://www.instagram.com/p/C3oL4euoc2l/?img_index=1" target="_blank" rel="noreferrer">
-    <div class="media-between-text">
-      <span>that's a nice (</span>
-      <div class="media-container">
-        <img src="https://cdn.cosmos.so/90e2192e-7bd4-44af-96ae-05cd955c0cfb?format=jpeg" alt="chair">
-      </div>
-      <span>) chair!</span>
+    <div class="container">
+        <p>design ✺︎ tech ∿︎ build ◳︎<br><br>I run a newsletter about design, coding, life and open source. <br> <a id="subscribeLink">subscribe</a></p>
+        <div class="email-container" style="display: none;">
+            <input type="email" id="emailInput" placeholder="enter your email">
+            <button id="subscribeButton">subscribe</button>
+        </div>
+        <div id="message"></div>
     </div>
-  </a>
 
-  <script>
-    // This script handles any additional functionality
-    // For this simple example, most of the work is done with CSS transitions
-    // But we could add more complex animations or interactions here if needed
-    
-    document.addEventListener('DOMContentLoaded', function() {
-      // Check if we're on mobile or desktop for responsive behavior
-      function checkScreenSize() {
-        return window.innerWidth >= 640 ? 'desktop' : 'mobile';
-      }
-      
-      // Update on resize
-      window.addEventListener('resize', function() {
-        const screenSize = checkScreenSize();
-        // You could add additional responsive behavior here if needed
-      });
-      
-      // Initial check
-      const initialScreenSize = checkScreenSize();
-    });
-  </script>
+    <script>
+        const subscribeLink = document.getElementById('subscribeLink');
+        const emailContainer = document.querySelector('.email-container');
+        const emailInput = document.getElementById('emailInput');
+        const subscribeButton = document.getElementById('subscribeButton');
+        const message = document.getElementById('message');
+
+        subscribeLink.addEventListener('click', () => {
+            subscribeLink.style.display = 'none';
+            emailContainer.style.display = 'flex';
+            emailInput.focus();
+        });
+
+        subscribeButton.addEventListener('click', () => {
+            const email = emailInput.value;
+            if (email.includes('@') && email.includes('.')) {
+                message.textContent = 'Subscribed!';
+                emailContainer.style.display = 'none';
+            } else {
+                message.textContent = 'Please enter a valid email.';
+            }
+        });
+
+        emailInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                subscribeButton.click();
+            }
+        });
+    </script>
 </body>
 </html>
