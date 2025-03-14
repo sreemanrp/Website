@@ -16,6 +16,8 @@
 
         .container {
             text-align: left;
+            max-width: 600px; /* Limit container width for larger screens */
+            margin: 20px auto; /* Center the container */
         }
 
         input[type="number"] {
@@ -23,24 +25,25 @@
             color: white;
             border: 1px solid white;
             border-radius: 50px;
-            padding: 12px 20px; /* Increased padding */
+            padding: 12px 20px;
             margin: 5px;
-            width: 150px; /* Increased width */
-            height: 40px; /* Increased height */
-            font-size: 16px; /* Increased font size */
+            width: calc(100% - 40px); /* Adjust width based on container */
+            max-width: 300px; /* Added max width to avoid stretching too much */
+            height: 40px;
+            font-size: 16px;
         }
 
         button {
             background-color: white;
             color: black;
             border: none;
-            padding: 15px 30px; /* Increased padding */
+            padding: 12px 25px; /* Slightly decreased padding */
             cursor: pointer;
             margin-top: 10px;
             border-radius: 50px;
-            width: 180px; /* Increased width */
-            height: 50px; /* Increased height */
-            font-size: 16px; /* Increased font size */
+            width: auto; /* Width adjusts to content */
+            height: 45px; /* Slightly decreased height */
+            font-size: 16px;
         }
 
         #result {
@@ -67,6 +70,24 @@
         .error{
             color: red;
         }
+
+        @media (max-width: 480px) { /* Adjust styles for smaller screens */
+            .container {
+                margin: 10px; /* Reduce margin on small screens */
+            }
+
+            input[type="number"] {
+                width: calc(100% - 30px); /* Further adjust input width */
+                font-size: 14px; /* Reduce font size on small screens */
+                padding: 10px 15px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 10px 20px;
+                height: 40px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -92,6 +113,7 @@
     </div>
 
     <script>
+        // JavaScript code remains the same
         const lectureInput = document.getElementById('lecture');
         const tutorialInput = document.getElementById('tutorial');
         const practicalInput = document.getElementById('practical');
