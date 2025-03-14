@@ -13,10 +13,10 @@
             color: white;
             font-family: "Quicksand", sans-serif;
             margin: 20px;
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* IE10+/Edge */
-            user-select: none; /* Standard */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         .container {
@@ -173,7 +173,17 @@
             }
 
             const average = count > 0 ? total / count : 0;
-            totalPercentageDiv.textContent = `Total Percentage: ${average.toFixed(2)}%`;
+            let percentageColor = "";
+
+            if (average < 75) {
+                percentageColor = "#ff3333";
+            } else if (average >= 75 && average <= 85) {
+                percentageColor = "#fff500";
+            } else {
+                percentageColor = "#50e3c2";
+            }
+
+            totalPercentageDiv.innerHTML = `Total Percentage: <span style="color: ${percentageColor};">${average.toFixed(2)}%</span>`;
 
             if (average < 75) {
                 resultDiv.textContent = "Attend classes regularly or you will be detained for that subject and cannot write the exams.";
