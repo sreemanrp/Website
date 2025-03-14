@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCO Attendance Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            text-align: left;
+        }
+
+        input[type="number"] {
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            border-radius: 50px;
+            padding: 8px 15px;
+            margin: 5px;
+            width: 120px;
+        }
+
+        button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 50px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        #totalPercentage{
+            margin-top: 10px;
+        }
+
+        h1 {
+            font-family: "Cinzel", serif;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.8em;
+        }
+
+        .copyright a {
+            color: white;
+            text-decoration: none;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>COCO</h1>
+
+        <input type="number" id="lecture" min="0" max="100" placeholder="Lecture"><br>
+
+        <input type="number" id="tutorial" min="0" max="100" placeholder="Tutorial"><br>
+
+        <input type="number" id="practical" min="0" max="100" placeholder="Practical"><br>
+
+        <input type="number" id="skill" min="0" max="100" placeholder="Skill"><br>
+
+        <button id="calculateButton" disabled>Calculate</button>
+
+        <div id="totalPercentage"></div>
+        <div id="result"></div>
+        <div id="errorMessage" class="error"></div>
+        <div class="copyright">
+            copyright by <a href="https://x.com/callsrp" target="_blank">sreeman</a>
+        </div>
+    </div>
+
+    <script>
+        const lectureInput = document.getElementById('lecture');
+        const tutorialInput = document.getElementById('tutorial');
+        const practicalInput = document.getElementById('practical');
+        const skillInput = document.getElementById('skill');
+        const calculateButton = document.getElementById('calculateButton');
+        const resultDiv = document.getElementById('result');
+        const totalPercentageDiv = document.getElementById('totalPercentage');
+        const errorMessageDiv = document.getElementById('errorMessage');
+
+        function checkInputs() {
+            let filledCount = 0;
+            if (lectureInput.value !== '') filledCount++;
+            if (tutorialInput.value !== '') filledCount++;
+            if (practicalInput.value !== '') filledCount++;
+            if (skillInput.value !== '') filledCount++;
+            calculateButton.disabled = filledCount < 2;
+        }
+
+        lectureInput.addEventListener('input', checkInputs);
+        tutorialInput.addEventListener('input', checkInputs);
+        practicalInput.addEventListener('input', checkInputs);
+        skillInput.addEventListener('input', checkInputs);
+
+        calculateButton.addEventListener('click', function() {
+            let lecture = parseFloat(lectureInput.value) || 0;
+            let tutorial = parseFloat(tutorialInput.value) || 0;
+            let practical = parseFloat(practicalInput.value) || 0;
+            let skill = parseFloat(skillInput.value) || 0;
+
+            let count = 0;
+            let total = 0;
+
+            if (lectureInput.value !== '') { total += lecture; count++; }
+            if (tutorialInput.value !== '') { total += tutorial; count++; }
+            if (practicalInput.value !== '') { total += practical; count++; }
+            if (skillInput.value !== '') { total += skill; count++; }
+
+            if (count === 0) {
+                errorMessageDiv.textContent = "Please enter your attendance.";
+                resultDiv.textContent = "";
+                totalPercentageDiv.textContent = "";
+                return;
+            } else {
+                errorMessageDiv.textContent = "";
+            }
+
+            const average = count > 0 ? total / count : 0;
+            totalPercentageDiv.textContent = `Total Percentage: ${average.toFixed(2)}%`;
+
+            if (average < 75) {
+                resultDiv.textContent = "Attend classes regularly or you will be detained for that subject and cannot write the exams.";
+            } else if (average >= 75 && average <= 85) {
+                resultDiv.textContent = "You need to pay the condonation fee and are eligible to write the exams.";
+            } else {
+                resultDiv.textContent = "You are in the safe zone and are eligible to write the exams.";
+            }
+        });
+    </script>
+</body>
+</html>
