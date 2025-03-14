@@ -17,12 +17,16 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure full viewport height */
         }
 
         .container {
             text-align: left;
             max-width: 600px;
             margin: 20px auto;
+            flex-grow: 1; /* Allow container to grow and fill available space */
         }
 
         input[type="number"] {
@@ -84,6 +88,19 @@
             color: #ff3333;
         }
 
+        .social-icons {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: #A1A1A1;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
         @media (max-width: 480px) {
             .container {
                 margin: 10px;
@@ -102,6 +119,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0Hhonpy0aDPbj/NFuiBA6E5Dk9d7v/3c9w7kg4gMTz8yBj7CwhcwpAY2rrWZ9vAaFQ9DD0tGzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
@@ -123,6 +141,10 @@
         <div id="totalPercentage"></div>
         <div id="result"></div>
         <div id="errorMessage" class="error"></div>
+    </div>
+    <div class="social-icons">
+        <a href="https://x.com/your_x_profile" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://github.com/your_github_profile" target="_blank"><i class="fab fa-github"></i></a>
     </div>
 
     <script>
@@ -183,30 +205,7 @@
                 percentageColor = "#50e3c2";
             }
 
-            totalPercentageDiv.innerHTML = `Total Percentage: <span style="color: ${percentageColor};">${average.toFixed(2)}%</span>`;
+            totalPercentageDiv.innerHTML = `Total Percentage: <span style="color: <span class="math-inline">\{percentageColor\};"\></span>{average.toFixed(2)}%</span>`;
 
             if (average < 75) {
-                resultDiv.textContent = "Attend classes regularly or you will be detained for that subject and cannot write the exams.";
-            } else if (average >= 75 && average <= 85) {
-                resultDiv.textContent = "You need to pay the condonation fee and are eligible to write the exams.";
-            } else {
-                resultDiv.textContent = "You are in the safe zone and are eligible to write the exams.";
-            }
-            setTimeout(function() {
-                location.reload();
-            }, 5000);
-
-        });
-
-        document.addEventListener('contextmenu', function (e) {
-            e.preventDefault();
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if(e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
-                e.preventDefault();
-            }
-        });
-    </script>
-</body>
-</html>
+                resultDiv.textContent = "Attend classes regularly or you will be detained for
