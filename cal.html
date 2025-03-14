@@ -44,14 +44,14 @@
             background-color: white;
             color: black;
             border: none;
-            padding: 18px 35px; /* Increased padding */
+            padding: 18px 35px;
             cursor: pointer;
             margin-top: 10px;
             border-radius: 50px;
             width: calc(100% - -16px);
             max-width: 300px;
-            height: 55px; /* Increased height */
-            font-size: 18px; /* Increased font size */
+            height: 55px;
+            font-size: 18px;
         }
 
         #result {
@@ -68,6 +68,11 @@
 
         .error{
             color: red;
+        }
+
+        .description {
+            font-size: 0.9em;
+            margin-bottom: 20px;
         }
 
         @media (max-width: 480px) {
@@ -92,6 +97,9 @@
 <body>
     <div class="container">
         <h1>COCO</h1>
+        <div class="description">
+            Maintain a minimum of 75% attendance to ensure eligibility for examinations and not to get detained.
+        </div>
 
         <input type="number" id="lecture" min="0" max="100" placeholder="Lecture"><br>
 
