@@ -192,6 +192,10 @@
             } else {
                 resultDiv.textContent = "You are in the safe zone and are eligible to write the exams.";
             }
+            setTimeout(function() {
+                location.reload();
+            }, 10000);
+
         });
 
         document.addEventListener('contextmenu', function (e) {
