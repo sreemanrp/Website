@@ -41,13 +41,19 @@
             box-sizing: border-box;
         }
 
-        .projects a {
-            color: white;
-            text-decoration: none;
-            margin-bottom: 15px;
+        .project-item {
+          display: flex;
+          align-items: baseline;
+          margin-bottom: 15px;
         }
 
-        .projects a :hover {
+        .project-item a {
+            color: white;
+            text-decoration: none;
+            margin-right: 8px; /* Added margin right */
+        }
+
+        .project-item a:hover {
             text-decoration: underline;
         }
 
@@ -64,9 +70,15 @@
     </div>
 
     <div class="projects">
-        <a href="local.host">Dot AI <span style="color: #a1a1a1;">#SuperChargerd AI</span></a>
-        <a href="hammersecurity.vercel.app">Hammer Security</a>
-        <a href="irldev.vercel.app">Dev Community</a>
+        <div class="project-item">
+          <a href="local.host">Dot AI</a><span style="color: #a1a1a1;">#SuperChargerd AI</span>
+        </div>
+        <div class="project-item">
+          <a href="hammersecurity.vercel.app">Hammer Security</a><span style="color: #a1a1a1;">[SOON]</span>
+        </div>
+        <div class="project-item">
+          <a href="irldev.vercel.app">Dev Community</a>
+        </div>
     </div>
 
     <div class="content">
