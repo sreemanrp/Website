@@ -3,136 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sreeman Reddy - ai engineer</title>
+    <title>Sreeman Reddy</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lekton&family=Quicksand:wght@300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
         body {
+            background-color: black;
+            color: white;
             font-family: sans-serif;
+            font-family: "Lekton", monospace;
+            font-size: 18px;
+            font-weight: 100;
+            font-style: normal;
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            min-height: 100vh;
-            background-color: black;
-            color: #FF6363;
             flex-direction: column;
-            text-align: left;
         }
 
-        .container {
-            padding: 20px;
-            text-align: left;
-        }
-
-        p {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        a {
-            color: #FF6363;
-            text-decoration: underline;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-
-        /* Removed arrow styles */
-        a::after {
-            content: ''; /* Remove any content */
-            margin-left: 0; /* Reset margin */
-        }
-
-        .email-container {
+        .header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #FF6363;
-            padding-bottom: 5px;
-            width: 300px;
-            margin: 20px auto 20px auto;
+            padding: 20px;
+            box-sizing: border-box;
+            width: 100%;
         }
 
-        #emailInput {
-            border: none;
-            outline: none;
-            font-size: 1em;
-            color: lightgray;
+        .header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .projects {
+            display: flex;
+            flex-direction: column;
+            padding: 5px 1px 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .projects a {
+            color: white;
+            text-decoration: none;
+            margin-bottom: 15px;
+        }
+
+        .projects a :hover {
+            text-decoration: underline;
+        }
+
+        .content {
             flex-grow: 1;
-            padding: 5px 0;
-            background-color: transparent;
-        }
-
-        #subscribeButton {
-            background: none;
-            border: none;
-            font-size: 1em;
-            cursor: pointer;
-            padding: 5px 10px;
-            color: #FF6363;
-        }
-
-        /* Removed arrow styles */
-        #subscribeButton::after {
-            content: '↗'; /* Remove any content */
-            margin-left: 0; /* Reset margin */
-        }
-
-        #message {
-            margin-top: 10px;
-            color: #FF6363;
-            text-align: left;
-        }
-
-        .profile-link {
-            font-size: 1em;
-            color: #FF6363;
-            text-decoration: none;
-            display: block;
-        }
-
-        .email {
-            margin-bottom: 20px;
-            font-size: 20px;
-            font-weight: 200;
-        }
-
-        .social-links {
-            margin-top: 30px;
-            font-size: 16px;
-            font-weight: 100;
-            columns: 2;
-            column-gap: 20px;
-        }
-
-        .social-links a {
-            color: #FF6363;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <p>Sreeman Reddy</p> <p>design ✺︎ tech ∿︎ build ◳︎ <br> <a class="profile-link" href="https://x.com/sreemanrp" target="_blank">ai engineer @ studio nand</a></p>
 
-        <div class="email-container">
-            <input type="email" id="emailInput" placeholder="enter your email">
-            <button id="subscribeButton">subscribe</button>
-        </div>
-        <div id="message"></div>
-        <br>
-        <h1 class="email">hey@sreeman.sh</h1>
-        <br>
-        <div class="social-links">
-            <a href="#">twitter</a>
-            <a href="#">github</a>
-            <a href="#">linkedin</a>
-            <a href="#">instagram</a>
-        </div>
+    <div class="header">
+        <span>Sreeman Reddy</span>
+        <a href="#">Thoughts</a>
     </div>
 
-    <script>
-        // ... (JavaScript code remains the same) ...
-    </script>
+    <div class="projects">
+        <a href="#">Dot AI</a>
+        <a href="#">Dot Social</a>
+        <a href="#">Dot Secure</a>
+        <a href="#">Another Link</a>
+    </div>
+
+    <div class="content">
+    </div>
+
 </body>
 </html>
